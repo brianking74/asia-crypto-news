@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Asia Crypto News</title>
+    <meta name="description" content="Get in touch with Asia Crypto News. Contact our team for news tips, partnership opportunities, and media inquiries across Asian cryptocurrency markets.">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .crypto-gradient {
+            background: linear-gradient(135deg, #FFD700 0%, #00D4FF 100%);
+        }
+        
+        .card-dark {
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #000000;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            background-color: #2d2d2d;
+            border: 1px solid #444444;
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #FFD700;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.1);
+            outline: none;
+        }
+        
+        .social-link {
+            background-color: #2d2d2d;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background-color: #FFD700;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link {
+            color: #ffffff;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: #FFD700;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(26, 26, 26, 0.9));
+        }
+        
+        .office-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+        
+        .office-card:hover {
+            border-color: #FFD700;
+            transform: translateY(-5px);
+        }
+        
+        .contact-info-item {
+            background-color: #2d2d2d;
+            border-left: 4px solid #FFD700;
+        }
+        
+        .map-container {
+            background-color: #2d2d2d;
+            border: 2px solid #333333;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <!-- Header -->
+    <header class="bg-gray-900 shadow-lg">
+        <nav class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-coins text-yellow-400 text-2xl"></i>
+                    <h1 class="text-2xl font-bold text-yellow-400">Asia Crypto News</h1>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link hover:text-yellow-400">Home</a>
+                    <a href="news.html" class="nav-link hover:text-yellow-400">News</a>
+                    <a href="education.html" class="nav-link hover:text-yellow-400">Education</a>
+                    <a href="about.html" class="nav-link hover:text-yellow-400">About</a>
+                    <a href="contact.html" class="nav-link hover:text-yellow-400 text-yellow-400">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-white hover:text-yellow-400">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 space-y-2">
+                <a href="index.html" class="block py-2 text-white hover:text-yellow-400">Home</a>
+                <a href="news.html" class="block py-2 text-white hover:text-yellow-400">News</a>
+                <a href="education.html" class="block py-2 text-white hover:text-yellow-400">Education</a>
+                <a href="about.html" class="block py-2 text-white hover:text-yellow-400">About</a>
+                <a href="contact.html" class="block py-2 text-yellow-400">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold mb-4 text-yellow-400">Get In Touch</h1>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Have a news tip, partnership opportunity, or media inquiry? We'd love to hear from you. 
+                Connect with Asia's leading cryptocurrency and AI news team.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <i class="fas fa-envelope text-yellow-400 text-2xl"></i>
+                <i class="fas fa-phone text-blue-400 text-2xl"></i>
+                <i class="fas fa-map-marker-alt text-green-400 text-2xl"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div class="card-dark rounded-lg p-8">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">
+                        <i class="fas fa-paper-plane mr-3"></i>Send us a Message
+                    </h2>
+                    <form name="contact" method="POST" data-netlify="true" class="contact-form space-y-6">
+                        <input type="hidden" name="form-name" value="contact">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-gray-300">Full Name *</label>
+                                <input type="text" name="name" required 
+                                       class="w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-yellow-400"
+                                       placeholder="John Doe">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium mb-2 text-gray-300">Email Address *</label>
+                                <input type="email" name="email" required 
+                                       class="w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-yellow-400"
+                                       placeholder="john@example.com">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">Subject *</label>
+                            <select name="subject" required 
+                                    class="w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-yellow-400">
+                                <option value="">Select a subject</option>
+                                <option value="news-tip">News Tip</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="media-inquiry">Media Inquiry</option>
+                                <option value="advertising">Advertising</option>
+                                <option value="technical-support">Technical Support</option>
+                                <option value="general">General Question</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-medium mb-2 text-gray-300">Message *</label>
+                            <textarea name="message" required rows="6" 
+                                      class="w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-yellow-400"
+                                      placeholder="Tell us about your inquiry..."></textarea>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="btn-primary w-full py-4 rounded-lg text-lg font-semibold">
+                            <i class="fas fa-paper-plane mr-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="space-y-8">
+                    <div class="card-dark rounded-lg p-8">
+                        <h2 class="text-3xl font-bold mb-6 text-yellow-400">
+                            <i class="fas fa-info-circle mr-3"></i>Contact Information
+                        </h2>
+                        
+                        <div class="space-y-6">
+                            <div class="contact-info-item p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-envelope text-yellow-400 text-xl mr-3"></i>
+                                    <h3 class="text-xl font-semibold">Email</h3>
+                                </div>
+                                <p class="text-gray-300">contact@asiacryptonews.com</p>
+                                <p class="text-gray-300">news@asiacryptonews.com</p>
+                            </div>
+                            
+                            <div class="contact-info-item p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-phone text-green-400 text-xl mr-3"></i>
+                                    <h3 class="text-xl font-semibold">Phone</h3>
+                                </div>
+                                <p class="text-gray-300">Singapore: +65 6123 4567</p>
+                                <p class="text-gray-300">Hong Kong: +852 2345 6789</p>
+                            </div>
+                            
+                            <div class="contact-info-item p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-clock text-blue-400 text-xl mr-3"></i>
+                                    <h3 class="text-xl font-semibold">Business Hours</h3>
+                                </div>
+                                <p class="text-gray-300">Monday - Friday: 9:00 AM - 6:00 PM (SGT)</p>
+                                <p class="text-gray-300">Saturday: 10:00 AM - 4:00 PM (SGT)</p>
+                                <p class="text-gray-300">Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="card-dark rounded-lg p-8">
+                        <h2 class="text-3xl font-bold mb-6 text-yellow-400">
+                            <i class="fas fa-share-alt mr-3"></i>Follow Us
+                        </h2>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <a href="#" class="social-link p-4 rounded-lg text-center hover:bg-yellow-400 hover:text-black">
+                                <i class="fab fa-twitter text-2xl mb-2"></i>
+                                <p class="text-sm">Twitter</p>
+                            </a>
+                            <a href="#" class="social-link p-4 rounded-lg text-center hover:bg-yellow-400 hover:text-black">
+                                <i class="fab fa-telegram text-2xl mb-2"></i>
+                                <p class="text-sm">Telegram</p>
+                            </a>
+                            <a href="#" class="social-link p-4 rounded-lg text-center hover:bg-yellow-400 hover:text-black">
+                                <i class="fab fa-linkedin text-2xl mb-2"></i>
+                                <p class="text-sm">LinkedIn</p>
+                            </a>
+                            <a href="#" class="social-link p-4 rounded-lg text-center hover:bg-yellow-400 hover:text-black">
+                                <i class="fab fa-youtube text-2xl mb-2"></i>
+                                <p class="text-sm">YouTube</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regional Offices -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-yellow-400">Our Regional Presence</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="office-card p-6 rounded-lg text-center">
+                    <i class="fas fa-building text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Singapore</h3>
+                    <p class="text-gray-300 mb-4">Southeast Asia Headquarters</p>
+                    <p class="text-sm text-gray-400">
+                        Marina Bay Financial Centre<br>
+                        Level 15, Tower 2<br>
+                        Singapore 018980
+                    </p>
+                </div>
+                
+                <div class="office-card p-6 rounded-lg text-center">
+                    <i class="fas fa-building text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Hong Kong</h3>
+                    <p class="text-gray-300 mb-4">Greater China Operations</p>
+                    <p class="text-sm text-gray-400">
+                        International Finance Centre<br>
+                        Level 20, Tower 1<br>
+                        Central, Hong Kong
+                    </p>
+                </div>
+                
+                <div class="office-card p-6 rounded-lg text-center">
+                    <i class="fas fa-building text-4xl text-green-400 mb-4"></i>
+                    <h3 class="text-2xl font-bold mb-2">Tokyo</h3>
+                    <p class="text-gray-300 mb-4">Japan Operations</p>
+                    <p class="text-sm text-gray-400">
+                        Roppongi Hills<br>
+                        Mori Tower, 35F<br>
+                        Tokyo 106-6135
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-yellow-400">Find Us</h2>
+            <div class="map-container rounded-lg overflow-hidden" style="height: 400px;">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.818842441303!2d103.84446331475391!3d1.2843009621436098!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da1904937b8c49%3A0x6c5a9c3c2c7e0e1c!2sMarina%20Bay%20Financial%20Centre!5e0!3m2!1sen!2ssg!4v1640995200000!5m2!1sen!2ssg" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 text-yellow-400">Frequently Asked Questions</h2>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="card-dark rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">How can I submit a news tip?</h3>
+                    <p class="text-gray-300">You can submit news tips through our contact form above, or email us directly at news@asiacryptonews.com. We review all submissions and respond within 24 hours.</p>
+                </div>
+                
+                <div class="card-dark rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">Do you offer advertising opportunities?</h3>
+                    <p class="text-gray-300">Yes! We offer various advertising packages including banner ads, sponsored content, and newsletter sponsorships. Contact us to discuss your requirements.</p>
+                </div>
+                
+                <div class="card-dark rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">Can I republish your articles?</h3>
+                    <p class="text-gray-300">Please contact us for permission to republish our content. We're happy to discuss syndication opportunities with proper attribution.</p>
+                </div>
+                
+                <div class="card-dark rounded-lg p-6">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">How do I join your team?</h3>
+                    <p class="text-gray-300">We're always looking for talented writers and analysts. Send your resume and portfolio to contact@asiacryptonews.com with "Career Opportunity" in the subject line.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-coins text-yellow-400 text-2xl"></i>
+                        <h3 class="text-xl font-bold text-yellow-400">Asia Crypto News</h3>
+                    </div>
+                    <p class="text-gray-400 mb-4">Leading cryptocurrency and AI news platform for Asian markets.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-yellow-400"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-yellow-400"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-yellow-400">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="news.html" class="text-gray-400 hover:text-yellow-400">Latest News</a></li>
+                        <li><a href="education.html" class="text-gray-400 hover:text-yellow-400">Education</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-yellow-400">About Us</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-yellow-400">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-yellow-400">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Affiliate Disclosure</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-yellow-400">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-yellow-400">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Get daily crypto updates delivered to your inbox.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Enter your email" 
+                               class="flex-1 px-4 py-2 rounded-l-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-yellow-400">
+                        <button type="submit" 
+                                class="px-6 py-2 bg-yellow-400 text-black rounded-r-lg hover:bg-yellow-500 transition-colors">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Asia Crypto News. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Form submission confirmation
+        document.querySelector('form[name="contact"]').addEventListener('submit', function(e) {
+            // Let Netlify handle the form submission
+            setTimeout(() => {
+                alert('Thank you for your message! We will get back to you within 24 hours.');
+            }, 100);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDpYdrczz5fIL0sLPOGHpeNLnfjxXphKbzxZOlVHiFLW4LkiLuvsx0g6WRxuRM9EpcCGxP3UUVm%2FzuhjnHIHaKNCoilp2FbEnfQh1mddTm2Inl2R7cFgKPiX3hPrewKCh9aAr6zA%2Fct3v6PoioojP1aUQlkmMo3gwDofG%2BlrsAse3zyR8i8tul%2FuF1vk8BHNG%2FVFeZX6yo6rQZH%2FtzLedxzDH3FbhLRcuS%2BSfXJVZyDw%2B6TZVGyTYkHOmE6BfusYKJzFXExO5zMEyNPpI4kfInrJMM3xu4bU1LGNjwmsI5oo3PAG5eVy9De6%2BWebc0tCqE0FY8c%2BawQIbBFUgzzBRYwkNxLX9%2BjEVYn4oggQOCubI70s0ChKAfdCmEOJpCCScu2ge9mhBbYznKRbrhcNTgEIpKBWHBNGUeZRh5nHMd6fAiacCbAd3JKXfhXoEe4dvAOD1Xnnlp4rbKr3cUi3TEccDFyfy6bIJiolQxNxiqZErmy%2F6Irxz%2FbfGVndM0MpvOb1AHYgS5oTkfX0nmuol%2Bk0%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDpYdrczz5fIL0sLPOGHpeNLnfjxXphKbzxZOlVHiFLW4LkiLuvsx0g6WRxuRM9EpcCGxP3UUVm/zuhjnHIHaKNCoilp2FbEnfQh1mddTm2Inl2R7cFgKPiX3hPrewKCh9aAr6zA/ct3v6PoioojP1aUQlkmMo3gwDofG+lrsAse3zyR8i8tul/uF1vk8BHNG/VFeZX6yo6rQZH/tzLedxzDH3FbhLRcuS+SfXJVZyDw+6TZVGyTYkHOmE6BfusYKJzFXExO5zMEyNPpI4kfInrJMM3xu4bU1LGNjwmsI5oo3PAG5eVy9De6+Webc0tCqE0FY8c+awQIbBFUgzzBRYwkNxLX9+jEVYn4oggQOCubI70s0ChKAfdCmEOJpCCScu2ge9mhBbYznKRbrhcNTgEIpKBWHBNGUeZRh5nHMd6fAiacCbAd3JKXfhXoEe4dvAOD1Xnnlp4rbKr3cUi3TEccDFyfy6bIJiolQxNxiqZErmy/6Irxz/bfGVndM0MpvOb1AHYgS5oTkfX0nmuol+k0=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
