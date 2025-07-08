@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - Asia Crypto News</title>
+    <meta name="description" content="Terms of Service for Asia Crypto News including user agreements, content usage rights, disclaimers, and legal terms for using our cryptocurrency news platform">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 20px 0;
+            border-bottom: 3px solid #FFD700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            text-align: center;
+            color: #cccccc;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background-color: #333333;
+            padding: 15px 0;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav a:hover {
+            background-color: #FFD700;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .page-subtitle {
+            text-align: center;
+            color: #cccccc;
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+        }
+        
+        .last-updated {
+            text-align: center;
+            color: #888888;
+            font-style: italic;
+            margin-bottom: 40px;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            border: 1px solid #333333;
+        }
+        
+        .terms-section {
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333333;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .terms-content {
+            color: #cccccc;
+            line-height: 1.8;
+        }
+        
+        .terms-content p {
+            margin-bottom: 15px;
+        }
+        
+        .terms-content ul {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        .terms-content li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight-box {
+            background-color: #2a1810;
+            border: 2px solid #FFD700;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .highlight-box h4 {
+            color: #FFD700;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #FFD700;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .contact-info h3 {
+            color: #FFD700;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info a {
+            color: #00D4FF;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            padding: 50px 0 30px;
+            border-top: 3px solid #FFD700;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #FFD700;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #cccccc;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            color: #888888;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .nav ul {
+                gap: 15px;
+            }
+            
+            .nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .terms-section {
+                padding: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-coins"></i> Asia Crypto News
+            </a>
+            <p class="tagline">Leading Cryptocurrency & AI News in Asia</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="/education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="/markets.html"><i class="fas fa-chart-line"></i> Markets</a></li>
+                <li><a href="/regional.html"><i class="fas fa-globe-asia"></i> Regional</a></li>
+                <li><a href="/about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Terms of Service</h1>
+            <p class="page-subtitle">Legal terms and conditions for using Asia Crypto News</p>
+            
+            <div class="last-updated">
+                <i class="fas fa-calendar-alt"></i> Last Updated: December 25, 2024
+            </div>
+
+            <!-- Acceptance of Terms -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-handshake"></i> 1. Acceptance of Terms
+                </h2>
+                <div class="terms-content">
+                    <p>By accessing and using the Asia Crypto News website and services, you accept and agree to be bound by the terms and provision of this agreement. If you do not agree to abide by the above, please do not use this service.</p>
+                    
+                    <p>These Terms of Service ("Terms") govern your use of our website located at asiacryptonews.com (the "Service") operated by Asia Crypto News ("us", "we", or "our").</p>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-exclamation-triangle"></i> Important Notice</h4>
+                        <p>By continuing to browse and use this website, you are agreeing to comply with and be bound by these terms of service and our privacy policy.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Description of Service -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-newspaper"></i> 2. Description of Service
+                </h2>
+                <div class="terms-content">
+                    <p>Asia Crypto News provides:</p>
+                    <ul>
+                        <li>Cryptocurrency and blockchain news and analysis</li>
+                        <li>Educational content about digital assets and trading</li>
+                        <li>Market insights and technical analysis</li>
+                        <li>Regional coverage of Asian cryptocurrency markets</li>
+                        <li>AI and technology news related to the blockchain industry</li>
+                    </ul>
+                    
+                    <p>Our service is provided "as is" and we reserve the right to modify, suspend, or discontinue any aspect of the service at any time without notice.</p>
+                </div>
+            </section>
+
+            <!-- User Responsibilities -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-user-check"></i> 3. User Responsibilities
+                </h2>
+                <div class="terms-content">
+                    <p>Users of Asia Crypto News agree to:</p>
+                    <ul>
+                        <li>Use the service only for lawful purposes</li>
+                        <li>Not attempt to gain unauthorized access to any portion of the website</li>
+                        <li>Not use the service to transmit harmful, offensive, or illegal content</li>
+                        <li>Respect the intellectual property rights of Asia Crypto News and third parties</li>
+                        <li>Not reproduce, duplicate, copy, or resell any part of our content without permission</li>
+                        <li>Provide accurate information when creating accounts or subscribing to services</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Investment Disclaimers -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-exclamation-triangle"></i> 4. Investment Disclaimers
+                </h2>
+                <div class="terms-content">
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-warning"></i> Important Investment Warning</h4>
+                        <p>Cryptocurrency investments are highly volatile and speculative. You should never invest more than you can afford to lose.</p>
+                    </div>
+                    
+                    <p>Asia Crypto News provides information for educational and informational purposes only. Our content does not constitute:</p>
+                    <ul>
+                        <li>Financial, investment, or trading advice</li>
+                        <li>Recommendations to buy, sell, or hold any cryptocurrency</li>
+                        <li>Professional financial guidance</li>
+                        <li>Guarantees of future performance or profits</li>
+                    </ul>
+                    
+                    <p>Always conduct your own research and consult with qualified financial advisors before making investment decisions. Past performance does not guarantee future results.</p>
+                </div>
+            </section>
+
+            <!-- Content and Intellectual Property -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-copyright"></i> 5. Content and Intellectual Property
+                </h2>
+                <div class="terms-content">
+                    <p>All content on Asia Crypto News, including but not limited to text, graphics, logos, images, audio clips, and software, is the property of Asia Crypto News or its content suppliers and is protected by copyright laws.</p>
+                    
+                    <p>You may:</p>
+                    <ul>
+                        <li>View and read content for personal, non-commercial use</li>
+                        <li>Share links to our articles on social media</li>
+                        <li>Quote brief excerpts with proper attribution</li>
+                    </ul>
+                    
+                    <p>You may not:</p>
+                    <ul>
+                        <li>Reproduce, modify, or distribute our content without permission</li>
+                        <li>Use our content for commercial purposes without authorization</li>
+                        <li>Remove copyright notices or attribution</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Affiliate Relationships -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-link"></i> 6. Affiliate Relationships
+                </h2>
+                <div class="terms-content">
+                    <p>Asia Crypto News may receive compensation through affiliate partnerships with cryptocurrency exchanges and service providers. This includes:</p>
+                    <ul>
+                        <li>Commission from exchange sign-ups through our referral links</li>
+                        <li>Advertising revenue from displayed advertisements</li>
+                        <li>Sponsored content clearly marked as such</li>
+                    </ul>
+                    
+                    <p>Our affiliate relationships do not influence our editorial content or compromise our commitment to providing accurate, unbiased information.</p>
+                </div>
+            </section>
+
+            <!-- Privacy and Data -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-shield-alt"></i> 7. Privacy and Data Protection
+                </h2>
+                <div class="terms-content">
+                    <p>Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your information when you use our service.</p>
+                    
+                    <p>By using Asia Crypto News, you consent to:</p>
+                    <ul>
+                        <li>Collection of usage data for analytics purposes</li>
+                        <li>Use of cookies to improve your browsing experience</li>
+                        <li>Processing of subscription information for newsletter delivery</li>
+                        <li>Compliance with applicable data protection regulations</li>
+                    </ul>
+                    
+                    <p>For detailed information, please review our <a href="/privacy.html" style="color: #FFD700;">Privacy Policy</a>.</p>
+                </div>
+            </section>
+
+            <!-- Limitation of Liability -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-ban"></i> 8. Limitation of Liability
+                </h2>
+                <div class="terms-content">
+                    <p>Asia Crypto News and its affiliates shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from:</p>
+                    <ul>
+                        <li>Use or inability to use our service</li>
+                        <li>Investment decisions made based on our content</li>
+                        <li>Technical failures or interruptions</li>
+                        <li>Unauthorized access to or alteration of your data</li>
+                        <li>Third-party content or services accessed through our platform</li>
+                    </ul>
+                    
+                    <div class="highlight-box">
+                        <h4><i class="fas fa-info-circle"></i> Liability Cap</h4>
+                        <p>In no event shall our total liability exceed the amount you paid to us in the 12 months preceding the claim.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Modifications to Terms -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-edit"></i> 9. Modifications to Terms
+                </h2>
+                <div class="terms-content">
+                    <p>Asia Crypto News reserves the right to modify these Terms of Service at any time. Changes will be effective immediately upon posting on our website.</p>
+                    
+                    <p>We will notify users of significant changes through:</p>
+                    <ul>
+                        <li>Email notifications to subscribers</li>
+                        <li>Prominent notices on our website</li>
+                        <li>Updates to the "Last Modified" date at the top of this page</li>
+                    </ul>
+                    
+                    <p>Continued use of our service after changes constitutes acceptance of the new terms.</p>
+                </div>
+            </section>
+
+            <!-- Governing Law -->
+            <section class="terms-section">
+                <h2 class="section-title">
+                    <i class="fas fa-gavel"></i> 10. Governing Law and Jurisdiction
+                </h2>
+                <div class="terms-content">
+                    <p>These Terms shall be interpreted and governed by the laws of Singapore, without regard to its conflict of law provisions.</p>
+                    
+                    <p>Any disputes arising from these Terms or your use of our service shall be subject to the exclusive jurisdiction of the courts of Singapore.</p>
+                    
+                    <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect.</p>
+                </div>
+            </section>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h3><i class="fas fa-envelope"></i> Questions About These Terms?</h3>
+                <p>If you have any questions about these Terms of Service, please contact us:</p>
+                <p>
+                    <strong>Email:</strong> <a href="mailto:legal@asiacryptonews.com">legal@asiacryptonews.com</a><br>
+                    <strong>Website:</strong> <a href="/contact.html">Contact Form</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-newspaper"></i> News</h3>
+                    <ul>
+                        <li><a href="/news.html">Breaking News</a></li>
+                        <li><a href="/news.html#analysis">Market Analysis</a></li>
+                        <li><a href="/news.html#regulation">Regulation</a></li>
+                        <li><a href="/news.html#technology">Technology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <ul>
+                        <li><a href="/education.html">Beginner Guides</a></li>
+                        <li><a href="/education.html#advanced">Advanced Topics</a></li>
+                        <li><a href="/education.html#security">Security</a></li>
+                        <li><a href="/education.html#wallets">Wallets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-globe-asia"></i> Regional</h3>
+                    <ul>
+                        <li><a href="/regional.html">Japan</a></li>
+                        <li><a href="/regional.html">China</a></li>
+                        <li><a href="/regional.html">South Korea</a></li>
+                        <li><a href="/regional.html">Singapore</a></li>
+                        <li><a href="/regional.html">Hong Kong</a></li>
+                        <li><a href="/regional.html">Southeast Asia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-info-circle"></i> Legal</h3>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="#affiliate">Affiliate Disclosure</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Asia Crypto News. All rights reserved. | Cryptocurrency investments carry risk. Please invest responsibly.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDkmDeuZF%2F6A8JMyLfHoILfNAVrrUgOqv8hAFFywzADqnk65HZ7vEZ0uasnjxc4puXvH3H9%2B919u6WIc4jcTarBnvBxeFxrP8CtZW5ydJAoB6NSLELYWQOXNtPVFj4ecSx1Iu5%2Fs4yrqCRnZ5q1YgFASrXbn0RI6s3kH8IMirJupZRAOebCiDGglPQW3JaX7Mg9CUkiRQwJJt9q410c4hz39b8GpNRNPxr2wNj1mr2P9R8a%2F8gd8pavz40Jywgn2G9ZGfC6aJ9HUQz%2Bznd9teBCDddYvG8SkpGUrZ%2Bt%2BxoFpsEUh1rzK2Tv1NaAzH7MIyLBeC0kjSiVWQQW0ebq35R%2BkdS9XWUc8AvHl13RTaDAFClgI8NvlywbyUxaxCqjE7X8%2F46lvUU9lVq28DPMAnBNkqgnRmhSAEoxXbO9hDWaBg59U6WAKSxZxtmn3U6ydaEweUIi8l1CbHdkqso8xwWBbkgsz0a%2FZaVvj8F7HNuosGMK3bOZ%2F1VX497AA0FeKE6CnV6sYlbzrA1KnzhSyTM%2Bw%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDkmDeuZF/6A8JMyLfHoILfNAVrrUgOqv8hAFFywzADqnk65HZ7vEZ0uasnjxc4puXvH3H9+919u6WIc4jcTarBnvBxeFxrP8CtZW5ydJAoB6NSLELYWQOXNtPVFj4ecSx1Iu5/s4yrqCRnZ5q1YgFASrXbn0RI6s3kH8IMirJupZRAOebCiDGglPQW3JaX7Mg9CUkiRQwJJt9q410c4hz39b8GpNRNPxr2wNj1mr2P9R8a/8gd8pavz40Jywgn2G9ZGfC6aJ9HUQz+znd9teBCDddYvG8SkpGUrZ+t+xoFpsEUh1rzK2Tv1NaAzH7MIyLBeC0kjSiVWQQW0ebq35R+kdS9XWUc8AvHl13RTaDAFClgI8NvlywbyUxaxCqjE7X8/46lvUU9lVq28DPMAnBNkqgnRmhSAEoxXbO9hDWaBg59U6WAKSxZxtmn3U6ydaEweUIi8l1CbHdkqso8xwWBbkgsz0a/ZaVvj8F7HNuosGMK3bOZ/1VX497AA0FeKE6CnV6sYlbzrA1KnzhSyTM+w=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    

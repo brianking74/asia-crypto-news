@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Affiliate Disclosure - Asia Crypto News</title>
+    <meta name="description" content="Affiliate disclosure statement for Asia Crypto News explaining our partnerships with cryptocurrency exchanges and how we earn commissions while maintaining editorial independence">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 20px 0;
+            border-bottom: 3px solid #FFD700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            text-align: center;
+            color: #cccccc;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background-color: #333333;
+            padding: 15px 0;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav a:hover {
+            background-color: #FFD700;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .page-subtitle {
+            font-size: 1.3rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #333333;
+            margin-bottom: 30px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .content-text {
+            color: #cccccc;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background-color: rgba(255, 215, 0, 0.1);
+            border: 1px solid #FFD700;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .partner-card {
+            background-color: rgba(255, 215, 0, 0.05);
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #333333;
+            text-align: center;
+        }
+        
+        .partner-name {
+            font-weight: 600;
+            color: #FFD700;
+            font-size: 1.1rem;
+        }
+        
+        .list-item {
+            color: #cccccc;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .list-item:before {
+            content: "•";
+            color: #FFD700;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #FFD700;
+            text-align: center;
+        }
+        
+        .contact-email {
+            color: #FFD700;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .contact-email:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            padding: 50px 0 30px;
+            border-top: 3px solid #FFD700;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #FFD700;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #cccccc;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            color: #888888;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .content-section {
+                padding: 25px;
+            }
+            
+            .nav ul {
+                gap: 15px;
+            }
+            
+            .nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-coins"></i> Asia Crypto News
+            </a>
+            <p class="tagline">Leading Cryptocurrency & AI News in Asia</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="/education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="/markets.html"><i class="fas fa-chart-line"></i> Markets</a></li>
+                <li><a href="/regional.html"><i class="fas fa-globe-asia"></i> Regional</a></li>
+                <li><a href="/about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Page Header -->
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fas fa-handshake"></i> Affiliate Disclosure
+                </h1>
+                <p class="page-subtitle">
+                    Transparency in our partnerships and how we maintain editorial independence
+                </p>
+            </div>
+
+            <!-- FTC Compliance -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-balance-scale"></i> FTC Compliance Statement
+                </h2>
+                <div class="highlight-box">
+                    <p class="content-text">
+                        <strong>In accordance with the Federal Trade Commission's 16 CFR, Part 255:</strong> 
+                        Asia Crypto News may receive financial compensation for products purchased through affiliate links on this website. We are committed to full transparency about our affiliate relationships and how they may influence our content.
+                    </p>
+                </div>
+            </div>
+
+            <!-- What Are Affiliate Links -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-link"></i> What Are Affiliate Links?
+                </h2>
+                <p class="content-text">
+                    Affiliate links are special tracking URLs that allow us to earn a commission when you sign up for or purchase services from our partner companies. When you click on one of these links and complete a qualifying action (such as creating an account or making a trade), we may receive a small percentage of the fees or a fixed commission.
+                </p>
+                <p class="content-text">
+                    <strong>Important:</strong> Using our affiliate links does not cost you anything extra. The prices and fees you pay remain exactly the same whether you use our link or go directly to the exchange.
+                </p>
+            </div>
+
+            <!-- Our Partners -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-users"></i> Our Exchange Partners
+                </h2>
+                <p class="content-text">
+                    We maintain affiliate partnerships with the following trusted cryptocurrency exchanges that serve Asian markets:
+                </p>
+                <div class="partners-grid">
+                    <div class="partner-card">
+                        <div class="partner-name">Binance</div>
+                        <p style="color: #888; font-size: 0.9rem;">Global leading exchange</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Huobi</div>
+                        <p style="color: #888; font-size: 0.9rem;">Asia-focused platform</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">KuCoin</div>
+                        <p style="color: #888; font-size: 0.9rem;">Advanced trading features</p>
+                    </div>
+                    <div class="partner-card">
+                        <div class="partner-name">Coinbase</div>
+                        <p style="color: #888; font-size: 0.9rem;">Beginner-friendly</p>
+                    </div>
+                </div>
+                <p class="content-text">
+                    We only partner with exchanges that we genuinely believe offer value to our readers and meet our standards for security, reliability, and regulatory compliance.
+                </p>
+            </div>
+
+            <!-- Editorial Independence -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-shield-alt"></i> Editorial Independence
+                </h2>
+                <p class="content-text">
+                    Our affiliate partnerships do not influence our editorial content or opinions. We maintain strict editorial independence and follow these principles:
+                </p>
+                <div style="margin: 20px 0;">
+                    <div class="list-item">We never write positive reviews solely because of affiliate commissions</div>
+                    <div class="list-item">We provide honest, unbiased analysis based on research and expertise</div>
+                    <div class="list-item">We clearly identify affiliate links and sponsored content</div>
+                    <div class="list-item">We only recommend products and services we believe benefit our readers</div>
+                    <div class="list-item">Our news reporting is never influenced by commercial relationships</div>
+                    <div class="list-item">We regularly review and evaluate our partners' services objectively</div>
+                </div>
+            </div>
+
+            <!-- How We Use Commissions -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-pie"></i> How We Use Affiliate Commissions
+                </h2>
+                <p class="content-text">
+                    Affiliate commissions help support our operations and allow us to provide free, high-quality content to our readers. These funds are used for:
+                </p>
+                <div style="margin: 20px 0;">
+                    <div class="list-item">Maintaining and improving our website infrastructure</div>
+                    <div class="list-item">Paying our editorial team and content creators</div>
+                    <div class="list-item">Research and analysis tools for market coverage</div>
+                    <div class="list-item">Educational content development</div>
+                    <div class="list-item">Keeping our content free for all readers</div>
+                    <div class="list-item">Expanding coverage across Asian markets</div>
+                </div>
+            </div>
+
+            <!-- Reader Benefits -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-gift"></i> Benefits for Our Readers
+                </h2>
+                <p class="content-text">
+                    When you use our affiliate links, you often receive additional benefits:
+                </p>
+                <div style="margin: 20px 0;">
+                    <div class="list-item">Exclusive sign-up bonuses and promotions</div>
+                    <div class="list-item">Reduced trading fees on some platforms</div>
+                    <div class="list-item">Access to special educational resources</div>
+                    <div class="list-item">Priority customer support in some cases</div>
+                    <div class="list-item">Supporting quality, independent crypto journalism</div>
+                </div>
+            </div>
+
+            <!-- Investment Disclaimer -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-exclamation-triangle"></i> Investment Disclaimer
+                </h2>
+                <div class="highlight-box">
+                    <p class="content-text">
+                        <strong>Cryptocurrency investments carry significant risk.</strong> Past performance does not guarantee future results. The value of cryptocurrencies can be extremely volatile and may go to zero. You should never invest more than you can afford to lose.
+                    </p>
+                    <p class="content-text">
+                        Asia Crypto News provides educational content and news analysis. We do not provide personalized investment advice. Always conduct your own research and consider consulting with qualified financial advisors before making investment decisions.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Updates and Changes -->
+            <div class="content-section">
+                <h2 class="section-title">
+                    <i class="fas fa-sync-alt"></i> Updates and Changes
+                </h2>
+                <p class="content-text">
+                    We may update this affiliate disclosure from time to time to reflect changes in our partnerships or policies. Any material changes will be clearly communicated to our readers. We encourage you to review this page periodically.
+                </p>
+                <p class="content-text">
+                    <strong>Last Updated:</strong> December 2024
+                </p>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2 class="section-title">
+                    <i class="fas fa-envelope"></i> Questions About Our Affiliate Relationships?
+                </h2>
+                <p class="content-text">
+                    If you have any questions about our affiliate partnerships or this disclosure, please don't hesitate to contact us.
+                </p>
+                <p style="margin-top: 20px;">
+                    <a href="mailto:partnerships@asiacryptonews.com" class="contact-email">
+                        partnerships@asiacryptonews.com
+                    </a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-newspaper"></i> News</h3>
+                    <ul>
+                        <li><a href="/news.html">Breaking News</a></li>
+                        <li><a href="/news.html#analysis">Market Analysis</a></li>
+                        <li><a href="/news.html#regulation">Regulation</a></li>
+                        <li><a href="/news.html#technology">Technology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <ul>
+                        <li><a href="/education.html">Beginner Guides</a></li>
+                        <li><a href="/education.html#advanced">Advanced Topics</a></li>
+                        <li><a href="/education.html#security">Security</a></li>
+                        <li><a href="/education.html#wallets">Wallets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-globe-asia"></i> Regional</h3>
+                    <ul>
+                        <li><a href="/regional.html">Japan</a></li>
+                        <li><a href="/regional.html">China</a></li>
+                        <li><a href="/regional.html">South Korea</a></li>
+                        <li><a href="/regional.html">Singapore</a></li>
+                        <li><a href="/regional.html">Hong Kong</a></li>
+                        <li><a href="/regional.html">Southeast Asia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-info-circle"></i> About</h3>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/affiliate.html">Affiliate Disclosure</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Asia Crypto News. All rights reserved. | Cryptocurrency investments carry risk. Please invest responsibly.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDlNnrkxWLGU45iErXn1uqkhqtLegXTc3Bcv0DtfmAknp8TEPjrz12iEy6r%2F7cO528gXSXl86t7uUkfC0Tsu%2Bhn4acoiazCzgeAEfHvLNjdvr%2BVKH6ptmQEacaSsssaRlOK7DMBves72EYvm3dHeD%2BhZiF0%2BCOV4Hwy%2FQNB6hW2ixEOLQnQdKtMUtNUAoX5LIf97cu2htUe6j0X6uYQ1yUiTOglAO2vmZQUrlw8%2F3FpCuLNnJOlFAZakG7Hb9n8OSmRPw4jQf5IyNcFkb0swVwGQj3PQDacRt3ojv3h3bxYInzjaWgEUA1oZfRCkzWvY7DtvLqFncS%2BXzbUX0LhzZ7lJQPOy4vbcoKkW9Pdk7bUNzwi%2FbPVDWrbS%2B78mAPn55aDWVsk9EKbZ%2BNETarA6GfIpJpjxf2B380GGqMdRNKWvjhup4McIWGafZca9p0mczxstF9no9strMDthg2UmE2qAfW5HIwj1Yc2A4Zg9xIVMy8GOSc57bBiTfllpr9ZtZUuiafbWvUj8Je5Kfi%2BEyBJo%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDlNnrkxWLGU45iErXn1uqkhqtLegXTc3Bcv0DtfmAknp8TEPjrz12iEy6r/7cO528gXSXl86t7uUkfC0Tsu+hn4acoiazCzgeAEfHvLNjdvr+VKH6ptmQEacaSsssaRlOK7DMBves72EYvm3dHeD+hZiF0+COV4Hwy/QNB6hW2ixEOLQnQdKtMUtNUAoX5LIf97cu2htUe6j0X6uYQ1yUiTOglAO2vmZQUrlw8/3FpCuLNnJOlFAZakG7Hb9n8OSmRPw4jQf5IyNcFkb0swVwGQj3PQDacRt3ojv3h3bxYInzjaWgEUA1oZfRCkzWvY7DtvLqFncS+XzbUX0LhzZ7lJQPOy4vbcoKkW9Pdk7bUNzwi/bPVDWrbS+78mAPn55aDWVsk9EKbZ+NETarA6GfIpJpjxf2B380GGqMdRNKWvjhup4McIWGafZca9p0mczxstF9no9strMDthg2UmE2qAfW5HIwj1Yc2A4Zg9xIVMy8GOSc57bBiTfllpr9ZtZUuiafbWvUj8Je5Kfi+EyBJo=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
