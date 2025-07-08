@@ -6,648 +6,723 @@
     <title>Asia Crypto News - Leading Cryptocurrency & AI News in Asia</title>
     <meta name="description" content="Stay updated with the latest cryptocurrency and AI news across Asia. Expert analysis, market insights, and educational content for Japan, China, Korea, Singapore, and Southeast Asia.">
     <meta name="keywords" content="Asia crypto news, cryptocurrency Asia, Bitcoin Japan, blockchain Singapore, crypto education Asia">
-    
-    <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
-        .gradient-text {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 20px 0;
+            border-bottom: 3px solid #FFD700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            text-align: center;
+            color: #cccccc;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background-color: #333333;
+            padding: 15px 0;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav a:hover {
+            background-color: #FFD700;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+        
+        /* Scrolling Text - Updated with solid color */
+        .scrolling-container {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            border-top: 2px solid #FFD700;
+            border-bottom: 2px solid #FFD700;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .scrolling-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 60s linear infinite;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #FFD700;
+        }
+        
+        @keyframes scroll-left {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+        .hero p {
+            font-size: 1.3rem;
+            color: #cccccc;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .hover-glow:hover {
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-            transform: translateY(-2px);
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000000;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: #FFD700;
+            border: 2px solid #FFD700;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #FFD700;
+            color: #000000;
+            transform: translateY(-3px);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333333;
             transition: all 0.3s ease;
         }
         
-        .crypto-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
-            border: 1px solid #333;
-            transition: all 0.3s ease;
-        }
-        
-        .crypto-card:hover {
-            border-color: #FFD700;
+        .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.2);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+            border-color: #FFD700;
         }
         
-        .news-ticker {
-            background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
-            animation: ticker 30s linear infinite;
+        .card h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 15px;
         }
         
-        @keyframes ticker {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+        .card p {
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+        
+        .card-link {
+            color: #00D4FF;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .card-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* News Section */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #333333;
+            transition: all 0.3s ease;
+        }
+        
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+            border-color: #FFD700;
+        }
+        
+        .news-tag {
+            display: inline-block;
+            background-color: #FFD700;
+            color: #000000;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+        }
+        
+        .news-excerpt {
+            color: #cccccc;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .news-date {
+            color: #888888;
+            font-size: 0.9rem;
+        }
+        
+        /* Regional Coverage */
+        .regional-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .region-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #333333;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .region-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+            border-color: #FFD700;
         }
         
         .region-flag {
-            width: 24px;
-            height: 16px;
-            display: inline-block;
-            margin-right: 8px;
+            font-size: 3rem;
+            margin-bottom: 15px;
         }
         
-        .price-change-positive {
-            color: #10B981;
+        .region-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #FFD700;
+            margin-bottom: 10px;
         }
         
-        .price-change-negative {
-            color: #EF4444;
+        .region-desc {
+            color: #cccccc;
+            font-size: 0.9rem;
         }
         
-        .affiliate-button {
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+        /* Affiliate Section */
+        .affiliate-section {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 50px 0;
+            text-align: center;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+        
+        .affiliate-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .affiliate-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000000;
+            padding: 20px 25px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: all 0.3s ease;
+            display: block;
         }
         
-        .affiliate-button:hover {
-            background: linear-gradient(135deg, #FFA500 0%, #FF8C00 100%);
-            transform: scale(1.05);
+        .affiliate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            padding: 50px 0 30px;
+            border-top: 3px solid #FFD700;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #FFD700;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: #cccccc;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            color: #888888;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .nav ul {
+                gap: 15px;
+            }
+            
+            .nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .scrolling-text {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
-
-<body class="bg-black text-white">
+<body>
     <!-- Header -->
-    <header class="fixed top-0 w-full z-50 glass-effect">
-        <nav class="container mx-auto px-4 py-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-coins text-yellow-400 text-2xl"></i>
-                    <h1 class="text-2xl font-bold gradient-text">Asia Crypto News</h1>
-                </div>
-                
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="#home" class="hover:text-yellow-400 transition-colors">Home</a>
-                    <a href="#news" class="hover:text-yellow-400 transition-colors">News</a>
-                    <a href="#education" class="hover:text-yellow-400 transition-colors">Education</a>
-                    <a href="#markets" class="hover:text-yellow-400 transition-colors">Markets</a>
-                    <a href="#regions" class="hover:text-yellow-400 transition-colors">Regions</a>
-                    <a href="#about" class="hover:text-yellow-400 transition-colors">About</a>
-                </div>
-                
-                <div class="flex items-center space-x-4">
-                    <button class="bg-yellow-400 text-black px-4 py-2 rounded-lg hover:bg-yellow-500 transition-colors">
-                        <i class="fas fa-envelope mr-2"></i>Subscribe
-                    </button>
-                    <button class="md:hidden">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
-            </div>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-coins"></i> Asia Crypto News
+            </a>
+            <p class="tagline">Leading Cryptocurrency & AI News in Asia</p>
+        </div>
     </header>
 
-    <!-- News Ticker -->
-    <div class="fixed top-16 w-full bg-yellow-400 text-black py-2 overflow-hidden z-40">
-        <div class="news-ticker whitespace-nowrap">
-            <span class="mx-8"><i class="fas fa-fire mr-2"></i>BREAKING: Bitcoin reaches new ATH in Japan trading</span>
-            <span class="mx-8"><i class="fas fa-chart-line mr-2"></i>Singapore approves new crypto regulations</span>
-            <span class="mx-8"><i class="fas fa-robot mr-2"></i>AI trading bots surge 300% in South Korea</span>
-            <span class="mx-8"><i class="fas fa-university mr-2"></i>Hong Kong launches digital currency pilot</span>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="/education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="#markets"><i class="fas fa-chart-line"></i> Markets</a></li>
+                <li><a href="#regional"><i class="fas fa-globe-asia"></i> Regional</a></li>
+                <li><a href="/about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Scrolling News Ticker -->
+    <div class="scrolling-container">
+        <div class="scrolling-text">
+            <i class="fas fa-bell"></i> BREAKING: Bitcoin reaches new all-time high in Japanese markets • South Korea announces new crypto regulations • Singapore launches digital asset framework • China updates blockchain policy • Hong Kong becomes Asia's crypto hub • AI-powered trading platforms surge across Asia • DeFi adoption accelerates in Southeast Asia • Major exchanges expand Asian operations
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section id="home" class="pt-32 pb-16">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-5xl md:text-7xl font-bold mb-6">
-                    Asia's Premier <span class="gradient-text">Crypto</span> & <span class="gradient-text">AI</span> News Hub
+    <section class="hero">
+        <div class="container">
+            <h1>Asia's Premier Crypto & AI News Hub</h1>
+            <p>Stay ahead of the curve with real-time cryptocurrency and artificial intelligence news, analysis, and insights from across Asian markets.</p>
+            <div class="hero-buttons">
+                <a href="/news.html" class="btn btn-primary">
+                    <i class="fas fa-newspaper"></i> Latest News
+                </a>
+                <a href="/education.html" class="btn btn-secondary">
+                    <i class="fas fa-graduation-cap"></i> Learn Crypto
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Breaking News Section -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-fire"></i> Breaking News
                 </h2>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-4xl mx-auto">
-                    Stay ahead of the curve with real-time cryptocurrency and artificial intelligence news, analysis, and insights from across Asian markets.
-                </p>
-                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-6">
-                    <button class="affiliate-button text-black px-8 py-4 rounded-lg font-semibold text-lg hover-glow">
-                        <i class="fas fa-rocket mr-2"></i>Start Trading on Binance
-                    </button>
-                    <button class="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-400 hover:text-black transition-colors">
-                        <i class="fas fa-graduation-cap mr-2"></i>Learn Crypto Basics
-                    </button>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <span class="news-tag">Bitcoin</span>
+                        <h3 class="news-title">Bitcoin Surges to Record High in Tokyo Trading</h3>
+                        <p class="news-excerpt">Japanese institutional investors drive Bitcoin to unprecedented levels as regulatory clarity improves market confidence across Asia.</p>
+                        <p class="news-date">2 hours ago</p>
+                    </article>
+                    <article class="news-card">
+                        <span class="news-tag">Regulation</span>
+                        <h3 class="news-title">Singapore Unveils Comprehensive Crypto Framework</h3>
+                        <p class="news-excerpt">The Monetary Authority of Singapore releases new guidelines for cryptocurrency exchanges and digital asset custody services.</p>
+                        <p class="news-date">4 hours ago</p>
+                    </article>
+                    <article class="news-card">
+                        <span class="news-tag">AI Technology</span>
+                        <h3 class="news-title">AI-Powered Trading Platforms Revolutionize Asian Markets</h3>
+                        <p class="news-excerpt">Advanced artificial intelligence algorithms are transforming how cryptocurrency trading is conducted across major Asian exchanges.</p>
+                        <p class="news-date">6 hours ago</p>
+                    </article>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Market Overview -->
-    <section id="markets" class="py-16">
-        <div class="container mx-auto px-4">
-            <h3 class="text-3xl font-bold text-center mb-12">
-                <i class="fas fa-chart-line mr-3 text-yellow-400"></i>Live Market Data
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-                <div class="crypto-card p-6 rounded-lg">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center">
-                            <i class="fab fa-bitcoin text-yellow-400 text-2xl mr-3"></i>
-                            <span class="font-semibold">Bitcoin</span>
-                        </div>
-                        <span class="text-sm text-gray-400">BTC</span>
+            <!-- Regional Coverage -->
+            <section class="section" id="regional">
+                <h2 class="section-title">
+                    <i class="fas fa-globe-asia"></i> Regional Coverage
+                </h2>
+                <div class="regional-grid">
+                    <div class="region-card">
+                        <div class="region-flag">🇯🇵</div>
+                        <h3 class="region-name">Japan</h3>
+                        <p class="region-desc">Leading crypto adoption and regulation in Asia</p>
                     </div>
-                    <div class="text-2xl font-bold mb-2">$97,234.56</div>
-                    <div class="price-change-positive text-sm">
-                        <i class="fas fa-arrow-up mr-1"></i>+2.34%
+                    <div class="region-card">
+                        <div class="region-flag">🇨🇳</div>
+                        <h3 class="region-name">China</h3>
+                        <p class="region-desc">Blockchain innovation and digital yuan developments</p>
                     </div>
-                </div>
-                
-                <div class="crypto-card p-6 rounded-lg">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center">
-                            <i class="fab fa-ethereum text-blue-400 text-2xl mr-3"></i>
-                            <span class="font-semibold">Ethereum</span>
-                        </div>
-                        <span class="text-sm text-gray-400">ETH</span>
+                    <div class="region-card">
+                        <div class="region-flag">🇰🇷</div>
+                        <h3 class="region-name">South Korea</h3>
+                        <p class="region-desc">Advanced crypto trading and gaming integration</p>
                     </div>
-                    <div class="text-2xl font-bold mb-2">$3,456.78</div>
-                    <div class="price-change-negative text-sm">
-                        <i class="fas fa-arrow-down mr-1"></i>-1.23%
+                    <div class="region-card">
+                        <div class="region-flag">🇸🇬</div>
+                        <h3 class="region-name">Singapore</h3>
+                        <p class="region-desc">Regulatory hub and fintech innovation center</p>
                     </div>
-                </div>
-                
-                <div class="crypto-card p-6 rounded-lg">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-coins text-green-400 text-2xl mr-3"></i>
-                            <span class="font-semibold">Solana</span>
-                        </div>
-                        <span class="text-sm text-gray-400">SOL</span>
+                    <div class="region-card">
+                        <div class="region-flag">🇭🇰</div>
+                        <h3 class="region-name">Hong Kong</h3>
+                        <p class="region-desc">Gateway to Asian crypto markets</p>
                     </div>
-                    <div class="text-2xl font-bold mb-2">$234.56</div>
-                    <div class="price-change-positive text-sm">
-                        <i class="fas fa-arrow-up mr-1"></i>+5.67%
+                    <div class="region-card">
+                        <div class="region-flag">🌏</div>
+                        <h3 class="region-name">Southeast Asia</h3>
+                        <p class="region-desc">Emerging markets and rapid adoption</p>
                     </div>
                 </div>
-                
-                <div class="crypto-card p-6 rounded-lg">
-                    <div class="flex items-center justify-between mb-4">
-                        <div class="flex items-center">
-                            <i class="fas fa-coins text-purple-400 text-2xl mr-3"></i>
-                            <span class="font-semibold">BNB</span>
-                        </div>
-                        <span class="text-sm text-gray-400">BNB</span>
-                    </div>
-                    <div class="text-2xl font-bold mb-2">$678.90</div>
-                    <div class="price-change-positive text-sm">
-                        <i class="fas fa-arrow-up mr-1"></i>+3.45%
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Market Chart -->
-            <div class="crypto-card p-6 rounded-lg">
-                <h4 class="text-xl font-bold mb-4">Bitcoin Price Trend (24H)</h4>
-                <div style="height: 400px;">
-                    <canvas id="marketChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Breaking News -->
-    <section id="news" class="py-16">
-        <div class="container mx-auto px-4">
-            <h3 class="text-3xl font-bold text-center mb-12">
-                <i class="fas fa-newspaper mr-3 text-yellow-400"></i>Breaking News
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <article class="crypto-card p-6 rounded-lg hover-glow">
-                    <div class="flex items-center mb-4">
-                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-3">BREAKING</span>
-                        <span class="text-sm text-gray-400">2 hours ago</span>
+            <!-- Education Section -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-graduation-cap"></i> Education Hub
+                </h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3><i class="fas fa-play-circle"></i> Beginner's Guide</h3>
+                        <p>Start your crypto journey with our comprehensive beginner's guide covering wallets, security, and first purchases.</p>
+                        <a href="/education.html#beginners" class="card-link">Start Learning <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Japan Approves Bitcoin ETF Trading</h4>
-                    <p class="text-gray-300 mb-4">Japanese regulators have officially approved Bitcoin ETF trading, marking a significant milestone for crypto adoption in Asia's second-largest economy.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-yellow-400">🇯🇵 Japan</span>
-                        <button class="text-yellow-400 hover:text-yellow-300">Read More →</button>
+                    <div class="card">
+                        <h3><i class="fas fa-shield-alt"></i> Security Best Practices</h3>
+                        <p>Learn essential security measures to protect your cryptocurrency investments and personal information.</p>
+                        <a href="/education.html#security" class="card-link">Learn Security <i class="fas fa-arrow-right"></i></a>
                     </div>
-                </article>
-                
-                <article class="crypto-card p-6 rounded-lg hover-glow">
-                    <div class="flex items-center mb-4">
-                        <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-3">AI</span>
-                        <span class="text-sm text-gray-400">4 hours ago</span>
+                    <div class="card">
+                        <h3><i class="fas fa-robot"></i> AI in Trading</h3>
+                        <p>Discover how artificial intelligence is revolutionizing cryptocurrency trading and investment strategies.</p>
+                        <a href="/education.html#ai" class="card-link">Explore AI <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <h4 class="text-xl font-bold mb-3">Singapore Launches AI Trading Platform</h4>
-                    <p class="text-gray-300 mb-4">Singapore's central bank partners with local fintech companies to launch an AI-powered cryptocurrency trading platform for institutional investors.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-yellow-400">🇸🇬 Singapore</span>
-                        <button class="text-yellow-400 hover:text-yellow-300">Read More →</button>
-                    </div>
-                </article>
-                
-                <article class="crypto-card p-6 rounded-lg hover-glow">
-                    <div class="flex items-center mb-4">
-                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-3">MARKET</span>
-                        <span class="text-sm text-gray-400">6 hours ago</span>
-                    </div>
-                    <h4 class="text-xl font-bold mb-3">Korean Crypto Volume Hits Record High</h4>
-                    <p class="text-gray-300 mb-4">South Korean cryptocurrency exchanges report record-breaking trading volumes as retail investors show renewed interest in digital assets.</p>
-                    <div class="flex items-center justify-between">
-                        <span class="text-sm text-yellow-400">🇰🇷 South Korea</span>
-                        <button class="text-yellow-400 hover:text-yellow-300">Read More →</button>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
+                </div>
+            </section>
 
-    <!-- Regional Coverage -->
-    <section id="regions" class="py-16 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <h3 class="text-3xl font-bold text-center mb-12">
-                <i class="fas fa-globe-asia mr-3 text-yellow-400"></i>Regional Coverage
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass-effect p-6 rounded-lg hover-glow">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🇯🇵</span>
-                        <h4 class="text-xl font-bold">Japan</h4>
-                    </div>
-                    <p class="text-gray-300 mb-4">Latest crypto regulations, market trends, and institutional adoption in Japan.</p>
-                    <ul class="text-sm text-gray-400 space-y-2">
-                        <li>• Bitcoin ETF approvals</li>
-                        <li>• Regulatory framework updates</li>
-                        <li>• Major bank partnerships</li>
-                    </ul>
+            <!-- Affiliate Section -->
+            <section class="affiliate-section">
+                <h2 class="section-title">
+                    <i class="fas fa-handshake"></i> Trusted Exchange Partners
+                </h2>
+                <p style="color: #cccccc; margin-bottom: 30px;">Start your crypto journey with Asia's most trusted exchanges</p>
+                <div class="affiliate-grid">
+                    <a href="#" class="affiliate-btn">
+                        <i class="fas fa-coins"></i> Trade on Binance
+                    </a>
+                    <a href="#" class="affiliate-btn">
+                        <i class="fas fa-exchange-alt"></i> Join Huobi
+                    </a>
+                    <a href="#" class="affiliate-btn">
+                        <i class="fas fa-chart-line"></i> KuCoin Pro
+                    </a>
+                    <a href="#" class="affiliate-btn">
+                        <i class="fas fa-wallet"></i> Coinbase Asia
+                    </a>
                 </div>
-                
-                <div class="glass-effect p-6 rounded-lg hover-glow">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🇨🇳</span>
-                        <h4 class="text-xl font-bold">China</h4>
-                    </div>
-                    <p class="text-gray-300 mb-4">Digital yuan developments, blockchain initiatives, and policy changes in China.</p>
-                    <ul class="text-sm text-gray-400 space-y-2">
-                        <li>• CBDC pilot programs</li>
-                        <li>• Blockchain adoption</li>
-                        <li>• Policy developments</li>
-                    </ul>
-                </div>
-                
-                <div class="glass-effect p-6 rounded-lg hover-glow">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🇰🇷</span>
-                        <h4 class="text-xl font-bold">South Korea</h4>
-                    </div>
-                    <p class="text-gray-300 mb-4">Gaming tokens, NFT markets, and crypto regulations in South Korea.</p>
-                    <ul class="text-sm text-gray-400 space-y-2">
-                        <li>• Gaming & NFT tokens</li>
-                        <li>• Exchange regulations</li>
-                        <li>• Tech innovations</li>
-                    </ul>
-                </div>
-                
-                <div class="glass-effect p-6 rounded-lg hover-glow">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🇸🇬</span>
-                        <h4 class="text-xl font-bold">Singapore</h4>
-                    </div>
-                    <p class="text-gray-300 mb-4">Crypto hub developments, fintech innovations, and regulatory clarity.</p>
-                    <ul class="text-sm text-gray-400 space-y-2">
-                        <li>• Fintech partnerships</li>
-                        <li>• Regulatory sandbox</li>
-                        <li>• Investment flows</li>
-                    </ul>
-                </div>
-                
-                <div class="glass-effect p-6 rounded-lg hover-glow">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🇭🇰</span>
-                        <h4 class="text-xl font-bold">Hong Kong</h4>
-                    </div>
-                    <p class="text-gray-300 mb-4">Crypto trading licenses, institutional adoption, and market developments.</p>
-                    <ul class="text-sm text-gray-400 space-y-2">
-                        <li>• Trading licenses</li>
-                        <li>• Institutional adoption</li>
-                        <li>• Market infrastructure</li>
-                    </ul>
-                </div>
-                
-                <div class="glass-effect p-6 rounded-lg hover-glow">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🌏</span>
-                        <h4 class="text-xl font-bold">Southeast Asia</h4>
-                    </div>
-                    <p class="text-gray-300 mb-4">Regional crypto trends, remittance solutions, and emerging markets.</p>
-                    <ul class="text-sm text-gray-400 space-y-2">
-                        <li>• Remittance solutions</li>
-                        <li>• Mobile payments</li>
-                        <li>• Emerging markets</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- Education Hub -->
-    <section id="education" class="py-16">
-        <div class="container mx-auto px-4">
-            <h3 class="text-3xl font-bold text-center mb-12">
-                <i class="fas fa-graduation-cap mr-3 text-yellow-400"></i>Education Hub
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="crypto-card p-8 rounded-lg">
-                    <h4 class="text-2xl font-bold mb-6">
-                        <i class="fas fa-baby mr-3 text-green-400"></i>Beginner Guides
-                    </h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
-                            <span>What is Cryptocurrency?</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
-                            <span>How to Buy Your First Bitcoin</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
-                            <span>Setting Up a Crypto Wallet</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-green-400 mr-3"></i>
-                            <span>Understanding Blockchain Technology</span>
-                        </li>
-                    </ul>
-                    <button class="mt-6 bg-green-400 text-black px-6 py-3 rounded-lg hover:bg-green-500 transition-colors">
-                        Start Learning
-                    </button>
-                </div>
-                
-                <div class="crypto-card p-8 rounded-lg">
-                    <h4 class="text-2xl font-bold mb-6">
-                        <i class="fas fa-shield-alt mr-3 text-red-400"></i>Security & Safety
-                    </h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-red-400 mr-3"></i>
-                            <span>Two-Factor Authentication Setup</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-red-400 mr-3"></i>
-                            <span>Cold Storage Best Practices</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-red-400 mr-3"></i>
-                            <span>Avoiding Crypto Scams</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-check-circle text-red-400 mr-3"></i>
-                            <span>Private Key Management</span>
-                        </li>
-                    </ul>
-                    <button class="mt-6 bg-red-400 text-black px-6 py-3 rounded-lg hover:bg-red-500 transition-colors">
-                        Secure Your Crypto
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Affiliate Section -->
-    <section class="py-16 bg-gradient-to-r from-yellow-400 to-orange-400">
-        <div class="container mx-auto px-4">
-            <div class="text-center text-black">
-                <h3 class="text-3xl font-bold mb-6">Start Your Crypto Journey Today</h3>
-                <p class="text-xl mb-8">Join millions of users trading on Asia's most trusted exchanges</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <div class="text-3xl font-bold mb-4">
-                            <i class="fas fa-coins mr-2"></i>Binance
-                        </div>
-                        <p class="mb-4">World's largest crypto exchange with 24/7 trading</p>
-                        <button class="bg-yellow-400 text-black px-6 py-3 rounded-lg hover:bg-yellow-500 transition-colors w-full">
-                            Trade on Binance
-                        </button>
+            <!-- Market Analysis -->
+            <section class="section" id="markets">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line"></i> Market Analysis
+                </h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3><i class="fas fa-trending-up"></i> Daily Market Report</h3>
+                        <p>Comprehensive analysis of Asian cryptocurrency markets with price movements, volume analysis, and trading insights.</p>
+                        <a href="#" class="card-link">View Report <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <div class="text-3xl font-bold mb-4">
-                            <i class="fas fa-chart-line mr-2"></i>Huobi
-                        </div>
-                        <p class="mb-4">Advanced trading features for professionals</p>
-                        <button class="bg-yellow-400 text-black px-6 py-3 rounded-lg hover:bg-yellow-500 transition-colors w-full">
-                            Trade on Huobi
-                        </button>
+                    <div class="card">
+                        <h3><i class="fas fa-calendar-week"></i> Weekly Outlook</h3>
+                        <p>Strategic market outlook covering major cryptocurrencies, regulatory developments, and investment opportunities.</p>
+                        <a href="#" class="card-link">Read Outlook <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    
-                    <div class="bg-white p-6 rounded-lg shadow-lg">
-                        <div class="text-3xl font-bold mb-4">
-                            <i class="fas fa-rocket mr-2"></i>KuCoin
-                        </div>
-                        <p class="mb-4">Discover altcoins and emerging projects</p>
-                        <button class="bg-yellow-400 text-black px-6 py-3 rounded-lg hover:bg-yellow-500 transition-colors w-full">
-                            Trade on KuCoin
-                        </button>
+                    <div class="card">
+                        <h3><i class="fas fa-microscope"></i> Technical Analysis</h3>
+                        <p>In-depth technical analysis of major cryptocurrencies with chart patterns, indicators, and trading signals.</p>
+                        <a href="#" class="card-link">View Analysis <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-            </div>
+            </section>
         </div>
-    </section>
-
-    <!-- Newsletter -->
-    <section class="py-16 bg-gray-900">
-        <div class="container mx-auto px-4">
-            <div class="max-w-2xl mx-auto text-center">
-                <h3 class="text-3xl font-bold mb-4">
-                    <i class="fas fa-envelope mr-3 text-yellow-400"></i>Stay Updated
-                </h3>
-                <p class="text-gray-300 mb-8">Get the latest crypto and AI news delivered to your inbox every morning</p>
-                
-                <div class="flex flex-col md:flex-row gap-4">
-                    <input type="email" placeholder="Enter your email address" class="flex-1 px-4 py-3 rounded-lg bg-gray-800 text-white border border-gray-700 focus:border-yellow-400 focus:outline-none">
-                    <button class="bg-yellow-400 text-black px-8 py-3 rounded-lg hover:bg-yellow-500 transition-colors font-semibold">
-                        Subscribe
-                    </button>
-                </div>
-                
-                <p class="text-sm text-gray-400 mt-4">
-                    <i class="fas fa-lock mr-1"></i>Your email is safe with us. No spam, unsubscribe anytime.
-                </p>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-black py-12 border-t border-gray-800">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-coins text-yellow-400 text-2xl"></i>
-                        <h4 class="text-xl font-bold gradient-text">Asia Crypto News</h4>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-newspaper"></i> News</h3>
+                    <ul>
+                        <li><a href="/news.html">Breaking News</a></li>
+                        <li><a href="/news.html#analysis">Market Analysis</a></li>
+                        <li><a href="/news.html#regulation">Regulation</a></li>
+                        <li><a href="/news.html#technology">Technology</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <ul>
+                        <li><a href="/education.html">Beginner Guides</a></li>
+                        <li><a href="/education.html#advanced">Advanced Topics</a></li>
+                        <li><a href="/education.html#security">Security</a></li>
+                        <li><a href="/education.html#wallets">Wallets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-globe-asia"></i> Regional</h3>
+                    <ul>
+                        <li><a href="#regional">Japan</a></li>
+                        <li><a href="#regional">China</a></li>
+                        <li><a href="#regional">South Korea</a></li>
+                        <li><a href="#regional">Singapore</a></li>
+                        <li><a href="#regional">Hong Kong</a></li>
+                        <li><a href="#regional">Southeast Asia</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-info-circle"></i> About</h3>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#affiliate">Affiliate Disclosure</a></li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
-                    <p class="text-gray-300 mb-4">Asia's premier source for cryptocurrency and AI news, analysis, and education.</p>
-                    <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                            <i class="fab fa-twitter text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                            <i class="fab fa-linkedin text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                            <i class="fab fa-telegram text-xl"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                            <i class="fab fa-youtube text-xl"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div>
-                    <h5 class="text-lg font-semibold mb-4">Quick Links</h5>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Breaking News</a></li>
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Market Analysis</a></li>
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Educational Content</a></li>
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Regional Coverage</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="text-lg font-semibold mb-4">Regions</h5>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">🇯🇵 Japan</a></li>
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">🇨🇳 China</a></li>
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">🇰🇷 South Korea</a></li>
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">🇸🇬 Singapore</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="text-lg font-semibold mb-4">Legal</h5>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Affiliate Disclosure</a></li>
-                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Contact Us</a></li>
-                    </ul>
                 </div>
             </div>
-            
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Asia Crypto News. All rights reserved.</p>
-                <p class="mt-2 text-sm">
-                    <i class="fas fa-exclamation-triangle mr-1"></i>
-                    Cryptocurrency trading involves substantial risk and is not suitable for all investors.
-                </p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Asia Crypto News. All rights reserved. | Cryptocurrency investments carry risk. Please invest responsibly.</p>
             </div>
         </div>
     </footer>
-
-    <!-- Chart.js Script -->
-    <script>
-        // Market Chart
-        const ctx = document.getElementById('marketChart').getContext('2d');
-        const marketChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
-                datasets: [{
-                    label: 'Bitcoin Price (USD)',
-                    data: [95000, 96500, 97200, 97800, 96800, 97234, 97400],
-                    borderColor: '#FFD700',
-                    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#ffffff'
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            color: '#ffffff'
-                        },
-                        grid: {
-                            color: '#333333'
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            color: '#ffffff'
-                        },
-                        grid: {
-                            color: '#333333'
-                        }
-                    }
-                }
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Dynamic price updates (simulation)
-        setInterval(() => {
-            const priceElements = document.querySelectorAll('.crypto-card .text-2xl');
-            priceElements.forEach(element => {
-                const currentPrice = parseFloat(element.textContent.replace('$', '').replace(',', ''));
-                const change = (Math.random() - 0.5) * 100;
-                const newPrice = currentPrice + change;
-                element.textContent = `$${newPrice.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')}`;
-            });
-        }, 5000);
-    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"95bc20f25f23c1c0","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDl1I81N0oH86G7DJgHODJXSAiaQzU14m8LBfXvPnaxI2PtxMN98%2FiMTzUibsmILIoNhfhKND4LX79Z5CmaPkFsD0TfHaf%2B4BtVPUzeG6agpcHJF3xcuUjDIAVACPiAUZcKkP4d0GjOv2nzPb7RKoOiYMvDqqF1r3QQeESNfPHdLp0hfjJIApRYebBSgr58bFS5UW8heHarLaXk%2FeysEOgmWfLJ%2BGhuJDDlqi%2FlZB9DqZdXjt2Qbp%2FQU7jHusibfnhDyZ2jFBI3u%2BSLdoec0RxIUXsgmzxxCjMTzCnivyqvv3gOCz7hsNIHZ3uylqdgmonTDZZNGOKNbW9NkLrsl7s3tbN%2BWHJpyJxsVHAfUdKZ1eGBwy0qqw21ioXbrxBEyIL6IMDuejOEUJj9sapdCwgmEBFvPaWvDSMPZEaoejga%2Fl9pHUZa9Tr6SWf1sTm%2BjmUrbmKTxAkHfW7vhoQvShml30mWMULNTbnXR44JGKHwig7%2BUKTlFLeFQB%2Bhv%2FsZc0xBSc5iWfHn9POL3jYg52c%2BM%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDiEzXMLyYneTD8fHFL6N7jmzmf%2BZfsPb8QutdORAa%2FJ5lYFvgD2pErlV0tkMI0Xe%2BkSTRBjqp2KuAQwJO%2F0rH26RgPHgf0Z%2FUi6%2FBhgGiXNHynBy0mO2tx0imc7vnkqKaN0EoyLIvhcF3zQ6J%2BwVSseeK2xZNqzbYTxUtsjNSoGXVIpbEo4MONNqcMrnFd5F4OeQuiR4h8HVRwoyZH3cLaQIlCsRUHgkUvBx9vNpwlcCzCBK9u5%2B3PNTTGXOirOXyjELu3PuB9XPrsqjyT2v9SFZZqXSnpTcnalmcLZVosWXLdKh8Hw%2BO3o3XrJX5WTxIHHxpDc%2Fqvdq5vzQLEPyrge4g0cZGAYfGZxzZPP6bQKFA9vMTh%2FSnkWQvMDHYvO46JeSpnbIIM8nCrYGPTL%2FJU5Hzm%2Fk7z4wWeyqAkfdV1mhUdAh5qwu8yHNzp1n7VAqmXMPx4UNCVKWZbqbI6p%2Bisk7ISqsDLP9ccbXM5L4SL3B3MSdr%2BJsbrIVYGXA5gWdR0OWMu3r3T41gpD9hTF1JK8%3D";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDl1I81N0oH86G7DJgHODJXSAiaQzU14m8LBfXvPnaxI2PtxMN98/iMTzUibsmILIoNhfhKND4LX79Z5CmaPkFsD0TfHaf+4BtVPUzeG6agpcHJF3xcuUjDIAVACPiAUZcKkP4d0GjOv2nzPb7RKoOiYMvDqqF1r3QQeESNfPHdLp0hfjJIApRYebBSgr58bFS5UW8heHarLaXk/eysEOgmWfLJ+GhuJDDlqi/lZB9DqZdXjt2Qbp/QU7jHusibfnhDyZ2jFBI3u+SLdoec0RxIUXsgmzxxCjMTzCnivyqvv3gOCz7hsNIHZ3uylqdgmonTDZZNGOKNbW9NkLrsl7s3tbN+WHJpyJxsVHAfUdKZ1eGBwy0qqw21ioXbrxBEyIL6IMDuejOEUJj9sapdCwgmEBFvPaWvDSMPZEaoejga/l9pHUZa9Tr6SWf1sTm+jmUrbmKTxAkHfW7vhoQvShml30mWMULNTbnXR44JGKHwig7+UKTlFLeFQB+hv/sZc0xBSc5iWfHn9POL3jYg52c+M=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDiEzXMLyYneTD8fHFL6N7jmzmf+ZfsPb8QutdORAa/J5lYFvgD2pErlV0tkMI0Xe+kSTRBjqp2KuAQwJO/0rH26RgPHgf0Z/Ui6/BhgGiXNHynBy0mO2tx0imc7vnkqKaN0EoyLIvhcF3zQ6J+wVSseeK2xZNqzbYTxUtsjNSoGXVIpbEo4MONNqcMrnFd5F4OeQuiR4h8HVRwoyZH3cLaQIlCsRUHgkUvBx9vNpwlcCzCBK9u5+3PNTTGXOirOXyjELu3PuB9XPrsqjyT2v9SFZZqXSnpTcnalmcLZVosWXLdKh8Hw+O3o3XrJX5WTxIHHxpDc/qvdq5vzQLEPyrge4g0cZGAYfGZxzZPP6bQKFA9vMTh/SnkWQvMDHYvO46JeSpnbIIM8nCrYGPTL/JU5Hzm/k7z4wWeyqAkfdV1mhUdAh5qwu8yHNzp1n7VAqmXMPx4UNCVKWZbqbI6p+isk7ISqsDLP9ccbXM5L4SL3B3MSdr+JsbrIVYGXA5gWdR0OWMu3r3T41gpD9hTF1JK8=";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
