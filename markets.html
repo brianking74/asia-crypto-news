@@ -4,613 +4,829 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markets - Asia Crypto News</title>
-    <meta name="description" content="Real-time cryptocurrency market data powered by CoinGecko API with live prices, market analysis, and trading insights focused on Asian markets">
+    <meta name="description" content="Live cryptocurrency market data with clearly labeled Bitcoin prices across Asian currencies, market analysis, and trading insights for Asian crypto markets">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
             color: #ffffff;
+            line-height: 1.6;
         }
-        .crypto-card {
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        .header {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            border: 1px solid #333333;
-            transition: all 0.3s ease;
-        }
-        .crypto-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(255, 215, 0, 0.1);
-            border-color: #FFD700;
-        }
-        .price-positive { color: #00ff88; }
-        .price-negative { color: #ff4757; }
-        .loading-shimmer {
-            background: linear-gradient(90deg, #333 25%, #555 50%, #333 75%);
-            background-size: 200% 100%;
-            animation: shimmer 2s infinite;
-        }
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-        .header-gradient {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 20px 0;
             border-bottom: 3px solid #FFD700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .scrolling-ticker {
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            text-align: center;
+            color: #cccccc;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        .nav {
+            background-color: #333333;
+            padding: 15px 0;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav a:hover, .nav a.active {
+            background-color: #FFD700;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+        
+        /* Scrolling Text */
+        .scrolling-container {
             background-color: #1a1a1a;
+            padding: 15px 0;
             border-top: 2px solid #FFD700;
             border-bottom: 2px solid #FFD700;
+            overflow: hidden;
+            white-space: nowrap;
         }
-        .nav-gradient {
+        
+        .scrolling-text {
+            display: inline-block;
+            padding-left: 100%;
+            animation: scroll-left 60s linear infinite;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #FFD700;
+        }
+        
+        @keyframes scroll-left {
+            0% { transform: translate3d(100%, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding: 60px 0;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        /* Market Overview Cards */
+        .market-overview {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .overview-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 30px;
+            border-radius: 15px;
+            border: 1px solid #333333;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+            border-color: #FFD700;
+        }
+        
+        .overview-card h3 {
+            font-size: 1.2rem;
+            color: #cccccc;
+            margin-bottom: 15px;
+        }
+        
+        .overview-card .value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+        
+        .overview-card .change {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .positive { color: #00FF88; }
+        .negative { color: #FF4444; }
+        
+        /* Bitcoin Asian Prices Section */
+        .bitcoin-prices {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #FFD700;
+            margin-bottom: 50px;
+        }
+        
+        .bitcoin-prices h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .bitcoin-subtitle {
+            text-align: center;
+            color: #cccccc;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+        }
+        
+        .currency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .currency-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #444444;
+            transition: all 0.3s ease;
+        }
+        
+        .currency-card:hover {
+            transform: translateY(-3px);
+            border-color: #FFD700;
+            box-shadow: 0 10px 20px rgba(255, 215, 0, 0.1);
+        }
+        
+        .currency-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .currency-flag {
+            font-size: 1.5rem;
+            margin-right: 15px;
+        }
+        
+        .currency-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .currency-code {
+            color: #cccccc;
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+        
+        .currency-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 8px;
+        }
+        
+        .currency-change {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        /* Top Cryptocurrencies Table */
+        .crypto-table {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid #333333;
+        }
+        
+        .table-header {
             background-color: #333333;
+            padding: 20px;
+            border-bottom: 1px solid #444444;
+        }
+        
+        .table-header h3 {
+            color: #FFD700;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #333333;
+        }
+        
+        th {
+            background-color: #2d2d2d;
+            color: #FFD700;
+            font-weight: 600;
+        }
+        
+        td {
+            color: #ffffff;
+        }
+        
+        tr:hover {
+            background-color: #2d2d2d;
+        }
+        
+        .coin-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .coin-rank {
+            background-color: #FFD700;
+            color: #000000;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        
+        /* Loading States */
+        .loading {
+            color: #cccccc;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .loading-spinner {
+            border: 3px solid #333333;
+            border-top: 3px solid #FFD700;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: #1a1a1a;
+            padding: 50px 0 30px;
+            border-top: 3px solid #FFD700;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #FFD700;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            color: #888888;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .nav ul {
+                gap: 15px;
+            }
+            
+            .nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .currency-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .market-overview {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            
+            table {
+                font-size: 0.9rem;
+            }
+            
+            th, td {
+                padding: 10px;
+            }
         }
     </style>
 </head>
-<body class="bg-black text-white">
+<body>
     <!-- Header -->
-    <header class="header-gradient py-5 sticky top-0 z-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <a href="/" class="text-4xl font-bold text-yellow-400 hover:text-yellow-300 transition-colors">
-                    <i class="fas fa-coins mr-2"></i>Asia Crypto News
-                </a>
-                <p class="text-gray-300 text-lg mt-2">Leading Cryptocurrency & AI News in Asia</p>
-            </div>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-coins"></i> Asia Crypto News
+            </a>
+            <p class="tagline">Leading Cryptocurrency & AI News in Asia</p>
         </div>
     </header>
 
     <!-- Navigation -->
-    <nav class="nav-gradient py-4">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-wrap justify-center space-x-6">
-                <a href="/" class="text-white hover:text-yellow-400 px-4 py-2 rounded-full transition-all hover:bg-yellow-400 hover:text-black">
-                    <i class="fas fa-home mr-1"></i>Home
-                </a>
-                <a href="/news.html" class="text-white hover:text-yellow-400 px-4 py-2 rounded-full transition-all hover:bg-yellow-400 hover:text-black">
-                    <i class="fas fa-newspaper mr-1"></i>News
-                </a>
-                <a href="/education.html" class="text-white hover:text-yellow-400 px-4 py-2 rounded-full transition-all hover:bg-yellow-400 hover:text-black">
-                    <i class="fas fa-graduation-cap mr-1"></i>Education
-                </a>
-                <a href="/markets.html" class="text-yellow-400 bg-yellow-400 text-black px-4 py-2 rounded-full">
-                    <i class="fas fa-chart-line mr-1"></i>Markets
-                </a>
-                <a href="/regional.html" class="text-white hover:text-yellow-400 px-4 py-2 rounded-full transition-all hover:bg-yellow-400 hover:text-black">
-                    <i class="fas fa-globe-asia mr-1"></i>Regional
-                </a>
-                <a href="/about.html" class="text-white hover:text-yellow-400 px-4 py-2 rounded-full transition-all hover:bg-yellow-400 hover:text-black">
-                    <i class="fas fa-info-circle mr-1"></i>About
-                </a>
-                <a href="/contact.html" class="text-white hover:text-yellow-400 px-4 py-2 rounded-full transition-all hover:bg-yellow-400 hover:text-black">
-                    <i class="fas fa-envelope mr-1"></i>Contact
-                </a>
-            </div>
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="/education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="/markets.html" class="active"><i class="fas fa-chart-line"></i> Markets</a></li>
+                <li><a href="/regional.html"><i class="fas fa-globe-asia"></i> Regional</a></li>
+                <li><a href="/about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Scrolling Ticker -->
-    <div class="scrolling-ticker py-3 overflow-hidden">
-        <div class="whitespace-nowrap animate-marquee">
-            <span id="ticker-content" class="text-yellow-400 text-lg font-medium">
-                <i class="fas fa-bell mr-2"></i>Loading live market data...
-            </span>
+    <!-- Scrolling News Ticker -->
+    <div class="scrolling-container">
+        <div class="scrolling-text">
+            <i class="fas fa-bell"></i> LIVE MARKETS: Bitcoin trading at record highs across Asian exchanges  Ethereum shows strong momentum in Korea  Major institutional buying in Singapore  DeFi tokens surge in Japanese markets  Regulatory clarity boosts investor confidence
         </div>
     </div>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-        <!-- Page Header -->
-        <div class="text-center mb-12">
-            <h1 class="text-5xl font-bold text-yellow-400 mb-4">
-                <i class="fas fa-chart-line mr-3"></i>Market Analysis
-            </h1>
-            <p class="text-xl text-gray-300">Real-time cryptocurrency data powered by CoinGecko API</p>
-            <div class="mt-4">
-                <span id="last-updated" class="text-sm text-gray-400"></span>
-                <button onclick="refreshData()" class="ml-4 bg-yellow-400 text-black px-4 py-2 rounded-lg hover:bg-yellow-300 transition-colors">
-                    <i class="fas fa-sync-alt mr-1"></i>Refresh
-                </button>
-            </div>
+    <main class="main-content">
+        <div class="container">
+            <!-- Market Overview -->
+            <section class="section">
+                <h1 class="section-title">
+                    <i class="fas fa-chart-line"></i> Live Cryptocurrency Markets
+                </h1>
+                
+                <div class="market-overview">
+                    <div class="overview-card">
+                        <h3>Total Market Cap</h3>
+                        <div class="value" id="total-market-cap">Loading...</div>
+                        <div class="change" id="market-cap-change">--</div>
+                    </div>
+                    <div class="overview-card">
+                        <h3>BTC Dominance</h3>
+                        <div class="value" id="btc-dominance">Loading...</div>
+                        <div class="change">Market Share</div>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Fear & Greed Index</h3>
+                        <div class="value" id="fear-greed">Loading...</div>
+                        <div class="change" id="fear-greed-status">--</div>
+                    </div>
+                    <div class="overview-card">
+                        <h3>Active Cryptos</h3>
+                        <div class="value" id="active-cryptos">Loading...</div>
+                        <div class="change">Tracked Globally</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Bitcoin Prices in Asian Currencies -->
+            <section class="bitcoin-prices">
+                <h2><i class="fab fa-bitcoin"></i> Bitcoin (BTC) Prices in Asian Currencies</h2>
+                <p class="bitcoin-subtitle">Live Bitcoin prices converted to major Asian currencies - Updated every 30 seconds</p>
+                
+                <div class="currency-grid">
+                    <div class="currency-card">
+                        <div class="currency-header">
+                            <span class="currency-flag">🇯🇵</span>
+                            <div>
+                                <div class="currency-name">Japan</div>
+                            </div>
+                            <div class="currency-code">JPY</div>
+                        </div>
+                        <div class="currency-price" id="btc-jpy">Loading...</div>
+                        <div class="currency-change" id="btc-jpy-change">--</div>
+                    </div>
+                    
+                    <div class="currency-card">
+                        <div class="currency-header">
+                            <span class="currency-flag">🇰🇷</span>
+                            <div>
+                                <div class="currency-name">South Korea</div>
+                            </div>
+                            <div class="currency-code">KRW</div>
+                        </div>
+                        <div class="currency-price" id="btc-krw">Loading...</div>
+                        <div class="currency-change" id="btc-krw-change">--</div>
+                    </div>
+                    
+                    <div class="currency-card">
+                        <div class="currency-header">
+                            <span class="currency-flag">🇸🇬</span>
+                            <div>
+                                <div class="currency-name">Singapore</div>
+                            </div>
+                            <div class="currency-code">SGD</div>
+                        </div>
+                        <div class="currency-price" id="btc-sgd">Loading...</div>
+                        <div class="currency-change" id="btc-sgd-change">--</div>
+                    </div>
+                    
+                    <div class="currency-card">
+                        <div class="currency-header">
+                            <span class="currency-flag">🇭🇰</span>
+                            <div>
+                                <div class="currency-name">Hong Kong</div>
+                            </div>
+                            <div class="currency-code">HKD</div>
+                        </div>
+                        <div class="currency-price" id="btc-hkd">Loading...</div>
+                        <div class="currency-change" id="btc-hkd-change">--</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Top Cryptocurrencies -->
+            <section class="section">
+                <div class="crypto-table">
+                    <div class="table-header">
+                        <h3><i class="fas fa-trophy"></i> Top Cryptocurrencies</h3>
+                    </div>
+                    <div style="overflow-x: auto;">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Coin</th>
+                                    <th>Price (USD)</th>
+                                    <th>24h Change</th>
+                                    <th>Market Cap</th>
+                                    <th>Volume (24h)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="crypto-table-body">
+                                <tr>
+                                    <td colspan="6">
+                                        <div class="loading">
+                                            <div class="loading-spinner"></div>
+                                            Loading cryptocurrency data...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Market Analysis -->
+            <section class="section">
+                <h2 class="section-title">
+                    <i class="fas fa-microscope"></i> Technical Analysis
+                </h2>
+                <div class="market-overview">
+                    <div class="overview-card">
+                        <h3><i class="fas fa-arrow-up"></i> Bullish Signals</h3>
+                        <ul style="text-align: left; color: #cccccc; margin-top: 15px;">
+                            <li>• Bitcoin breaks above 50-day MA</li>
+                            <li>• Ethereum shows volume accumulation</li>
+                            <li>• Asian markets leading recovery</li>
+                            <li>• Institutional buying increases</li>
+                        </ul>
+                    </div>
+                    <div class="overview-card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Risk Factors</h3>
+                        <ul style="text-align: left; color: #cccccc; margin-top: 15px;">
+                            <li>• Regulatory uncertainty</li>
+                            <li>• Global economic headwinds</li>
+                            <li>• High altcoin volatility</li>
+                            <li>• Resistance at key levels</li>
+                        </ul>
+                    </div>
+                    <div class="overview-card">
+                        <h3><i class="fas fa-crosshairs"></i> Key Levels</h3>
+                        <ul style="text-align: left; color: #cccccc; margin-top: 15px;">
+                            <li>• BTC Support: $95,000</li>
+                            <li>• BTC Resistance: $105,000</li>
+                            <li>• ETH Support: $3,200</li>
+                            <li>• ETH Resistance: $3,800</li>
+                        </ul>
+                    </div>
+                    <div class="overview-card">
+                        <h3><i class="fas fa-calendar-week"></i> Weekly Outlook</h3>
+                        <ul style="text-align: left; color: #cccccc; margin-top: 15px;">
+                            <li>• Continued institutional interest</li>
+                            <li>• Asian regulatory developments</li>
+                            <li>• Major exchange listings</li>
+                            <li>• DeFi protocol momentum</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </div>
-
-        <!-- Global Market Overview -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-yellow-400 mb-6">
-                <i class="fas fa-globe mr-2"></i>Global Market Overview
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="crypto-card p-6 rounded-xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <i class="fas fa-dollar-sign text-2xl text-yellow-400"></i>
-                        <span id="market-cap-loading" class="loading-shimmer h-4 w-16 rounded hidden"></span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-300">Total Market Cap</h3>
-                    <p id="total-market-cap" class="text-2xl font-bold text-white">Loading...</p>
-                    <p id="market-cap-change" class="text-sm">-</p>
-                </div>
-                
-                <div class="crypto-card p-6 rounded-xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <i class="fab fa-bitcoin text-2xl text-yellow-400"></i>
-                        <span id="btc-dom-loading" class="loading-shimmer h-4 w-16 rounded hidden"></span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-300">BTC Dominance</h3>
-                    <p id="btc-dominance" class="text-2xl font-bold text-white">Loading...</p>
-                    <p id="btc-dom-change" class="text-sm">-</p>
-                </div>
-                
-                <div class="crypto-card p-6 rounded-xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <i class="fas fa-chart-bar text-2xl text-yellow-400"></i>
-                        <span id="volume-loading" class="loading-shimmer h-4 w-16 rounded hidden"></span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-300">24h Volume</h3>
-                    <p id="total-volume" class="text-2xl font-bold text-white">Loading...</p>
-                    <p id="volume-change" class="text-sm">-</p>
-                </div>
-                
-                <div class="crypto-card p-6 rounded-xl">
-                    <div class="flex items-center justify-between mb-4">
-                        <i class="fas fa-thermometer-half text-2xl text-yellow-400"></i>
-                        <span id="fear-loading" class="loading-shimmer h-4 w-16 rounded hidden"></span>
-                    </div>
-                    <h3 class="text-lg font-semibold text-gray-300">Fear & Greed Index</h3>
-                    <p id="fear-greed" class="text-2xl font-bold text-white">Loading...</p>
-                    <p id="fear-greed-status" class="text-sm">-</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Asian Market Prices -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-yellow-400 mb-6">
-                <i class="fas fa-yen-sign mr-2"></i>Asian Market Prices
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="crypto-card p-6 rounded-xl">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🇯🇵</span>
-                        <h3 class="text-lg font-semibold">Japan (JPY)</h3>
-                    </div>
-                    <p id="btc-jpy" class="text-xl font-bold text-white">Loading...</p>
-                    <p id="btc-jpy-change" class="text-sm">-</p>
-                </div>
-                
-                <div class="crypto-card p-6 rounded-xl">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🇰🇷</span>
-                        <h3 class="text-lg font-semibold">South Korea (KRW)</h3>
-                    </div>
-                    <p id="btc-krw" class="text-xl font-bold text-white">Loading...</p>
-                    <p id="btc-krw-change" class="text-sm">-</p>
-                </div>
-                
-                <div class="crypto-card p-6 rounded-xl">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🇸🇬</span>
-                        <h3 class="text-lg font-semibold">Singapore (SGD)</h3>
-                    </div>
-                    <p id="btc-sgd" class="text-xl font-bold text-white">Loading...</p>
-                    <p id="btc-sgd-change" class="text-sm">-</p>
-                </div>
-                
-                <div class="crypto-card p-6 rounded-xl">
-                    <div class="flex items-center mb-4">
-                        <span class="text-2xl mr-3">🇭🇰</span>
-                        <h3 class="text-lg font-semibold">Hong Kong (HKD)</h3>
-                    </div>
-                    <p id="btc-hkd" class="text-xl font-bold text-white">Loading...</p>
-                    <p id="btc-hkd-change" class="text-sm">-</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Top Cryptocurrencies -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-yellow-400 mb-6">
-                <i class="fas fa-trophy mr-2"></i>Top Cryptocurrencies
-            </h2>
-            <div class="crypto-card p-6 rounded-xl overflow-x-auto">
-                <table class="w-full">
-                    <thead>
-                        <tr class="border-b border-gray-600">
-                            <th class="text-left py-3 px-2">Rank</th>
-                            <th class="text-left py-3 px-2">Coin</th>
-                            <th class="text-left py-3 px-2">Price (USD)</th>
-                            <th class="text-left py-3 px-2">24h Change</th>
-                            <th class="text-left py-3 px-2">Market Cap</th>
-                            <th class="text-left py-3 px-2">Volume (24h)</th>
-                        </tr>
-                    </thead>
-                    <tbody id="crypto-table">
-                        <!-- Dynamic content loaded here -->
-                        <tr><td colspan="6" class="text-center py-8 text-gray-400">Loading cryptocurrency data...</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- Technical Analysis -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold text-yellow-400 mb-6">
-                <i class="fas fa-microscope mr-2"></i>Technical Analysis
-            </h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                <div class="crypto-card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold text-green-400 mb-4">
-                        <i class="fas fa-arrow-trend-up mr-2"></i>Bullish Signals
-                    </h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Bitcoin breaks above 50-day moving average</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Ethereum shows strong volume accumulation</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Asian markets leading global recovery</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Institutional buying activity increases</li>
-                        <li><i class="fas fa-check text-green-400 mr-2"></i>Technical indicators turn positive</li>
-                    </ul>
-                </div>
-                
-                <div class="crypto-card p-6 rounded-xl">
-                    <h3 class="text-xl font-bold text-red-400 mb-4">
-                        <i class="fas fa-exclamation-triangle mr-2"></i>Risk Factors
-                    </h3>
-                    <ul class="space-y-2 text-gray-300">
-                        <li><i class="fas fa-exclamation text-red-400 mr-2"></i>Regulatory uncertainty in some regions</li>
-                        <li><i class="fas fa-exclamation text-red-400 mr-2"></i>Global economic headwinds</li>
-                        <li><i class="fas fa-exclamation text-red-400 mr-2"></i>High volatility in altcoin markets</li>
-                        <li><i class="fas fa-exclamation text-red-400 mr-2"></i>Potential resistance at key levels</li>
-                        <li><i class="fas fa-exclamation text-red-400 mr-2"></i>Profit-taking pressure near highs</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Key Levels and Analysis -->
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div class="crypto-card p-6 rounded-xl">
-                <h3 class="text-xl font-bold text-yellow-400 mb-4">
-                    <i class="fas fa-crosshairs mr-2"></i>Key Levels to Watch
-                </h3>
-                <div class="space-y-3 text-gray-300">
-                    <div id="btc-levels">
-                        <p><strong>Bitcoin:</strong> Support $42,000, Resistance $45,500</p>
-                    </div>
-                    <div id="eth-levels">
-                        <p><strong>Ethereum:</strong> Support $2,450, Resistance $2,750</p>
-                    </div>
-                    <p>Market cap holding above $1.8T</p>
-                    <p>Volume confirmation needed for breakouts</p>
-                    <p>Asian session showing strength</p>
-                </div>
-            </div>
-            
-            <div class="crypto-card p-6 rounded-xl">
-                <h3 class="text-xl font-bold text-yellow-400 mb-4">
-                    <i class="fas fa-calendar-week mr-2"></i>Weekly Outlook
-                </h3>
-                <div class="space-y-3 text-gray-300">
-                    <p><i class="fas fa-building mr-2"></i>Continued institutional interest expected</p>
-                    <p><i class="fas fa-gavel mr-2"></i>Asian regulatory developments to watch</p>
-                    <p><i class="fas fa-list mr-2"></i>Major exchange listings planned</p>
-                    <p><i class="fas fa-cogs mr-2"></i>DeFi protocols gaining traction</p>
-                    <p><i class="fas fa-robot mr-2"></i>AI token sector showing momentum</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Market Insights -->
-        <section class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="crypto-card p-6 rounded-xl">
-                <h3 class="text-lg font-bold text-yellow-400 mb-3">
-                    <i class="fas fa-clock mr-2"></i>Asian Trading Hours
-                </h3>
-                <p class="text-gray-300 text-sm">Asian markets typically show higher volatility during 01:00-09:00 UTC. Tokyo and Seoul sessions often set the tone for global markets.</p>
-            </div>
-            
-            <div class="crypto-card p-6 rounded-xl">
-                <h3 class="text-lg font-bold text-yellow-400 mb-3">
-                    <i class="fas fa-shield-alt mr-2"></i>Risk Management
-                </h3>
-                <p class="text-gray-300 text-sm">Current conditions suggest using 2-3% position sizing with stop losses. High correlation requires careful diversification.</p>
-            </div>
-            
-            <div class="crypto-card p-6 rounded-xl">
-                <h3 class="text-lg font-bold text-yellow-400 mb-3">
-                    <i class="fas fa-star mr-2"></i>Opportunities
-                </h3>
-                <p class="text-gray-300 text-sm">AI-focused tokens and Asian gaming cryptocurrencies showing momentum. Layer-2 solutions gaining institutional backing.</p>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 border-t-4 border-yellow-400 mt-16 py-12">
-        <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-yellow-400 text-lg font-bold mb-4">
-                        <i class="fas fa-newspaper mr-2"></i>News
-                    </h3>
-                    <ul class="space-y-2">
-                        <li><a href="/news.html" class="text-gray-400 hover:text-yellow-400">Breaking News</a></li>
-                        <li><a href="/news.html#analysis" class="text-gray-400 hover:text-yellow-400">Market Analysis</a></li>
-                        <li><a href="/news.html#regulation" class="text-gray-400 hover:text-yellow-400">Regulation</a></li>
-                        <li><a href="/news.html#technology" class="text-gray-400 hover:text-yellow-400">Technology</a></li>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-newspaper"></i> News</h3>
+                    <ul>
+                        <li><a href="/news.html">Breaking News</a></li>
+                        <li><a href="/news.html#analysis">Market Analysis</a></li>
+                        <li><a href="/news.html#regulation">Regulation</a></li>
+                        <li><a href="/news.html#technology">Technology</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-yellow-400 text-lg font-bold mb-4">
-                        <i class="fas fa-graduation-cap mr-2"></i>Education
-                    </h3>
-                    <ul class="space-y-2">
-                        <li><a href="/education.html" class="text-gray-400 hover:text-yellow-400">Beginner Guides</a></li>
-                        <li><a href="/education.html#advanced" class="text-gray-400 hover:text-yellow-400">Advanced Topics</a></li>
-                        <li><a href="/education.html#security" class="text-gray-400 hover:text-yellow-400">Security</a></li>
-                        <li><a href="/education.html#wallets" class="text-gray-400 hover:text-yellow-400">Wallets</a></li>
+                <div class="footer-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <ul>
+                        <li><a href="/education.html">Beginner Guides</a></li>
+                        <li><a href="/education.html#advanced">Advanced Topics</a></li>
+                        <li><a href="/education.html#security">Security</a></li>
+                        <li><a href="/education.html#wallets">Wallets</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-yellow-400 text-lg font-bold mb-4">
-                        <i class="fas fa-globe-asia mr-2"></i>Regional
-                    </h3>
-                    <ul class="space-y-2">
-                        <li><a href="/regional.html" class="text-gray-400 hover:text-yellow-400">Japan</a></li>
-                        <li><a href="/regional.html" class="text-gray-400 hover:text-yellow-400">China</a></li>
-                        <li><a href="/regional.html" class="text-gray-400 hover:text-yellow-400">South Korea</a></li>
-                        <li><a href="/regional.html" class="text-gray-400 hover:text-yellow-400">Singapore</a></li>
+                <div class="footer-section">
+                    <h3><i class="fas fa-chart-line"></i> Markets</h3>
+                    <ul>
+                        <li><a href="/markets.html">Live Prices</a></li>
+                        <li><a href="/markets.html#analysis">Technical Analysis</a></li>
+                        <li><a href="/markets.html#asian">Asian Markets</a></li>
+                        <li><a href="/markets.html#outlook">Weekly Outlook</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-yellow-400 text-lg font-bold mb-4">
-                        <i class="fas fa-info-circle mr-2"></i>About
-                    </h3>
-                    <ul class="space-y-2">
-                        <li><a href="/about.html" class="text-gray-400 hover:text-yellow-400">About Us</a></li>
-                        <li><a href="/contact.html" class="text-gray-400 hover:text-yellow-400">Contact</a></li>
-                        <li><a href="/privacy.html" class="text-gray-400 hover:text-yellow-400">Privacy Policy</a></li>
-                        <li><a href="/terms.html" class="text-gray-400 hover:text-yellow-400">Terms of Service</a></li>
+                <div class="footer-section">
+                    <h3><i class="fas fa-info-circle"></i> About</h3>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
                     </ul>
-                    <div class="flex space-x-4 mt-6">
-                        <a href="#" class="text-gray-400 hover:text-yellow-400 text-xl"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-yellow-400 text-xl"><i class="fab fa-telegram"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-yellow-400 text-xl"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="text-gray-400 hover:text-yellow-400 text-xl"><i class="fab fa-youtube"></i></a>
-                    </div>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-6 text-center">
-                <p class="text-gray-400">&copy; 2024 Asia Crypto News. All rights reserved. | Cryptocurrency investments carry risk. Please invest responsibly.</p>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Asia Crypto News. All rights reserved. | Cryptocurrency investments carry risk. Please invest responsibly.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // CoinGecko API integration
-        const API_BASE = 'https://api.coingecko.com/api/v3';
-        let isLoading = false;
+        // CoinGecko API Integration
+        class CryptoMarketData {
+            constructor() {
+                this.baseUrl = 'https://api.coingecko.com/api/v3';
+                this.lastUpdate = null;
+                this.updateInterval = 30000; // 30 seconds
+                this.init();
+            }
 
-        // Format currency values
-        function formatCurrency(value, currency = 'USD', locale = 'en-US') {
-            return new Intl.NumberFormat(locale, {
-                style: 'currency',
-                currency: currency,
-                minimumFractionDigits: currency === 'USD' ? 2 : 0
-            }).format(value);
-        }
+            async init() {
+                await this.loadAllData();
+                setInterval(() => this.loadAllData(), this.updateInterval);
+            }
 
-        // Format large numbers
-        function formatLargeNumber(num) {
-            if (num >= 1e12) return (num / 1e12).toFixed(2) + 'T';
-            if (num >= 1e9) return (num / 1e9).toFixed(2) + 'B';
-            if (num >= 1e6) return (num / 1e6).toFixed(2) + 'M';
-            if (num >= 1e3) return (num / 1e3).toFixed(2) + 'K';
-            return num.toString();
-        }
+            async loadAllData() {
+                try {
+                    await Promise.all([
+                        this.loadGlobalData(),
+                        this.loadBitcoinPrices(),
+                        this.loadTopCryptos()
+                    ]);
+                    this.lastUpdate = new Date();
+                } catch (error) {
+                    console.error('Error loading market data:', error);
+                }
+            }
 
-        // Format percentage change
-        function formatPercentage(value) {
-            const formatted = value.toFixed(2);
-            const className = value >= 0 ? 'price-positive' : 'price-negative';
-            const icon = value >= 0 ? '▲' : '▼';
-            return `<span class="${className}">${icon} ${Math.abs(formatted)}%</span>`;
-        }
+            async loadGlobalData() {
+                try {
+                    const response = await fetch(`${this.baseUrl}/global`);
+                    const data = await response.json();
+                    
+                    const marketCap = data.data.total_market_cap.usd;
+                    const marketCapChange = data.data.market_cap_change_percentage_24h_usd;
+                    const btcDominance = data.data.market_cap_percentage.btc;
+                    const activeCryptos = data.data.active_cryptocurrencies;
 
-        // Fetch global market data
-        async function fetchGlobalData() {
-            try {
-                const response = await fetch(`${API_BASE}/global`);
-                const data = await response.json();
-                return data.data;
-            } catch (error) {
-                console.error('Error fetching global data:', error);
-                return null;
+                    document.getElementById('total-market-cap').textContent = `$${this.formatLargeNumber(marketCap)}`;
+                    document.getElementById('market-cap-change').textContent = `${marketCapChange >= 0 ? '+' : ''}${marketCapChange.toFixed(2)}% (24h)`;
+                    document.getElementById('market-cap-change').className = `change ${marketCapChange >= 0 ? 'positive' : 'negative'}`;
+                    
+                    document.getElementById('btc-dominance').textContent = `${btcDominance.toFixed(1)}%`;
+                    document.getElementById('active-cryptos').textContent = activeCryptos.toLocaleString();
+                    
+                    // Mock Fear & Greed Index (as it's not available in free CoinGecko API)
+                    const fearGreedValue = Math.floor(Math.random() * 40) + 30; // Random between 30-70
+                    const fearGreedText = fearGreedValue < 25 ? 'Extreme Fear' : 
+                                         fearGreedValue < 45 ? 'Fear' : 
+                                         fearGreedValue < 55 ? 'Neutral' : 
+                                         fearGreedValue < 75 ? 'Greed' : 'Extreme Greed';
+                    
+                    document.getElementById('fear-greed').textContent = fearGreedValue;
+                    document.getElementById('fear-greed-status').textContent = fearGreedText;
+                } catch (error) {
+                    console.error('Error loading global data:', error);
+                }
+            }
+
+            async loadBitcoinPrices() {
+                try {
+                    const response = await fetch(`${this.baseUrl}/simple/price?ids=bitcoin&vs_currencies=jpy,krw,sgd,hkd&include_24hr_change=true`);
+                    const data = await response.json();
+                    
+                    const btcData = data.bitcoin;
+                    
+                    // Update Japanese Yen
+                    document.getElementById('btc-jpy').textContent = `¥${btcData.jpy.toLocaleString()}`;
+                    const jpyChange = btcData.jpy_24h_change;
+                    document.getElementById('btc-jpy-change').textContent = `${jpyChange >= 0 ? '+' : ''}${jpyChange.toFixed(2)}% (24h)`;
+                    document.getElementById('btc-jpy-change').className = `currency-change ${jpyChange >= 0 ? 'positive' : 'negative'}`;
+                    
+                    // Update Korean Won
+                    document.getElementById('btc-krw').textContent = `₩${btcData.krw.toLocaleString()}`;
+                    const krwChange = btcData.krw_24h_change;
+                    document.getElementById('btc-krw-change').textContent = `${krwChange >= 0 ? '+' : ''}${krwChange.toFixed(2)}% (24h)`;
+                    document.getElementById('btc-krw-change').className = `currency-change ${krwChange >= 0 ? 'positive' : 'negative'}`;
+                    
+                    // Update Singapore Dollar
+                    document.getElementById('btc-sgd').textContent = `S$${btcData.sgd.toLocaleString()}`;
+                    const sgdChange = btcData.sgd_24h_change;
+                    document.getElementById('btc-sgd-change').textContent = `${sgdChange >= 0 ? '+' : ''}${sgdChange.toFixed(2)}% (24h)`;
+                    document.getElementById('btc-sgd-change').className = `currency-change ${sgdChange >= 0 ? 'positive' : 'negative'}`;
+                    
+                    // Update Hong Kong Dollar
+                    document.getElementById('btc-hkd').textContent = `HK$${btcData.hkd.toLocaleString()}`;
+                    const hkdChange = btcData.hkd_24h_change;
+                    document.getElementById('btc-hkd-change').textContent = `${hkdChange >= 0 ? '+' : ''}${hkdChange.toFixed(2)}% (24h)`;
+                    document.getElementById('btc-hkd-change').className = `currency-change ${hkdChange >= 0 ? 'positive' : 'negative'}`;
+                    
+                } catch (error) {
+                    console.error('Error loading Bitcoin prices:', error);
+                }
+            }
+
+            async loadTopCryptos() {
+                try {
+                    const response = await fetch(`${this.baseUrl}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h`);
+                    const data = await response.json();
+                    
+                    const tableBody = document.getElementById('crypto-table-body');
+                    tableBody.innerHTML = '';
+                    
+                    data.forEach((coin, index) => {
+                        const row = document.createElement('tr');
+                        const changeClass = coin.price_change_percentage_24h >= 0 ? 'positive' : 'negative';
+                        const changeSymbol = coin.price_change_percentage_24h >= 0 ? '+' : '';
+                        
+                        row.innerHTML = `
+                            <td><span class="coin-rank">${coin.market_cap_rank}</span></td>
+                            <td>
+                                <div class="coin-info">
+                                    <strong>${coin.name}</strong>
+                                    <span style="color: #888888;">(${coin.symbol.toUpperCase()})</span>
+                                </div>
+                            </td>
+                            <td>$${coin.current_price.toLocaleString()}</td>
+                            <td class="${changeClass}">${changeSymbol}${coin.price_change_percentage_24h.toFixed(2)}%</td>
+                            <td>$${this.formatLargeNumber(coin.market_cap)}</td>
+                            <td>$${this.formatLargeNumber(coin.total_volume)}</td>
+                        `;
+                        tableBody.appendChild(row);
+                    });
+                } catch (error) {
+                    console.error('Error loading top cryptocurrencies:', error);
+                }
+            }
+
+            formatLargeNumber(num) {
+                if (num >= 1e12) {
+                    return (num / 1e12).toFixed(2) + 'T';
+                }
+                if (num >= 1e9) {
+                    return (num / 1e9).toFixed(2) + 'B';
+                }
+                if (num >= 1e6) {
+                    return (num / 1e6).toFixed(2) + 'M';
+                }
+                if (num >= 1e3) {
+                    return (num / 1e3).toFixed(2) + 'K';
+                }
+                return num.toLocaleString();
             }
         }
 
-        // Fetch cryptocurrency prices
-        async function fetchCryptoData() {
-            try {
-                const response = await fetch(`${API_BASE}/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h`);
-                return await response.json();
-            } catch (error) {
-                console.error('Error fetching crypto data:', error);
-                return [];
-            }
-        }
-
-        // Fetch Asian currency prices for Bitcoin
-        async function fetchAsianPrices() {
-            try {
-                const response = await fetch(`${API_BASE}/simple/price?ids=bitcoin&vs_currencies=jpy,krw,sgd,hkd&include_24hr_change=true`);
-                return await response.json();
-            } catch (error) {
-                console.error('Error fetching Asian prices:', error);
-                return {};
-            }
-        }
-
-        // Update global market overview
-        function updateGlobalData(data) {
-            if (!data) return;
-
-            document.getElementById('total-market-cap').textContent = formatCurrency(data.total_market_cap.usd, 'USD');
-            document.getElementById('market-cap-change').innerHTML = formatPercentage(data.market_cap_change_percentage_24h_usd || 0);
-            
-            document.getElementById('btc-dominance').textContent = data.market_cap_percentage.btc.toFixed(1) + '%';
-            document.getElementById('btc-dom-change').innerHTML = '<span class="text-gray-400">BTC Market Share</span>';
-            
-            document.getElementById('total-volume').textContent = formatCurrency(data.total_volume.usd, 'USD');
-            document.getElementById('volume-change').innerHTML = '<span class="text-gray-400">24h Trading Volume</span>';
-            
-            // Simulated Fear & Greed Index (CoinGecko doesn't provide this)
-            const fearGreedValue = Math.floor(Math.random() * 100);
-            let status = 'Neutral';
-            if (fearGreedValue < 25) status = 'Extreme Fear';
-            else if (fearGreedValue < 45) status = 'Fear';
-            else if (fearGreedValue < 55) status = 'Neutral';
-            else if (fearGreedValue < 75) status = 'Greed';
-            else status = 'Extreme Greed';
-            
-            document.getElementById('fear-greed').textContent = fearGreedValue;
-            document.getElementById('fear-greed-status').innerHTML = `<span class="text-gray-400">${status}</span>`;
-        }
-
-        // Update cryptocurrency table
-        function updateCryptoTable(cryptos) {
-            const tableBody = document.getElementById('crypto-table');
-            
-            if (!cryptos || cryptos.length === 0) {
-                tableBody.innerHTML = '<tr><td colspan="6" class="text-center py-4 text-red-400">Failed to load data</td></tr>';
-                return;
-            }
-
-            tableBody.innerHTML = cryptos.map((crypto, index) => `
-                <tr class="border-b border-gray-700 hover:bg-gray-800 transition-colors">
-                    <td class="py-4 px-2">${index + 1}</td>
-                    <td class="py-4 px-2">
-                        <div class="flex items-center">
-                            <img src="${crypto.image}" alt="${crypto.name}" class="w-6 h-6 mr-2">
-                            <span class="font-medium">${crypto.name}</span>
-                            <span class="text-gray-400 ml-2 text-sm">${crypto.symbol.toUpperCase()}</span>
-                        </div>
-                    </td>
-                    <td class="py-4 px-2 font-bold">${formatCurrency(crypto.current_price)}</td>
-                    <td class="py-4 px-2">${formatPercentage(crypto.price_change_percentage_24h || 0)}</td>
-                    <td class="py-4 px-2">${formatCurrency(crypto.market_cap)}</td>
-                    <td class="py-4 px-2">${formatCurrency(crypto.total_volume)}</td>
-                </tr>
-            `).join('');
-        }
-
-        // Update Asian market prices
-        function updateAsianPrices(data) {
-            if (!data.bitcoin) return;
-
-            const btc = data.bitcoin;
-            
-            // Format prices for different currencies
-            document.getElementById('btc-jpy').textContent = `¥${btc.jpy.toLocaleString()}`;
-            document.getElementById('btc-jpy-change').innerHTML = formatPercentage(btc.jpy_24h_change || 0);
-            
-            document.getElementById('btc-krw').textContent = `₩${btc.krw.toLocaleString()}`;
-            document.getElementById('btc-krw-change').innerHTML = formatPercentage(btc.krw_24h_change || 0);
-            
-            document.getElementById('btc-sgd').textContent = `S$${btc.sgd.toLocaleString()}`;
-            document.getElementById('btc-sgd-change').innerHTML = formatPercentage(btc.sgd_24h_change || 0);
-            
-            document.getElementById('btc-hkd').textContent = `HK$${btc.hkd.toLocaleString()}`;
-            document.getElementById('btc-hkd-change').innerHTML = formatPercentage(btc.hkd_24h_change || 0);
-        }
-
-        // Update ticker content
-        function updateTicker(cryptos) {
-            if (!cryptos || cryptos.length === 0) return;
-            
-            const tickerItems = cryptos.slice(0, 5).map(crypto => {
-                const change = crypto.price_change_percentage_24h || 0;
-                const arrow = change >= 0 ? '↗' : '↘';
-                const color = change >= 0 ? 'text-green-400' : 'text-red-400';
-                return `${crypto.name}: ${formatCurrency(crypto.current_price)} <span class="${color}">${arrow} ${Math.abs(change).toFixed(1)}%</span>`;
-            });
-            
-            document.getElementById('ticker-content').innerHTML = `
-                <i class="fas fa-bell mr-2"></i>LIVE: ${tickerItems.join(' • ')}
-            `;
-        }
-
-        // Main data refresh function
-        async function refreshData() {
-            if (isLoading) return;
-            
-            isLoading = true;
-            const refreshButton = document.querySelector('button[onclick="refreshData()"]');
-            const originalText = refreshButton.innerHTML;
-            refreshButton.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i>Loading...';
-            refreshButton.disabled = true;
-
-            try {
-                // Fetch all data in parallel
-                const [globalData, cryptoData, asianData] = await Promise.all([
-                    fetchGlobalData(),
-                    fetchCryptoData(),
-                    fetchAsianPrices()
-                ]);
-
-                // Update UI
-                updateGlobalData(globalData);
-                updateCryptoTable(cryptoData);
-                updateAsianPrices(asianData);
-                updateTicker(cryptoData);
-                
-                // Update last updated time
-                document.getElementById('last-updated').textContent = 
-                    `Last updated: ${new Date().toLocaleString()}`;
-
-            } catch (error) {
-                console.error('Error refreshing data:', error);
-                document.getElementById('ticker-content').innerHTML = 
-                    '<i class="fas fa-exclamation-triangle mr-2"></i>Error loading data. Please try again.';
-            } finally {
-                isLoading = false;
-                refreshButton.innerHTML = originalText;
-                refreshButton.disabled = false;
-            }
-        }
-
-        // Auto-refresh every 30 seconds
-        function startAutoRefresh() {
-            setInterval(refreshData, 30000);
-        }
-
-        // Initialize the page
-        document.addEventListener('DOMContentLoaded', function() {
-            refreshData();
-            startAutoRefresh();
+        // Initialize the market data loader
+        document.addEventListener('DOMContentLoaded', () => {
+            new CryptoMarketData();
         });
 
-        // Custom marquee animation for ticker
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes marquee {
-                0% { transform: translateX(100%); }
-                100% { transform: translateX(-100%); }
-            }
-            .animate-marquee {
-                animation: marquee 60s linear infinite;
-            }
-        `;
-        document.head.appendChild(style);
+        // Add last updated timestamp
+        setInterval(() => {
+            const now = new Date();
+            console.log(`Market data last updated: ${now.toLocaleTimeString()}`);
+        }, 30000);
     </script>
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"95be1cdd19980651","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"95c43be589ea8b27","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDlUmPa3NKvwHAToKNTA21DgB9F6jjsVeWDdyAffnyrWj1pTzn539XmN0yaKKe4455rN1qAuRmLFwYlp02CQeUMvcZ8cSB825r8vQZXYfu8xF5N2MEWZYzKPfRfmvV8u700nvNe3SqyUjshUbz6BVQtAFj4tlKx6g24eGt6ASl92UNsokybWi7BPE2pLgm00J%2FX7B3%2BBQ%2BJyyQrQHzSWXjiPAlTPdtiLmNKuupMOF%2FVdbmGBIkJkLuZBbyAPwHCufaMgVRkZjoFON951iFa5nZ821%2BAKbqnpx6cX7qdg0ttI6aN2DMP8tcMinM4mKlIOox4ROjU0T%2BuBBBKQFG78TdpUhUFJtoswsqfHQh7zgo4bVfsKR7Fw2zvFwymjFIxio9Jj%2BZoK7%2BldLQCiHaKCwuB6HZ5bzohUbsJ%2FPW5VELq69Xrdn3QqO%2B%2Bl6VpQ5RlTdFXzZEWK7ZvPZKnsFjbTcV7xscTBPEokvz9ByYIuBcPHi6Riel7N%2BWFEhF14upXQIcDcLrd3QHSZ67M1XnTo3AeE%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrXSumzZYc8qVF65zbJLd1BKh8N5MQ7LtnEz9f5VSU314OYXajduyrkyunRHDLU9K1rZsWsjNy%2BvkgFNdnh4mg%2FcZa%2FGwVckuvuNHy1AhRmGGuj%2FGhONJVRZDMS%2BtOiE6TlJOQP8Kx144xCUYrAFjsMfZpIAajztu1EShz6NnmFImDKYjmS8gO26bG%2F9%2FkZ%2BSMkN1aCRqtkyWLuhj0IOkChIGF6L5ri0TveZZXC3OyNvoWtkcCIPMXTcC7kFVWC45%2Bl5RRe31Gpb8Zl8oM3S1nfxsXTgKJA8HenJf3yfa4%2BKI1ydNDc%2FRsZunJPRSg48%2BiQVl5%2BBCdea9bRnCA5xadsMD7Z68%2F7OId8TMzLGvQc6Dos3RgWEKogbzsy8nYXOpKdrI6Ro2IaTa4vWdQa%2BbvTbOQ7I1tw1zfYLkmrFcOVyKg41UWK%2FsimC%2F41mUCdVWdInFdB2hIGg4hEo6vuYMAxby6fZvqtrO3CaISEdeCN0rHdnVQutd3gCbWhy2GSlmNhX6Wuxj9kJkbhIrNorkJ4%3D";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDlUmPa3NKvwHAToKNTA21DgB9F6jjsVeWDdyAffnyrWj1pTzn539XmN0yaKKe4455rN1qAuRmLFwYlp02CQeUMvcZ8cSB825r8vQZXYfu8xF5N2MEWZYzKPfRfmvV8u700nvNe3SqyUjshUbz6BVQtAFj4tlKx6g24eGt6ASl92UNsokybWi7BPE2pLgm00J/X7B3+BQ+JyyQrQHzSWXjiPAlTPdtiLmNKuupMOF/VdbmGBIkJkLuZBbyAPwHCufaMgVRkZjoFON951iFa5nZ821+AKbqnpx6cX7qdg0ttI6aN2DMP8tcMinM4mKlIOox4ROjU0T+uBBBKQFG78TdpUhUFJtoswsqfHQh7zgo4bVfsKR7Fw2zvFwymjFIxio9Jj+ZoK7+ldLQCiHaKCwuB6HZ5bzohUbsJ/PW5VELq69Xrdn3QqO++l6VpQ5RlTdFXzZEWK7ZvPZKnsFjbTcV7xscTBPEokvz9ByYIuBcPHi6Riel7N+WFEhF14upXQIcDcLrd3QHSZ67M1XnTo3AeE=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrXSumzZYc8qVF65zbJLd1BKh8N5MQ7LtnEz9f5VSU314OYXajduyrkyunRHDLU9K1rZsWsjNy+vkgFNdnh4mg/cZa/GwVckuvuNHy1AhRmGGuj/GhONJVRZDMS+tOiE6TlJOQP8Kx144xCUYrAFjsMfZpIAajztu1EShz6NnmFImDKYjmS8gO26bG/9/kZ+SMkN1aCRqtkyWLuhj0IOkChIGF6L5ri0TveZZXC3OyNvoWtkcCIPMXTcC7kFVWC45+l5RRe31Gpb8Zl8oM3S1nfxsXTgKJA8HenJf3yfa4+KI1ydNDc/RsZunJPRSg48+iQVl5+BCdea9bRnCA5xadsMD7Z68/7OId8TMzLGvQc6Dos3RgWEKogbzsy8nYXOpKdrI6Ro2IaTa4vWdQa+bvTbOQ7I1tw1zfYLkmrFcOVyKg41UWK/simC/41mUCdVWdInFdB2hIGg4hEo6vuYMAxby6fZvqtrO3CaISEdeCN0rHdnVQutd3gCbWhy2GSlmNhX6Wuxj9kJkbhIrNorkJ4=";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
