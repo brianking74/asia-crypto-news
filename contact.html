@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Asia Crypto News - Get in Touch</title>
-    <meta name="description" content="Contact Asia Crypto News for media inquiries, partnership opportunities, or general questions. Reach our editorial team, advertising department, or submit news tips and press releases">
-    <meta name="keywords" content="contact Asia crypto news, media inquiries, partnership, news tips, press releases, editorial team">
+    <title>Contact Asia Crypto News - Get in Touch | Asia Crypto News</title>
+    <meta name="description" content="Contact Asia Crypto News for media inquiries, partnership opportunities, or general questions. Reach our editorial team, advertising department, or submit news tips and press releases.">
+    <meta name="keywords" content="contact Asia Crypto News, crypto news tips, media inquiries, partnerships, advertising, editorial team">
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
@@ -29,7 +25,6 @@
             padding: 0 20px;
         }
         
-        /* Header Styles */
         .header {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             padding: 20px 0;
@@ -49,14 +44,6 @@
             margin-bottom: 10px;
         }
         
-        .tagline {
-            text-align: center;
-            color: #cccccc;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-        
-        /* Navigation */
         .nav {
             background-color: #333333;
             padding: 15px 0;
@@ -68,6 +55,8 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 30px;
+            margin: 0;
+            padding: 0;
         }
         
         .nav a {
@@ -79,81 +68,109 @@
             font-weight: 500;
         }
         
-        .nav a:hover, .nav a.active {
+        .nav a:hover {
             background-color: #FFD700;
             color: #000000;
             transform: translateY(-2px);
         }
         
-        /* Page Header */
-        .page-header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 60px 0;
-            text-align: center;
+        .breadcrumb {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            border-bottom: 1px solid #333333;
         }
         
-        .page-title {
+        .content-area {
+            padding: 40px 0;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 15px;
+        }
+        
+        .article-title {
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 20px;
             background: linear-gradient(45deg, #FFD700, #FFA500);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            margin-bottom: 20px;
         }
         
-        .page-description {
-            font-size: 1.2rem;
+        .article-subtitle {
+            font-size: 1.3rem;
             color: #cccccc;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
-        }
-        
-        /* Main Content */
-        .main-content {
-            padding: 60px 0;
         }
         
         .section {
             margin-bottom: 60px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #333333;
         }
         
-        .section-title {
-            font-size: 2rem;
+        .section h2 {
+            font-size: 2.5rem;
             font-weight: 700;
             color: #FFD700;
             margin-bottom: 30px;
-            text-align: center;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 15px;
         }
         
-        .grid {
+        .section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #FFA500;
+            margin: 30px 0 20px 0;
+        }
+        
+        .section p {
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin: 30px 0;
         }
         
         .contact-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            background: linear-gradient(135deg, #2d2d2d 0%, #3d3d3d 100%);
             padding: 30px;
             border-radius: 15px;
-            border: 1px solid #333333;
+            border: 1px solid #444444;
+            text-align: center;
             transition: all 0.3s ease;
         }
         
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
             border-color: #FFD700;
+            box-shadow: 0 15px 30px rgba(255, 215, 0, 0.1);
+        }
+        
+        .contact-card i {
+            font-size: 3rem;
+            color: #FFD700;
+            margin-bottom: 20px;
         }
         
         .contact-card h3 {
-            font-size: 1.5rem;
-            font-weight: 600;
             color: #FFD700;
+            font-size: 1.5rem;
             margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
         
         .contact-card p {
@@ -161,24 +178,22 @@
             margin-bottom: 20px;
         }
         
-        .contact-info {
-            background-color: #2d2d2d;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
+        .contact-card a {
+            color: #00D4FF;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
         
-        .contact-info strong {
+        .contact-card a:hover {
             color: #FFD700;
         }
         
-        /* Form Styles */
-        .form-container {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        .form-section {
+            background: linear-gradient(135deg, #2d2d2d 0%, #3d3d3d 100%);
             padding: 40px;
             border-radius: 15px;
-            border: 1px solid #333333;
-            margin-top: 30px;
+            border: 1px solid #444444;
         }
         
         .form-group {
@@ -190,15 +205,16 @@
             color: #FFD700;
             font-weight: 600;
             margin-bottom: 8px;
+            font-size: 1.1rem;
         }
         
         .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 12px 15px;
-            background-color: #333333;
-            border: 1px solid #555555;
+            padding: 15px;
+            background-color: #1a1a1a;
+            border: 2px solid #333333;
             border-radius: 8px;
             color: #ffffff;
             font-size: 1rem;
@@ -206,21 +222,21 @@
         }
         
         .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-group textarea:focus,
+        .form-group select:focus {
             outline: none;
             border-color: #FFD700;
         }
         
         .form-group textarea {
-            min-height: 120px;
             resize: vertical;
+            min-height: 120px;
         }
         
-        .btn {
+        .submit-btn {
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: #000000;
-            padding: 15px 30px;
+            padding: 15px 40px;
             border: none;
             border-radius: 25px;
             font-size: 1.1rem;
@@ -232,65 +248,30 @@
             gap: 10px;
         }
         
-        .btn:hover {
+        .submit-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
         }
         
-        /* Quick Contact */
-        .quick-contact {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
+        .info-box {
+            background-color: #2d2d2d;
+            border-left: 4px solid #00D4FF;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
         }
         
-        .quick-contact-item {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            padding: 25px;
-            border-radius: 15px;
-            border: 1px solid #333333;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        
-        .quick-contact-item:hover {
-            transform: translateY(-5px);
-            border-color: #FFD700;
-        }
-        
-        .quick-contact-item i {
-            font-size: 2.5rem;
-            color: #FFD700;
-            margin-bottom: 15px;
-        }
-        
-        .quick-contact-item h4 {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #ffffff;
+        .info-box h4 {
+            color: #00D4FF;
             margin-bottom: 10px;
+            font-size: 1.2rem;
         }
         
-        .quick-contact-item p {
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
-        
-        .quick-contact-item a {
-            color: #FFD700;
-            text-decoration: none;
-        }
-        
-        .quick-contact-item a:hover {
-            text-decoration: underline;
-        }
-        
-        /* Footer */
         .footer {
             background-color: #1a1a1a;
             padding: 50px 0 30px;
             border-top: 3px solid #FFD700;
+            margin-top: 60px;
         }
         
         .footer-content {
@@ -309,6 +290,7 @@
         
         .footer-section ul {
             list-style: none;
+            padding: 0;
         }
         
         .footer-section ul li {
@@ -325,22 +307,6 @@
             color: #FFD700;
         }
         
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            color: #cccccc;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            color: #FFD700;
-        }
-        
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
@@ -348,14 +314,21 @@
             color: #888888;
         }
         
-        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 0 15px;
             }
             
-            .page-title {
-                font-size: 2.5rem;
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
             }
             
             .nav ul {
@@ -367,8 +340,8 @@
                 font-size: 0.9rem;
             }
             
-            .form-container {
-                padding: 25px;
+            .contact-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -380,7 +353,7 @@
             <a href="/" class="logo">
                 <i class="fas fa-coins"></i> Asia Crypto News
             </a>
-            <p class="tagline">Leading Cryptocurrency & AI News in Asia</p>
+            <p style="text-align: center; color: #cccccc; font-size: 1.1rem; margin: 0;">Leading Cryptocurrency & AI News in Asia</p>
         </div>
     </header>
 
@@ -394,219 +367,208 @@
                 <li><a href="/markets.html"><i class="fas fa-chart-line"></i> Markets</a></li>
                 <li><a href="/regional.html"><i class="fas fa-globe-asia"></i> Regional</a></li>
                 <li><a href="/about.html"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a href="/contact.html" class="active"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
         <div class="container">
-            <h1 class="page-title">
-                <i class="fas fa-envelope"></i> Contact Us
-            </h1>
-            <p class="page-description">
-                Get in touch with Asia Crypto News for media inquiries, partnership opportunities, news tips, or general questions. Our team is here to help.
-            </p>
+            <span style="color: #888888;">
+                <a href="/" style="color: #FFD700; text-decoration: none;">Home</a> 
+                <i class="fas fa-chevron-right" style="margin: 0 10px; font-size: 0.8rem;"></i>
+                Contact Us
+            </span>
         </div>
-    </section>
+    </div>
 
     <!-- Main Content -->
-    <main class="main-content">
+    <main class="content-area">
         <div class="container">
-            <!-- Quick Contact Information -->
+            <!-- Article Header -->
+            <div class="article-header">
+                <h1 class="article-title">Contact Asia Crypto News</h1>
+                <p class="article-subtitle">Get in touch with our team for media inquiries, partnership opportunities, news tips, and general questions about cryptocurrency and AI in Asian markets</p>
+            </div>
+
+            <!-- Contact Information Section -->
             <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-phone"></i> Quick Contact
-                </h2>
-                <div class="quick-contact">
-                    <div class="quick-contact-item">
+                <h2><i class="fas fa-address-book"></i> Get in Touch</h2>
+                
+                <p>Asia Crypto News is committed to providing the most accurate and timely cryptocurrency and AI news across Asian markets. Whether you're a journalist seeking information, a company interested in partnership opportunities, or someone with breaking news tips, we want to hear from you.</p>
+
+                <p>Our team of experienced journalists and analysts are based across major Asian financial centers including Tokyo, Singapore, Hong Kong, and Seoul, ensuring we provide comprehensive coverage of the region's dynamic crypto landscape.</p>
+
+                <div class="contact-grid">
+                    <div class="contact-card">
                         <i class="fas fa-newspaper"></i>
-                        <h4>Editorial Team</h4>
+                        <h3>Editorial Team</h3>
                         <p>News submissions, interviews, and editorial inquiries</p>
                         <a href="mailto:editorial@asiacryptonews.com">editorial@asiacryptonews.com</a>
                     </div>
-                    <div class="quick-contact-item">
+
+                    <div class="contact-card">
                         <i class="fas fa-bullhorn"></i>
-                        <h4>Advertising</h4>
+                        <h3>Advertising</h3>
                         <p>Advertising opportunities and partnership inquiries</p>
                         <a href="mailto:advertising@asiacryptonews.com">advertising@asiacryptonews.com</a>
                     </div>
-                    <div class="quick-contact-item">
+
+                    <div class="contact-card">
                         <i class="fas fa-lightbulb"></i>
-                        <h4>News Tips</h4>
+                        <h3>News Tips</h3>
                         <p>Submit breaking news tips and story leads</p>
                         <a href="mailto:tips@asiacryptonews.com">tips@asiacryptonews.com</a>
                     </div>
-                    <div class="quick-contact-item">
+
+                    <div class="contact-card">
                         <i class="fas fa-handshake"></i>
-                        <h4>Partnerships</h4>
+                        <h3>Partnerships</h3>
                         <p>Business partnerships and collaboration opportunities</p>
                         <a href="mailto:partnerships@asiacryptonews.com">partnerships@asiacryptonews.com</a>
                     </div>
                 </div>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-clock"></i> Response Time</h4>
+                    <p>We aim to respond to all inquiries within 24 hours during business days. For urgent news tips, please indicate "URGENT" in your subject line for priority handling.</p>
+                </div>
             </section>
 
-            <!-- Contact Forms -->
+            <!-- Contact Form Section -->
             <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-paper-plane"></i> Send Us a Message
-                </h2>
+                <h2><i class="fas fa-envelope"></i> Send Us a Message</h2>
                 
-                <div class="form-container">
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <label for="inquiry-type">
-                                <i class="fas fa-list"></i> Type of Inquiry
-                            </label>
-                            <select id="inquiry-type" name="inquiry-type" required>
-                                <option value="">Select inquiry type</option>
-                                <option value="media">Media Inquiry</option>
-                                <option value="advertising">Advertising</option>
-                                <option value="partnership">Partnership</option>
-                                <option value="news-tip">News Tip</option>
-                                <option value="press-release">Press Release</option>
-                                <option value="general">General Question</option>
-                                <option value="technical">Technical Support</option>
-                            </select>
-                        </div>
+                <p>Use the form below to send us a detailed message. Please provide as much information as possible to help us respond appropriately to your inquiry.</p>
 
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-                            <div class="form-group">
-                                <label for="first-name">
-                                    <i class="fas fa-user"></i> First Name
-                                </label>
-                                <input type="text" id="first-name" name="first-name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="last-name">
-                                    <i class="fas fa-user"></i> Last Name
-                                </label>
-                                <input type="text" id="last-name" name="last-name" required>
-                            </div>
+                <div class="form-section">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="email">
-                                <i class="fas fa-envelope"></i> Email Address
-                            </label>
+                            <label for="email">Email Address *</label>
                             <input type="email" id="email" name="email" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="organization">
-                                <i class="fas fa-building"></i> Organization/Company (Optional)
-                            </label>
-                            <input type="text" id="organization" name="organization">
+                            <label for="company">Company/Organization</label>
+                            <input type="text" id="company" name="company">
                         </div>
 
                         <div class="form-group">
-                            <label for="subject">
-                                <i class="fas fa-tag"></i> Subject
-                            </label>
-                            <input type="text" id="subject" name="subject" required>
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject</option>
+                                <option value="editorial">Editorial Inquiry</option>
+                                <option value="advertising">Advertising Opportunity</option>
+                                <option value="news-tip">News Tip</option>
+                                <option value="partnership">Partnership Opportunity</option>
+                                <option value="press-release">Press Release Submission</option>
+                                <option value="interview">Interview Request</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
 
                         <div class="form-group">
-                            <label for="message">
-                                <i class="fas fa-comment"></i> Message
-                            </label>
+                            <label for="region">Primary Region of Interest</label>
+                            <select id="region" name="region">
+                                <option value="">Select a region</option>
+                                <option value="japan">Japan</option>
+                                <option value="south-korea">South Korea</option>
+                                <option value="singapore">Singapore</option>
+                                <option value="hong-kong">Hong Kong</option>
+                                <option value="china">China</option>
+                                <option value="southeast-asia">Southeast Asia</option>
+                                <option value="pan-asia">Pan-Asia</option>
+                                <option value="global">Global</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Message *</label>
                             <textarea id="message" name="message" placeholder="Please provide detailed information about your inquiry..." required></textarea>
                         </div>
 
-                        <button type="submit" class="btn">
-                            <i class="fas fa-paper-plane"></i> Send Message
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
                         </button>
                     </form>
                 </div>
-            </section>
 
-            <!-- Press Release Submission -->
-            <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-file-alt"></i> Press Release Submission
-                </h2>
-                
-                <div class="grid">
-                    <div class="contact-card">
-                        <h3><i class="fas fa-file-upload"></i> Submit Press Release</h3>
-                        <p>Share your company's latest news, product launches, partnerships, or significant developments with our audience.</p>
-                        
-                        <div class="contact-info">
-                            <strong>Email:</strong> press@asiacryptonews.com<br>
-                            <strong>Guidelines:</strong> Include high-resolution images, quotes from executives, and relevant contact information.
-                        </div>
-                        
-                        <p><strong>What to Include:</strong></p>
-                        <ul style="color: #cccccc; margin-left: 20px;">
-                            <li>Company background and contact details</li>
-                            <li>High-resolution logos and images</li>
-                            <li>Executive quotes and bios</li>
-                            <li>Clear, newsworthy angle</li>
-                            <li>Release date and embargo information</li>
-                        </ul>
-                    </div>
-
-                    <div class="contact-card">
-                        <h3><i class="fas fa-clock"></i> Response Times</h3>
-                        <p>We aim to respond to all inquiries promptly based on the type of request.</p>
-                        
-                        <div class="contact-info">
-                            <strong>Breaking News Tips:</strong> Within 1 hour<br>
-                            <strong>Media Inquiries:</strong> Within 24 hours<br>
-                            <strong>Partnership Requests:</strong> Within 48 hours<br>
-                            <strong>General Inquiries:</strong> Within 72 hours
-                        </div>
-                        
-                        <p style="margin-top: 15px;">
-                            <strong>Office Hours:</strong><br>
-                            Monday - Friday: 9:00 AM - 6:00 PM (SGT)<br>
-                            <em>We monitor breaking news 24/7</em>
-                        </p>
-                    </div>
+                <div class="info-box">
+                    <h4><i class="fas fa-shield-alt"></i> Privacy Notice</h4>
+                    <p>Your personal information will be used solely for responding to your inquiry and will not be shared with third parties. For more details, please review our <a href="/privacy.html" style="color: #00D4FF;">Privacy Policy</a>.</p>
                 </div>
             </section>
 
-            <!-- Social Media and Additional Contact -->
+            <!-- Press and Media Section -->
             <section class="section">
-                <h2 class="section-title">
-                    <i class="fas fa-share-alt"></i> Connect With Us
-                </h2>
+                <h2><i class="fas fa-camera"></i> Press & Media Information</h2>
                 
-                <div class="grid">
+                <h3>Media Kit and Resources</h3>
+                <p>Journalists and media professionals can access our media kit containing high-resolution logos, company information, executive biographies, and recent press releases. Our media kit includes everything you need for accurate reporting about Asia Crypto News.</p>
+
+                <h3>Interview Opportunities</h3>
+                <p>Our team of cryptocurrency and blockchain experts are available for interviews, commentary, and expert analysis on Asian crypto markets. We can provide insights on market trends, regulatory developments, and technological innovations across the region.</p>
+
+                <h3>Press Release Submissions</h3>
+                <p>We welcome press releases from cryptocurrency companies, blockchain startups, exchanges, and other relevant organizations operating in Asian markets. Please ensure your press release is newsworthy, well-written, and relevant to our audience.</p>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-calendar-alt"></i> Press Conference Coverage</h4>
+                    <p>For major announcements, product launches, or significant industry events in Asia, please contact our editorial team at least 48 hours in advance to ensure coverage consideration.</p>
+                </div>
+            </section>
+
+            <!-- Social Media and Alternative Contact -->
+            <section class="section">
+                <h2><i class="fas fa-share-alt"></i> Connect With Us</h2>
+                
+                <p>Stay connected with Asia Crypto News through our social media channels for the latest updates, breaking news, and exclusive content about cryptocurrency and AI developments across Asian markets.</p>
+
+                <h3>Social Media Channels</h3>
+                <div class="contact-grid">
                     <div class="contact-card">
-                        <h3><i class="fab fa-twitter"></i> Social Media</h3>
-                        <p>Follow us on social media for real-time updates, breaking news, and community discussions.</p>
-                        
-                        <div class="social-links" style="justify-content: flex-start;">
-                            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                            <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
-                            <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                            <a href="#" title="Discord"><i class="fab fa-discord"></i></a>
-                        </div>
-                        
-                        <p style="margin-top: 15px;">
-                            <strong>Twitter:</strong> @AsiaaCryptoNews<br>
-                            <strong>Telegram:</strong> @AsiaaCryptoNewsChannel
-                        </p>
+                        <i class="fab fa-twitter"></i>
+                        <h3>Twitter</h3>
+                        <p>Follow us for real-time news updates and market analysis</p>
+                        <a href="#" target="_blank">@AsiaCryptoNews</a>
                     </div>
 
                     <div class="contact-card">
-                        <h3><i class="fas fa-map-marker-alt"></i> Regional Offices</h3>
-                        <p>Our team operates across major Asian financial centers to provide comprehensive regional coverage.</p>
-                        
-                        <div class="contact-info">
-                            <strong>Singapore Hub:</strong> Editorial Headquarters<br>
-                            <strong>Tokyo Office:</strong> Japan & East Asia Coverage<br>
-                            <strong>Hong Kong:</strong> China & Greater China Region<br>
-                            <strong>Seoul:</strong> Korea & Gaming Sector Focus
-                        </div>
-                        
-                        <p style="margin-top: 15px;">
-                            <em>All inquiries are routed to our main editorial team in Singapore for coordinated response.</em>
-                        </p>
+                        <i class="fab fa-telegram"></i>
+                        <h3>Telegram</h3>
+                        <p>Join our community for exclusive insights and discussions</p>
+                        <a href="#" target="_blank">AsiaCryptoNews Channel</a>
                     </div>
+
+                    <div class="contact-card">
+                        <i class="fab fa-linkedin"></i>
+                        <h3>LinkedIn</h3>
+                        <p>Professional network and industry insights</p>
+                        <a href="#" target="_blank">Asia Crypto News</a>
+                    </div>
+
+                    <div class="contact-card">
+                        <i class="fab fa-youtube"></i>
+                        <h3>YouTube</h3>
+                        <p>Educational videos and market analysis</p>
+                        <a href="#" target="_blank">Asia Crypto News</a>
+                    </div>
+                </div>
+
+                <h3>Regional Offices</h3>
+                <p>While Asia Crypto News operates primarily as a digital-first news organization, our journalists and contributors are located across major Asian financial centers to ensure comprehensive regional coverage.</p>
+
+                <div class="info-box">
+                    <h4><i class="fas fa-globe-asia"></i> Coverage Areas</h4>
+                    <p>Our team provides coverage across Japan, South Korea, Singapore, Hong Kong, China, and Southeast Asian markets, with expanding coverage planned for India and other emerging Asian crypto markets.</p>
                 </div>
             </section>
         </div>
@@ -617,32 +579,30 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3><i class="fas fa-newspaper"></i> News</h3>
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
                     <ul>
-                        <li><a href="/news.html">Breaking News</a></li>
-                        <li><a href="/news.html#analysis">Market Analysis</a></li>
-                        <li><a href="/news.html#regulation">Regulation</a></li>
-                        <li><a href="/news.html#technology">Technology</a></li>
+                        <li><a href="/what-is-cryptocurrency.html">What is Cryptocurrency?</a></li>
+                        <li><a href="/choosing-exchange.html">Choosing an Exchange</a></li>
+                        <li><a href="/wallet-security.html">Wallet Security</a></li>
+                        <li><a href="/avoid-scams.html">Avoiding Scams</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <h3><i class="fas fa-chart-line"></i> Trading</h3>
                     <ul>
-                        <li><a href="/education.html">Beginner Guides</a></li>
-                        <li><a href="/education.html#advanced">Advanced Topics</a></li>
-                        <li><a href="/education.html#security">Security</a></li>
-                        <li><a href="/education.html#wallets">Wallets</a></li>
+                        <li><a href="/technical-analysis.html">Technical Analysis</a></li>
+                        <li><a href="/risk-management.html">Risk Management</a></li>
+                        <li><a href="/asian-market-hours.html">Asian Market Hours</a></li>
+                        <li><a href="/ai-trading-bots.html">AI Trading Bots</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h3><i class="fas fa-globe-asia"></i> Regional</h3>
                     <ul>
-                        <li><a href="/regional.html">Japan</a></li>
-                        <li><a href="/regional.html">China</a></li>
-                        <li><a href="/regional.html">South Korea</a></li>
-                        <li><a href="/regional.html">Singapore</a></li>
-                        <li><a href="/regional.html">Hong Kong</a></li>
-                        <li><a href="/regional.html">Southeast Asia</a></li>
+                        <li><a href="/regional.html#japan">Japan</a></li>
+                        <li><a href="/regional.html#south-korea">South Korea</a></li>
+                        <li><a href="/regional.html#singapore">Singapore</a></li>
+                        <li><a href="/regional.html#hong-kong">Hong Kong</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -650,62 +610,23 @@
                     <ul>
                         <li><a href="/about.html">About Us</a></li>
                         <li><a href="/contact.html">Contact</a></li>
-                        <li><a href="#privacy">Privacy Policy</a></li>
-                        <li><a href="#terms">Terms of Service</a></li>
-                        <li><a href="#affiliate">Affiliate Disclosure</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
                     </ul>
-                    <div class="social-links">
-                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" title="Telegram"><i class="fab fa-telegram"></i></a>
-                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
-                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Asia Crypto News. All rights reserved. | Cryptocurrency investments carry risk. Please invest responsibly.</p>
+                <p>&copy; 2024 Asia Crypto News. All rights reserved. | Contact us for editorial inquiries and partnership opportunities.</p>
             </div>
         </div>
     </footer>
-
-    <script>
-        // Form submission handler
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!data['inquiry-type'] || !data['first-name'] || !data['email'] || !data['subject'] || !data['message']) {
-                alert('Please fill in all required fields.');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-            submitBtn.disabled = true;
-            
-            // Simulate API call
-            setTimeout(() => {
-                alert('Thank you for your message! We will get back to you soon.');
-                this.reset();
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
-        });
-    </script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDnYt52j1weIoJvkD%2BIq004Bq3fcmX9cbqKh5RY%2BxKPfLTZMAFwm36kv7aPTpAVPZa0XvfdVXl9%2Fm01VjYF%2BnDN9tLFKuI1HKyn%2Fihdge1epTMDZZOydulbG16koIITOL4yCT8Q2ODSQt%2FOb0grgN9g9zkUZ5RRtTl2say%2FdJFbo%2BPrfz2uH%2B05d34zlzU8rPKgYqxX6HIdrNjnTx3%2BiYLdvQT0OvwzggsNv3qSdPfiG13mMYeE%2F4H3kHBRu7qXqlvwE%2Fe9EORjOeObA6yvfyWdgtxRvFznBft141D%2BthxXg2AsAax4P9oDSIhOfLdJM1tnRhrHYGpsvwl5VsLG0mpzO8DOy97C4yer4SE7UhHqxefTZMQ5pC2Z%2B9v%2B6CO%2BHb9B7bBSJfk87TzGQMLUdf3E%2BDoVxrbgL6py%2Bt84CQzckjlyA3xdhI%2BSVrR8P2A%2B4PRfdaOmvc1Wbpu9YhfLBkBLBF8%2BV5MlL2zDwn2Q7BUFYQzj2LBRPSYDnJo3uhpkLvYzwUj2ThukJMiTDKD6JoScM%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDrX8oDbsxH6I5uD2CjQxpHN4GrHShjVoVV6bEQHd2pxVSiyXGS1%2FpSVVyrModzy92nG8tBv7f4JFmxgQi%2BIWbyh7cUnXVx1xsrKSZq7ryZZJS2ZWSg6RV%2BYz0k3fSGszt2OGAo84noarPLEGjKGn2ItZ7MJM8uEWAUQElXMlEIGdaIat%2F6lRljV5waldRZXvq6NWbodJquU5NRLUchavbAI3bhzZkXivIacY6IKD6xPdC3Dht83kDSB%2BKTKKBtdNx15R0g6kEoehQ0m0POz2PyYLD0BXip8cdE8pTbOO61JkVStrzmBz0PnfvWZiBDOUL0pAcuvAu7QGWdnUkLsmutobQqZOr0GUcG8oxNXQdTIZAlZk1a8Ji4GWF14koysL2KPQcv0z8ImzRO7ffJq%2BbgOp2hRLAIg4jKQYS9p%2FS0qvB6fEYD4EWOLM5MzDeFB3kDTFq2b2SDOQz5nZCyGMg%2BqtVQlZLxsUgSXAlXCYroH%2BoQLTbMEbwpwE8SieDvA8OYJbZsC67ckQPuqAx%2F2pY9I%3D";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDnYt52j1weIoJvkD+Iq004Bq3fcmX9cbqKh5RY+xKPfLTZMAFwm36kv7aPTpAVPZa0XvfdVXl9/m01VjYF+nDN9tLFKuI1HKyn/ihdge1epTMDZZOydulbG16koIITOL4yCT8Q2ODSQt/Ob0grgN9g9zkUZ5RRtTl2say/dJFbo+Prfz2uH+05d34zlzU8rPKgYqxX6HIdrNjnTx3+iYLdvQT0OvwzggsNv3qSdPfiG13mMYeE/4H3kHBRu7qXqlvwE/e9EORjOeObA6yvfyWdgtxRvFznBft141D+thxXg2AsAax4P9oDSIhOfLdJM1tnRhrHYGpsvwl5VsLG0mpzO8DOy97C4yer4SE7UhHqxefTZMQ5pC2Z+9v+6CO+Hb9B7bBSJfk87TzGQMLUdf3E+DoVxrbgL6py+t84CQzckjlyA3xdhI+SVrR8P2A+4PRfdaOmvc1Wbpu9YhfLBkBLBF8+V5MlL2zDwn2Q7BUFYQzj2LBRPSYDnJo3uhpkLvYzwUj2ThukJMiTDKD6JoScM=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDrX8oDbsxH6I5uD2CjQxpHN4GrHShjVoVV6bEQHd2pxVSiyXGS1/pSVVyrModzy92nG8tBv7f4JFmxgQi+IWbyh7cUnXVx1xsrKSZq7ryZZJS2ZWSg6RV+Yz0k3fSGszt2OGAo84noarPLEGjKGn2ItZ7MJM8uEWAUQElXMlEIGdaIat/6lRljV5waldRZXvq6NWbodJquU5NRLUchavbAI3bhzZkXivIacY6IKD6xPdC3Dht83kDSB+KTKKBtdNx15R0g6kEoehQ0m0POz2PyYLD0BXip8cdE8pTbOO61JkVStrzmBz0PnfvWZiBDOUL0pAcuvAu7QGWdnUkLsmutobQqZOr0GUcG8oxNXQdTIZAlZk1a8Ji4GWF14koysL2KPQcv0z8ImzRO7ffJq+bgOp2hRLAIg4jKQYS9p/S0qvB6fEYD4EWOLM5MzDeFB3kDTFq2b2SDOQz5nZCyGMg+qtVQlZLxsUgSXAlXCYroH+oQLTbMEbwpwE8SieDvA8OYJbZsC67ckQPuqAx/2pY9I=";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
