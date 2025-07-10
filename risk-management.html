@@ -5,741 +5,831 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cryptocurrency Risk Management - Protect Your Investments | Asia Crypto News</title>
     <meta name="description" content="Learn essential cryptocurrency risk management including position sizing, stop-loss techniques, portfolio diversification, and risk-reward ratios. Complete investment protection guide for Asian markets.">
-    <meta name="keywords" content="cryptocurrency risk management, crypto portfolio diversification, stop loss, position sizing, risk reward ratio, crypto investment protection">
+    <meta name="keywords" content="cryptocurrency risk management, crypto portfolio diversification, stop loss crypto, position sizing, crypto investment protection, Asian crypto markets">
     
-    <!-- External Libraries -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
             color: #ffffff;
+            line-height: 1.6;
         }
         
-        .gradient-bg {
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 20px 0;
+            border-bottom: 3px solid #FFD700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         
-        .gold-accent {
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .nav {
+            background-color: #333333;
+            padding: 15px 0;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav a:hover {
+            background-color: #FFD700;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+        
+        .breadcrumb {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            border-bottom: 1px solid #333333;
+        }
+        
+        .content-area {
+            padding: 40px 0;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 15px;
+        }
+        
+        .article-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .article-subtitle {
+            font-size: 1.3rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #333333;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 15px;
+        }
+        
+        .section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #FFA500;
+            margin: 30px 0 20px 0;
+        }
+        
+        .section h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #00D4FF;
+            margin: 25px 0 15px 0;
+        }
+        
+        .section p {
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-box {
+            background-color: #2d2d2d;
+            border-left: 4px solid #FFD700;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #3d3d3d 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #444444;
+            margin: 20px 0;
+        }
+        
+        .info-card h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .bullet-list {
+            color: #cccccc;
+            margin: 20px 0;
+        }
+        
+        .bullet-list li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .bullet-list li::marker {
             color: #FFD700;
         }
         
-        .chart-container {
-            height: 400px;
-            margin: 2rem 0;
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            overflow: hidden;
         }
         
-        .risk-card {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            border: 1px solid #333333;
-            transition: all 0.3s ease;
+        .comparison-table th {
+            background-color: #FFD700;
+            color: #000000;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
         }
         
-        .risk-card:hover {
-            border-color: #FFD700;
-            transform: translateY(-5px);
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #444444;
+            color: #cccccc;
         }
         
-        .warning-box {
-            background: linear-gradient(135deg, #2d1a1a 0%, #4d2d2d 100%);
-            border-left: 4px solid #ff6b6b;
+        .comparison-table tr:hover {
+            background-color: #3d3d3d;
         }
         
-        .success-box {
-            background: linear-gradient(135deg, #1a2d1a 0%, #2d4d2d 100%);
-            border-left: 4px solid #51cf66;
+        .risk-calculator {
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+            border: 2px solid #FFD700;
+        }
+        
+        .risk-calculator h4 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+        
+        .calculator-input {
+            margin: 15px 0;
+        }
+        
+        .calculator-input label {
+            display: block;
+            color: #cccccc;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .calculator-input input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #444444;
+            border-radius: 5px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+        
+        .calculator-result {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 4px solid #00D4FF;
+        }
+        
+        .footer {
+            background-color: #1a1a1a;
+            padding: 50px 0 30px;
+            border-top: 3px solid #FFD700;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #FFD700;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            color: #888888;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .nav ul {
+                gap: 15px;
+            }
+            
+            .nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
-<body class="bg-black text-white">
+<body>
     <!-- Header -->
-    <header class="gradient-bg py-6 border-b-2 border-yellow-500">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-3">
-                    <i class="fas fa-coins text-yellow-500 text-3xl"></i>
-                    <h1 class="text-2xl font-bold gold-accent">Asia Crypto News</h1>
-                </div>
-                <nav class="hidden md:flex space-x-6">
-                    <a href="/" class="hover:text-yellow-500 transition-colors">Home</a>
-                    <a href="/education" class="hover:text-yellow-500 transition-colors">Education</a>
-                    <a href="/news" class="hover:text-yellow-500 transition-colors">News</a>
-                    <a href="/markets" class="hover:text-yellow-500 transition-colors">Markets</a>
-                </nav>
-            </div>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-coins"></i> Asia Crypto News
+            </a>
+            <p style="text-align: center; color: #cccccc; font-size: 1.1rem; margin: 0;">Leading Cryptocurrency & AI News in Asia</p>
         </div>
     </header>
 
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="/education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="/markets.html"><i class="fas fa-chart-line"></i> Markets</a></li>
+                <li><a href="/regional.html"><i class="fas fa-globe-asia"></i> Regional</a></li>
+                <li><a href="/about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Breadcrumb -->
-    <div class="container mx-auto px-4 py-4">
-        <nav class="text-sm">
-            <a href="/" class="text-gray-400 hover:text-yellow-500">Home</a>
-            <span class="mx-2 text-gray-400">/</span>
-            <a href="/education" class="text-gray-400 hover:text-yellow-500">Education</a>
-            <span class="mx-2 text-gray-400">/</span>
-            <span class="text-yellow-500">Risk Management</span>
-        </nav>
+    <div class="breadcrumb">
+        <div class="container">
+            <span style="color: #888888;">
+                <a href="/" style="color: #FFD700; text-decoration: none;">Home</a> 
+                <i class="fas fa-chevron-right" style="margin: 0 10px; font-size: 0.8rem;"></i>
+                <a href="/education.html" style="color: #FFD700; text-decoration: none;">Education</a>
+                <i class="fas fa-chevron-right" style="margin: 0 10px; font-size: 0.8rem;"></i>
+                Risk Management
+            </span>
+        </div>
     </div>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8">
-        <!-- Hero Section -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 gold-accent">
-                <i class="fas fa-shield-alt mr-3"></i>
-                Cryptocurrency Risk Management
-            </h1>
-            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
-                Master the essential strategies to protect your cryptocurrency investments and minimize losses in volatile Asian markets
-            </p>
+    <main class="content-area">
+        <div class="container">
+            <!-- Article Header -->
+            <div class="article-header">
+                <h1 class="article-title">Cryptocurrency Risk Management</h1>
+                <p class="article-subtitle">Learn essential strategies to protect your crypto investments with position sizing, stop-losses, and portfolio diversification for Asian markets</p>
+            </div>
+
+            <!-- Introduction Section -->
+            <section class="section">
+                <h2><i class="fas fa-shield-alt"></i> Why is Risk Management Critical in Crypto?</h2>
+                
+                <p>Cryptocurrency markets are known for their extreme volatility, with prices capable of swinging 20% or more in a single day. While this volatility creates opportunities for significant gains, it also poses substantial risks that can wipe out unprepared investors. Risk management is not about avoiding all risks—it's about understanding, measuring, and controlling them to protect your capital while still allowing for profit potential.</p>
+
+                <p>In traditional finance, a 2-3% daily move is considered significant. In cryptocurrency, double-digit daily moves are common. This heightened volatility, combined with the 24/7 nature of crypto markets and the emotional responses it triggers, makes disciplined risk management absolutely essential for long-term success. Without proper risk controls, even profitable traders can suffer devastating losses that eliminate months or years of gains.</p>
+
+                <p>Asian crypto markets add additional complexity with varying regulatory environments, different trading sessions, and unique market dynamics. Countries like Japan, South Korea, and Singapore each have distinct trading patterns and investor behaviors that can impact volatility and risk levels throughout different times of the day.</p>
+
+                <div class="highlight-box">
+                    <p><strong><i class="fas fa-exclamation-triangle"></i> Key Principle:</strong> Risk management isn't about making money—it's about not losing money. Protecting your capital is the foundation that allows you to capitalize on opportunities when they arise.</p>
+                </div>
+            </section>
+
+            <!-- Position Sizing Section -->
+            <section class="section">
+                <h2><i class="fas fa-balance-scale"></i> Position Sizing: Your First Line of Defense</h2>
+                
+                <h3>What is Position Sizing?</h3>
+                <p>Position sizing refers to determining how much of your total capital to allocate to any single cryptocurrency investment. It's the most fundamental risk management technique because it directly controls how much you can lose on any individual trade or investment. Think of position sizing as setting the maximum amount you're willing to lose before you even enter a position.</p>
+
+                <p>The goal is to size your positions so that even if several investments go wrong, you'll still have enough capital left to continue trading and eventually recover. Professional traders often risk only 1-2% of their total capital on any single trade, while long-term investors might allocate 5-10% to individual cryptocurrencies within a diversified portfolio.</p>
+
+                <h3>Common Position Sizing Strategies</h3>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-percent"></i> Percentage Risk Model</h4>
+                    <p>Risk a fixed percentage of your total portfolio on each trade. Conservative investors use 1-2%, moderate investors use 2-5%, and aggressive investors might use 5-10%. This method automatically adjusts position sizes as your account grows or shrinks.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-dollar-sign"></i> Fixed Dollar Amount</h4>
+                    <p>Risk the same dollar amount on each trade regardless of account size. This method is simple but doesn't account for portfolio growth. Best suited for beginners who want consistent, predictable risk levels.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-chart-line"></i> Volatility-Adjusted Sizing</h4>
+                    <p>Adjust position sizes based on the volatility of each cryptocurrency. Take smaller positions in highly volatile coins like altcoins and larger positions in more stable cryptocurrencies like Bitcoin and Ethereum.</p>
+                </div>
+
+                <h3>Position Sizing for Asian Markets</h3>
+                <p>Asian crypto markets often experience heightened volatility during certain hours, particularly during the Tokyo and Seoul trading sessions. Consider reducing position sizes during these high-volatility periods or when major Asian regulatory announcements are expected. Japanese and Korean markets, in particular, can create significant price movements that impact global markets.</p>
+
+                <div class="risk-calculator">
+                    <h4><i class="fas fa-calculator"></i> Position Size Calculator</h4>
+                    <div class="calculator-input">
+                        <label for="account-size">Total Account Size ($):</label>
+                        <input type="number" id="account-size" placeholder="10000">
+                    </div>
+                    <div class="calculator-input">
+                        <label for="risk-percent">Risk Percentage (%):</label>
+                        <input type="number" id="risk-percent" placeholder="2" max="100">
+                    </div>
+                    <div class="calculator-input">
+                        <label for="entry-price">Entry Price ($):</label>
+                        <input type="number" id="entry-price" placeholder="50000">
+                    </div>
+                    <div class="calculator-input">
+                        <label for="stop-price">Stop Loss Price ($):</label>
+                        <input type="number" id="stop-price" placeholder="45000">
+                    </div>
+                    <button onclick="calculatePosition()" style="background-color: #FFD700; color: #000000; padding: 10px 20px; border: none; border-radius: 5px; font-weight: 600; cursor: pointer; margin-top: 10px;">Calculate Position Size</button>
+                    <div id="calculator-result" class="calculator-result" style="display: none;">
+                        <p><strong>Recommended Position Size:</strong> <span id="position-size"></span></p>
+                        <p><strong>Maximum Risk:</strong> $<span id="max-risk"></span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stop Loss Section -->
+            <section class="section">
+                <h2><i class="fas fa-stop-circle"></i> Stop-Loss Techniques: Cutting Losses Short</h2>
+                
+                <h3>What is a Stop Loss and Why Use It?</h3>
+                <p>A stop loss is a predetermined price level at which you will exit a losing position to prevent further losses. It's like an emergency brake for your investments—when the price reaches your stop loss level, you automatically sell to limit your downside. Stop losses are crucial because they remove emotion from loss-cutting decisions and ensure you stick to your risk management plan even when fear or hope might cloud your judgment.</p>
+
+                <p>In cryptocurrency markets, stop losses are particularly important due to the potential for sudden, dramatic price movements. Flash crashes, whale selling, or negative news can cause prices to plummet rapidly, and having a stop loss in place can protect you from catastrophic losses during these events.</p>
+
+                <h3>Types of Stop Loss Orders</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Stop Loss Type</th>
+                            <th>How It Works</th>
+                            <th>Best For</th>
+                            <th>Pros</th>
+                            <th>Cons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Fixed Stop Loss</td>
+                            <td>Set at specific price level</td>
+                            <td>Clear risk tolerance</td>
+                            <td>Simple, precise</td>
+                            <td>May be hit by volatility</td>
+                        </tr>
+                        <tr>
+                            <td>Trailing Stop</td>
+                            <td>Moves with profitable price</td>
+                            <td>Trending markets</td>
+                            <td>Protects profits</td>
+                            <td>Can be stopped out early</td>
+                        </tr>
+                        <tr>
+                            <td>Percentage Stop</td>
+                            <td>Set percentage below entry</td>
+                            <td>Volatile cryptocurrencies</td>
+                            <td>Accounts for volatility</td>
+                            <td>Risk varies with price</td>
+                        </tr>
+                        <tr>
+                            <td>Technical Stop</td>
+                            <td>Based on chart levels</td>
+                            <td>Technical analysis</td>
+                            <td>Market-based logic</td>
+                            <td>Requires TA knowledge</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Setting Effective Stop Losses</h3>
+                <ul class="bullet-list">
+                    <li><strong>Use Technical Levels:</strong> Place stops below key support levels or above resistance for short positions</li>
+                    <li><strong>Account for Volatility:</strong> Give your positions room to breathe by considering average daily ranges</li>
+                    <li><strong>Risk-Reward Ratios:</strong> Ensure potential profits are at least 2-3 times your potential losses</li>
+                    <li><strong>Time-Based Stops:</strong> Exit positions that don't move in your favor within a specific timeframe</li>
+                    <li><strong>News-Based Stops:</strong> Have predetermined exit plans for major negative news or regulatory changes</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong><i class="fas fa-lightbulb"></i> Asian Market Tip:</strong> Consider wider stop losses during Asian trading hours (1:00-9:00 UTC) when volatility tends to be higher. Tokyo and Seoul markets can create significant intraday movements that might trigger tight stops unnecessarily.</p>
+                </div>
+            </section>
+
+            <!-- Portfolio Diversification Section -->
+            <section class="section">
+                <h2><i class="fas fa-chart-pie"></i> Portfolio Diversification: Don't Put All Eggs in One Basket</h2>
+                
+                <h3>Why Diversification Matters in Crypto</h3>
+                <p>Diversification is the practice of spreading your investments across different assets to reduce overall portfolio risk. In cryptocurrency, this means not putting all your money into Bitcoin, or even just into cryptocurrencies alone. While crypto assets often move together during major market moves, they can have very different performance patterns over shorter timeframes and different market conditions.</p>
+
+                <p>The key principle is that when one investment performs poorly, others in your portfolio might perform well, helping to smooth out overall returns and reduce the risk of catastrophic losses. However, crypto diversification requires careful consideration because many altcoins are highly correlated with Bitcoin, especially during market stress periods.</p>
+
+                <h3>Types of Crypto Diversification</h3>
+
+                <div class="info-card">
+                    <h4><i class="fab fa-bitcoin"></i> Cryptocurrency Diversification</h4>
+                    <p>Spread investments across different cryptocurrencies with varying use cases: store of value (Bitcoin), smart contracts (Ethereum), DeFi tokens, gaming tokens, and infrastructure projects. Avoid overconcentrating in similar projects or those that serve the same function.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-globe-asia"></i> Geographic Diversification</h4>
+                    <p>Consider cryptocurrencies popular in different Asian regions. Japanese-focused projects, Korean gaming tokens, Chinese blockchain platforms, and Southeast Asian fintech tokens may perform differently based on regional developments and regulations.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-layer-group"></i> Sector Diversification</h4>
+                    <p>Invest across different crypto sectors: DeFi, NFTs, gaming, infrastructure, privacy coins, and stablecoins. Each sector has different growth drivers and risk factors that may not always move in sync.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-clock"></i> Time Diversification</h4>
+                    <p>Use dollar-cost averaging to spread purchases over time rather than investing everything at once. This reduces the impact of timing and helps smooth out volatility effects on your average purchase price.</p>
+                </div>
+
+                <h3>Sample Portfolio Allocations by Risk Tolerance</h3>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Risk Level</th>
+                            <th>Bitcoin</th>
+                            <th>Ethereum</th>
+                            <th>Large Cap Alts</th>
+                            <th>Small Cap Alts</th>
+                            <th>Traditional Assets</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Conservative</td>
+                            <td>30%</td>
+                            <td>20%</td>
+                            <td>15%</td>
+                            <td>5%</td>
+                            <td>30%</td>
+                        </tr>
+                        <tr>
+                            <td>Moderate</td>
+                            <td>25%</td>
+                            <td>25%</td>
+                            <td>25%</td>
+                            <td>10%</td>
+                            <td>15%</td>
+                        </tr>
+                        <tr>
+                            <td>Aggressive</td>
+                            <td>20%</td>
+                            <td>20%</td>
+                            <td>30%</td>
+                            <td>25%</td>
+                            <td>5%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Risk-Reward Ratios Section -->
+            <section class="section">
+                <h2><i class="fas fa-balance-scale-right"></i> Risk-Reward Ratios: Making Math Work in Your Favor</h2>
+                
+                <h3>Understanding Risk-Reward Ratios</h3>
+                <p>The risk-reward ratio compares the potential profit of a trade to its potential loss. A 1:2 risk-reward ratio means you're willing to risk $1 to potentially make $2. This concept is fundamental because it determines whether your trading strategy can be profitable over time, even if you're wrong more often than you're right.</p>
+
+                <p>For example, with a 1:3 risk-reward ratio, you only need to be right 25% of the time to break even. This mathematical advantage is what allows professional traders to remain profitable even when the majority of their trades are losers. The key is finding trades where the potential upside significantly outweighs the potential downside.</p>
+
+                <h3>Calculating and Using Risk-Reward Ratios</h3>
+                <p>To calculate risk-reward ratio: Divide your potential profit by your potential loss. If you enter Bitcoin at $50,000 with a stop loss at $45,000 (risk of $5,000) and a profit target at $65,000 (potential profit of $15,000), your risk-reward ratio is 1:3 ($5,000 risk to make $15,000 profit).</p>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-chart-bar"></i> Win Rate vs Risk-Reward Analysis</h4>
+                    <table class="comparison-table" style="margin-top: 15px;">
+                        <thead>
+                            <tr>
+                                <th>Risk-Reward Ratio</th>
+                                <th>Break-even Win Rate</th>
+                                <th>Required Win Rate for Profit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1:1</td>
+                                <td>50%</td>
+                                <td>55%+</td>
+                            </tr>
+                            <tr>
+                                <td>1:2</td>
+                                <td>33%</td>
+                                <td>40%+</td>
+                            </tr>
+                            <tr>
+                                <td>1:3</td>
+                                <td>25%</td>
+                                <td>30%+</td>
+                            </tr>
+                            <tr>
+                                <td>1:4</td>
+                                <td>20%</td>
+                                <td>25%+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Improving Your Risk-Reward Ratios</h3>
+                <ul class="bullet-list">
+                    <li><strong>Better Entry Points:</strong> Wait for better prices that offer more favorable risk-reward setups</li>
+                    <li><strong>Tighter Stops:</strong> Use technical analysis to place stops closer to entry while maintaining validity</li>
+                    <li><strong>Higher Targets:</strong> Look for trades with multiple profit targets or trending potential</li>
+                    <li><strong>Market Conditions:</strong> Seek higher ratios during trending markets and accept lower ratios in ranging markets</li>
+                    <li><strong>Patience:</strong> Only take trades that meet your minimum risk-reward criteria</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong><i class="fas fa-calculator"></i> Quick Formula:</strong> Minimum win rate needed = Risk ÷ (Risk + Reward). For a 1:3 ratio: 1 ÷ (1 + 3) = 25% break-even rate.</p>
+                </div>
+            </section>
+
+            <!-- Psychological Aspects Section -->
+            <section class="section">
+                <h2><i class="fas fa-brain"></i> Psychology of Risk Management</h2>
+                
+                <h3>Why Do Traders Struggle with Risk Management?</h3>
+                <p>Even when traders understand risk management principles intellectually, implementing them consistently is challenging due to psychological factors. Fear of missing out (FOMO) leads to oversized positions, hope prevents cutting losses, and greed causes traders to risk profits by not taking them when appropriate. Understanding these psychological traps is crucial for developing discipline.</p>
+
+                <p>The 24/7 nature of crypto markets amplifies these psychological challenges. Unlike traditional markets with clear opening and closing times, cryptocurrency markets never sleep, creating constant pressure to monitor positions and make decisions. This can lead to impulsive actions that violate risk management rules.</p>
+
+                <h3>Common Psychological Pitfalls</h3>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-heart-broken"></i> Loss Aversion</h4>
+                    <p>People feel losses about twice as strongly as equivalent gains. This leads to holding losing positions too long (hoping they'll recover) and selling winning positions too early (to lock in gains and avoid regret).</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-dice"></i> Gambler's Fallacy</h4>
+                    <p>Believing that past results affect future probabilities. After a string of losses, traders might increase position sizes thinking they're "due" for a win, or become overconfident after wins and take excessive risks.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-eye"></i> Confirmation Bias</h4>
+                    <p>Seeking information that confirms existing beliefs while ignoring contradictory evidence. This can lead to holding losing positions because you focus only on positive news while dismissing negative signals.</p>
+                </div>
+
+                <h3>Building Disciplined Risk Management Habits</h3>
+                <ul class="bullet-list">
+                    <li><strong>Pre-Plan Trades:</strong> Decide entry, exit, and stop loss levels before entering positions</li>
+                    <li><strong>Use Automation:</strong> Set stop losses and take profit orders to remove emotional decisions</li>
+                    <li><strong>Keep a Trading Journal:</strong> Record the reasoning behind each trade and review regularly</li>
+                    <li><strong>Start Small:</strong> Practice risk management with smaller positions before increasing size</li>
+                    <li><strong>Regular Reviews:</strong> Assess your risk management performance weekly or monthly</li>
+                </ul>
+            </section>
+
+            <!-- Asian Market Specific Risks Section -->
+            <section class="section">
+                <h2><i class="fas fa-globe-asia"></i> Asian Market-Specific Risk Factors</h2>
+                
+                <h3>What Makes Asian Crypto Markets Unique?</h3>
+                <p>Asian cryptocurrency markets operate with distinct characteristics that create both opportunities and risks. Regulatory environments vary significantly between countries, with some being crypto-friendly (Japan, Singapore) while others maintain restrictions (China). These differences can create sudden volatility when regulations change or when cross-border trading flows shift.</p>
+
+                <p>Time zone effects also play a crucial role. Asian trading hours often see different volatility patterns compared to Western markets, and major announcements from Asian governments or companies can impact global crypto prices during times when Western traders are sleeping, leading to gap openings in their local markets.</p>
+
+                <h3>Key Risk Factors to Monitor</h3>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-gavel"></i> Regulatory Risks</h4>
+                    <p>Keep close watch on regulatory developments in major Asian markets. Changes in policy from China, regulatory clarity from Japan's FSA, or new frameworks from Singapore's MAS can significantly impact cryptocurrency prices and market access.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-exchange-alt"></i> Exchange Concentration Risk</h4>
+                    <p>Many Asian crypto exchanges have high trading volumes but may face sudden regulatory changes. Diversify across multiple exchanges and avoid keeping large amounts on any single platform, especially those based in jurisdictions with unclear regulations.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-language"></i> Information Asymmetry</h4>
+                    <p>Important news often breaks first in local Asian languages before being translated. This can create temporary information advantages or disadvantages depending on your access to local news sources and your ability to react quickly to developments.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-won-sign"></i> Currency and Capital Control Risks</h4>
+                    <p>Some Asian countries have capital controls that can affect cryptocurrency trading. Understanding local banking relationships with crypto exchanges and potential restrictions on fund transfers is crucial for risk management.</p>
+                </div>
+
+                <h3>Risk Management Strategies for Asian Markets</h3>
+                <ul class="bullet-list">
+                    <li><strong>Monitor Asian Market Hours:</strong> Be aware of increased volatility during Tokyo (1:00-9:00 UTC) and Seoul sessions</li>
+                    <li><strong>Stay Informed:</strong> Follow regulatory developments in major Asian markets through local news sources</li>
+                    <li><strong>Diversify Exchanges:</strong> Use multiple exchanges across different jurisdictions to reduce regulatory risk</li>
+                    <li><strong>Weekend Risk:</strong> Consider reducing positions before weekends when Western market support may be limited</li>
+                    <li><strong>Holiday Calendar:</strong> Be aware of major Asian holidays when liquidity might be reduced</li>
+                </ul>
+            </section>
+
+            <!-- Getting Started Section -->
+            <section class="section">
+                <h2><i class="fas fa-rocket"></i> Implementing Your Risk Management Plan</h2>
+                
+                <p>Risk management is not a one-time setup but an ongoing process that requires constant attention and refinement. Start with conservative position sizes and gradually increase them as you gain experience and confidence in your risk management abilities. Remember that the goal is not to eliminate all risk but to manage it intelligently so that you can stay in the game long enough to capitalize on opportunities.</p>
+
+                <h3>Your Risk Management Checklist</h3>
+                <ul class="bullet-list">
+                    <li><strong>Define Your Risk Tolerance:</strong> Determine how much of your total capital you're willing to risk</li>
+                    <li><strong>Set Position Size Rules:</strong> Never risk more than 1-5% of your capital on any single trade</li>
+                    <li><strong>Plan Every Trade:</strong> Determine entry, stop loss, and profit targets before entering</li>
+                    <li><strong>Use Stop Losses:</strong> Always have an exit plan for losing trades</li>
+                    <li><strong>Diversify Appropriately:</strong> Don't put all your money in similar cryptocurrencies</li>
+                    <li><strong>Monitor Asian Market Developments:</strong> Stay informed about regional regulatory and market changes</li>
+                    <li><strong>Review and Adjust:</strong> Regularly assess your risk management performance and make improvements</li>
+                </ul>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-book-open"></i> Continue Your Education</h4>
+                    <p>Risk management is a complex topic that requires ongoing learning. Consider exploring these related guides:</p>
+                    <ul style="margin-top: 15px; color: #cccccc;">
+                        <li><a href="technical-analysis.html" style="color: #00D4FF;">Technical Analysis for Better Entry and Exit Points</a></li>
+                        <li><a href="asian-market-hours.html" style="color: #00D4FF;">Understanding Asian Trading Sessions</a></li>
+                        <li><a href="wallet-security.html" style="color: #00D4FF;">Securing Your Cryptocurrency Holdings</a></li>
+                        <li><a href="choosing-exchange.html" style="color: #00D4FF;">Choosing Reliable Exchanges</a></li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <p><strong><i class="fas fa-graduation-cap"></i> Remember:</strong> The best risk management strategy is the one you can follow consistently. Start simple, stay disciplined, and gradually refine your approach as you gain experience in the cryptocurrency markets.</p>
+                </div>
+            </section>
         </div>
-
-        <!-- Quick Stats -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-            <div class="risk-card p-6 rounded-lg text-center">
-                <i class="fas fa-percentage text-yellow-500 text-3xl mb-3"></i>
-                <h3 class="text-xl font-semibold mb-2">2-3% Rule</h3>
-                <p class="text-gray-400">Maximum risk per trade</p>
-            </div>
-            <div class="risk-card p-6 rounded-lg text-center">
-                <i class="fas fa-chart-pie text-blue-500 text-3xl mb-3"></i>
-                <h3 class="text-xl font-semibold mb-2">5-10 Assets</h3>
-                <p class="text-gray-400">Optimal diversification</p>
-            </div>
-            <div class="risk-card p-6 rounded-lg text-center">
-                <i class="fas fa-stop-circle text-red-500 text-3xl mb-3"></i>
-                <h3 class="text-xl font-semibold mb-2">1:2 Ratio</h3>
-                <p class="text-gray-400">Minimum risk-reward</p>
-            </div>
-            <div class="risk-card p-6 rounded-lg text-center">
-                <i class="fas fa-clock text-green-500 text-3xl mb-3"></i>
-                <h3 class="text-xl font-semibold mb-2">Long Term</h3>
-                <p class="text-gray-400">Best strategy for most</p>
-            </div>
-        </div>
-
-        <!-- What is Risk Management? -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 gold-accent">
-                <i class="fas fa-question-circle mr-3"></i>
-                What is Cryptocurrency Risk Management?
-            </h2>
-            <div class="space-y-6">
-                <p class="text-lg leading-relaxed">
-                    Risk management in cryptocurrency investing involves implementing strategies to protect your capital and minimize potential losses. Unlike traditional markets, crypto operates 24/7 with extreme volatility, making risk management crucial for Asian investors. The goal isn't to eliminate risk entirely, but to control it within acceptable limits. Professional traders never risk more than they can afford to lose on any single investment.
-                </p>
-                <p class="text-lg leading-relaxed">
-                    Effective risk management combines multiple techniques including position sizing, diversification, and systematic profit-taking. Asian markets present unique challenges with regulatory changes, timezone differences, and cultural factors affecting investor behavior. Understanding these dynamics helps create more robust protection strategies. The key is developing a systematic approach rather than making emotional decisions during market turbulence.
-                </p>
-            </div>
-        </section>
-
-        <!-- Position Sizing -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 gold-accent">
-                <i class="fas fa-weight-hanging mr-3"></i>
-                How Much Should You Risk Per Trade?
-            </h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Position Sizing Strategies</h3>
-                    <div class="space-y-4">
-                        <div class="success-box p-4 rounded-lg">
-                            <h4 class="font-semibold text-green-400 mb-2">Conservative (1-2%)</h4>
-                            <p>Best for beginners and volatile markets. Allows for many mistakes while learning.</p>
-                        </div>
-                        <div class="risk-card p-4 rounded-lg">
-                            <h4 class="font-semibold text-yellow-400 mb-2">Moderate (2-3%)</h4>
-                            <p>Balanced approach for experienced traders with proven strategies.</p>
-                        </div>
-                        <div class="warning-box p-4 rounded-lg">
-                            <h4 class="font-semibold text-red-400 mb-2">Aggressive (3-5%)</h4>
-                            <p>Only for experts with excellent risk management and large capital.</p>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Position Size Calculator</h3>
-                    <div class="risk-card p-6 rounded-lg">
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Account Balance ($)</label>
-                                <input type="number" id="accountBalance" value="10000" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-600">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Risk Percentage (%)</label>
-                                <input type="number" id="riskPercent" value="2" min="0.5" max="10" step="0.5" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-600">
-                            </div>
-                            <div class="border-t border-gray-600 pt-4">
-                                <p class="text-lg font-semibold">Maximum Risk: $<span id="maxRisk">200</span></p>
-                                <p class="text-sm text-gray-400">This is the maximum you should risk on any single trade</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mb-8">
-                <h3 class="text-2xl font-semibold mb-4">Portfolio Allocation Example</h3>
-                <div class="chart-container">
-                    <canvas id="portfolioChart"></canvas>
-                </div>
-            </div>
-        </section>
-
-        <!-- Stop-Loss Techniques -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 gold-accent">
-                <i class="fas fa-hand-paper mr-3"></i>
-                When Should You Cut Your Losses?
-            </h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Stop-Loss Types</h3>
-                    <div class="space-y-6">
-                        <div class="risk-card p-6 rounded-lg">
-                            <h4 class="text-xl font-semibold mb-3 text-yellow-500">
-                                <i class="fas fa-percentage mr-2"></i>Percentage Stop-Loss
-                            </h4>
-                            <p class="mb-3">Set a fixed percentage below your entry price (typically 5-15% for crypto).</p>
-                            <ul class="list-disc list-inside space-y-1 text-gray-300">
-                                <li>Simple to calculate and implement</li>
-                                <li>Good for beginners</li>
-                                <li>Works well in trending markets</li>
-                                <li>May be too rigid in volatile conditions</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="risk-card p-6 rounded-lg">
-                            <h4 class="text-xl font-semibold mb-3 text-blue-500">
-                                <i class="fas fa-chart-line mr-2"></i>Technical Stop-Loss
-                            </h4>
-                            <p class="mb-3">Based on support levels, moving averages, or chart patterns.</p>
-                            <ul class="list-disc list-inside space-y-1 text-gray-300">
-                                <li>More precise and market-aware</li>
-                                <li>Adapts to market structure</li>
-                                <li>Requires technical analysis skills</li>
-                                <li>Can provide better risk-reward ratios</li>
-                            </ul>
-                        </div>
-
-                        <div class="risk-card p-6 rounded-lg">
-                            <h4 class="text-xl font-semibold mb-3 text-green-500">
-                                <i class="fas fa-clock mr-2"></i>Time-Based Stop
-                            </h4>
-                            <p class="mb-3">Exit if the trade doesn't move in your favor within a set timeframe.</p>
-                            <ul class="list-disc list-inside space-y-1 text-gray-300">
-                                <li>Prevents capital from being tied up</li>
-                                <li>Good for swing trading strategies</li>
-                                <li>Helps maintain trading discipline</li>
-                                <li>May exit profitable trades too early</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Stop-Loss Visualization</h3>
-                    <div class="chart-container">
-                        <canvas id="stopLossChart"></canvas>
-                    </div>
-                    
-                    <div class="warning-box p-6 rounded-lg mt-6">
-                        <h4 class="text-xl font-semibold mb-3 text-red-400">
-                            <i class="fas fa-exclamation-triangle mr-2"></i>Asian Market Considerations
-                        </h4>
-                        <ul class="list-disc list-inside space-y-2">
-                            <li>Set stop-losses accounting for Asian timezone volatility</li>
-                            <li>Consider weekend gaps when markets reopen</li>
-                            <li>Factor in regional news and regulatory announcements</li>
-                            <li>Use wider stops during low liquidity hours</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Diversification -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 gold-accent">
-                <i class="fas fa-layer-group mr-3"></i>
-                How Should You Diversify Your Crypto Portfolio?
-            </h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
-                <div class="risk-card p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-4 text-yellow-500">
-                        <i class="fas fa-bitcoin mr-2"></i>Large Cap (40-60%)
-                    </h3>
-                    <p class="mb-4">Established cryptocurrencies with large market capitalizations.</p>
-                    <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
-                        <li>Bitcoin (BTC)</li>
-                        <li>Ethereum (ETH)</li>
-                        <li>Lower volatility</li>
-                        <li>More institutional adoption</li>
-                        <li>Higher liquidity</li>
-                    </ul>
-                </div>
-                
-                <div class="risk-card p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-4 text-blue-500">
-                        <i class="fas fa-coins mr-2"></i>Mid Cap (20-30%)
-                    </h3>
-                    <p class="mb-4">Promising projects with moderate market capitalization.</p>
-                    <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
-                        <li>Solana (SOL)</li>
-                        <li>Cardano (ADA)</li>
-                        <li>Polygon (MATIC)</li>
-                        <li>Higher growth potential</li>
-                        <li>Moderate risk level</li>
-                    </ul>
-                </div>
-                
-                <div class="risk-card p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold mb-4 text-green-500">
-                        <i class="fas fa-rocket mr-2"></i>Small Cap (10-20%)
-                    </h3>
-                    <p class="mb-4">Emerging projects and Asian-focused cryptocurrencies.</p>
-                    <ul class="list-disc list-inside space-y-1 text-gray-300 text-sm">
-                        <li>Asian DeFi projects</li>
-                        <li>Gaming tokens</li>
-                        <li>Highest risk/reward</li>
-                        <li>Early-stage innovation</li>
-                        <li>Extreme volatility</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="success-box p-6 rounded-lg">
-                <h3 class="text-xl font-semibold mb-4 text-green-400">
-                    <i class="fas fa-lightbulb mr-2"></i>Asian Portfolio Diversification Tips
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Include cryptocurrencies popular in different Asian countries</li>
-                        <li>Consider staking opportunities for passive income</li>
-                        <li>Balance between global and regional projects</li>
-                        <li>Include stablecoins for liquidity (10-20%)</li>
-                    </ul>
-                    <ul class="list-disc list-inside space-y-2">
-                        <li>Monitor correlation between your holdings</li>
-                        <li>Rebalance quarterly or semi-annually</li>
-                        <li>Consider dollar-cost averaging for entries</li>
-                        <li>Keep some cash for opportunities</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Risk-Reward Ratios -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 gold-accent">
-                <i class="fas fa-balance-scale mr-3"></i>
-                What's a Good Risk-Reward Ratio?
-            </h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Understanding Risk-Reward</h3>
-                    <p class="text-lg leading-relaxed mb-6">
-                        Risk-reward ratio compares potential profit to potential loss on each trade. A 1:2 ratio means you risk $1 to potentially make $2. Professional traders typically aim for ratios of 1:2 or better. This allows you to be profitable even with a 40% win rate. The key is being consistent and disciplined with your targets.
-                    </p>
-                    
-                    <div class="space-y-4">
-                        <div class="risk-card p-4 rounded-lg border-l-4 border-red-500">
-                            <h4 class="font-semibold text-red-400 mb-2">Poor: 1:1 Ratio</h4>
-                            <p class="text-sm">Risk $100 to make $100. Requires 50%+ win rate to be profitable.</p>
-                        </div>
-                        <div class="risk-card p-4 rounded-lg border-l-4 border-yellow-500">
-                            <h4 class="font-semibold text-yellow-400 mb-2">Good: 1:2 Ratio</h4>
-                            <p class="text-sm">Risk $100 to make $200. Profitable with 34%+ win rate.</p>
-                        </div>
-                        <div class="risk-card p-4 rounded-lg border-l-4 border-green-500">
-                            <h4 class="font-semibold text-green-400 mb-2">Excellent: 1:3+ Ratio</h4>
-                            <p class="text-sm">Risk $100 to make $300+. Profitable with 25%+ win rate.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4">Risk-Reward Calculator</h3>
-                    <div class="risk-card p-6 rounded-lg">
-                        <div class="space-y-4">
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Entry Price ($)</label>
-                                <input type="number" id="entryPrice" value="50000" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-600">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Stop Loss ($)</label>
-                                <input type="number" id="stopLoss" value="47000" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-600">
-                            </div>
-                            <div>
-                                <label class="block text-sm font-medium mb-2">Take Profit ($)</label>
-                                <input type="number" id="takeProfit" value="56000" class="w-full p-3 rounded bg-gray-800 text-white border border-gray-600">
-                            </div>
-                            <div class="border-t border-gray-600 pt-4 space-y-2">
-                                <p>Risk: $<span id="riskAmount">3000</span></p>
-                                <p>Reward: $<span id="rewardAmount">6000</span></p>
-                                <p class="text-lg font-semibold">Ratio: 1:<span id="ratio">2.0</span></p>
-                                <p class="text-sm" id="ratioFeedback">Good risk-reward ratio!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Common Mistakes -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 gold-accent">
-                <i class="fas fa-exclamation-circle mr-3"></i>
-                What Mistakes Should You Avoid?
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4 text-red-400">
-                        <i class="fas fa-times-circle mr-2"></i>Common Risk Management Mistakes
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="warning-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">Risking Too Much Per Trade</h4>
-                            <p class="text-sm">Going over 5% per trade can wipe out accounts quickly during losing streaks.</p>
-                        </div>
-                        <div class="warning-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">No Stop-Loss Orders</h4>
-                            <p class="text-sm">Hoping losing trades will recover often leads to devastating losses.</p>
-                        </div>
-                        <div class="warning-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">Emotional Trading</h4>
-                            <p class="text-sm">FOMO and revenge trading destroy disciplined risk management plans.</p>
-                        </div>
-                        <div class="warning-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">Poor Diversification</h4>
-                            <p class="text-sm">Putting all funds in similar assets increases correlation risk.</p>
-                        </div>
-                        <div class="warning-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">Ignoring Asian Market Cycles</h4>
-                            <p class="text-sm">Not accounting for timezone differences and regional market patterns.</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3 class="text-2xl font-semibold mb-4 text-green-400">
-                        <i class="fas fa-check-circle mr-2"></i>Best Practices for Asian Markets
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="success-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">Plan Before Asian Sessions</h4>
-                            <p class="text-sm">Set orders before Tokyo and Singapore market opens for better execution.</p>
-                        </div>
-                        <div class="success-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">Monitor Regional News</h4>
-                            <p class="text-sm">Stay updated on regulatory changes in major Asian crypto markets.</p>
-                        </div>
-                        <div class="success-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">Use Multiple Exchanges</h4>
-                            <p class="text-sm">Spread holdings across reputable Asian and global exchanges.</p>
-                        </div>
-                        <div class="success-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">Keep Trading Journal</h4>
-                            <p class="text-sm">Track performance and learn from both wins and losses.</p>
-                        </div>
-                        <div class="success-box p-4 rounded-lg">
-                            <h4 class="font-semibold mb-2">Regular Portfolio Review</h4>
-                            <p class="text-sm">Reassess allocation monthly and rebalance quarterly.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Action Steps -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 gold-accent">
-                <i class="fas fa-list-check mr-3"></i>
-                How to Implement Risk Management Today?
-            </h2>
-            
-            <div class="risk-card p-8 rounded-lg">
-                <h3 class="text-2xl font-semibold mb-6 text-center">Your Risk Management Checklist</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="text-xl font-semibold mb-4 text-yellow-500">Immediate Actions (Today)</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-square-check text-green-500 mt-1 mr-3"></i>
-                                <span>Calculate your maximum risk per trade (2-3% of portfolio)</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-square-check text-green-500 mt-1 mr-3"></i>
-                                <span>Set stop-loss orders on all current positions</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-square-check text-green-500 mt-1 mr-3"></i>
-                                <span>Review portfolio diversification and correlation</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-square-check text-green-500 mt-1 mr-3"></i>
-                                <span>Create risk management rules document</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-xl font-semibold mb-4 text-blue-500">This Week</h4>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-square-check text-green-500 mt-1 mr-3"></i>
-                                <span>Start tracking all trades in a journal</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-square-check text-green-500 mt-1 mr-3"></i>
-                                <span>Research Asian market trading hours and patterns</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-square-check text-green-500 mt-1 mr-3"></i>
-                                <span>Set up news alerts for major Asian crypto markets</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-square-check text-green-500 mt-1 mr-3"></i>
-                                <span>Practice position sizing with small trades</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Related Resources -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6 gold-accent">
-                <i class="fas fa-book-open mr-3"></i>
-                Continue Your Education
-            </h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="risk-card p-6 rounded-lg">
-                    <i class="fas fa-chart-line text-yellow-500 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Technical Analysis</h3>
-                    <p class="text-gray-400 mb-4">Learn to read charts and identify optimal entry and exit points.</p>
-                    <a href="/technical-analysis" class="text-yellow-500 hover:text-yellow-400 font-semibold">
-                        Read Guide <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-                
-                <div class="risk-card p-6 rounded-lg">
-                    <i class="fas fa-exchange-alt text-blue-500 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Choosing an Exchange</h3>
-                    <p class="text-gray-400 mb-4">Compare Asian exchanges and their risk management features.</p>
-                    <a href="/choosing-exchange" class="text-blue-500 hover:text-blue-400 font-semibold">
-                        Read Guide <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-                
-                <div class="risk-card p-6 rounded-lg">
-                    <i class="fas fa-shield-alt text-green-500 text-3xl mb-4"></i>
-                    <h3 class="text-xl font-semibold mb-3">Wallet Security</h3>
-                    <p class="text-gray-400 mb-4">Protect your assets with proper wallet security practices.</p>
-                    <a href="/wallet-security" class="text-green-500 hover:text-green-400 font-semibold">
-                        Read Guide <i class="fas fa-arrow-right ml-2"></i>
-                    </a>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->
-    <footer class="gradient-bg border-t-2 border-yellow-500 py-8">
-        <div class="container mx-auto px-4">
-            <div class="text-center">
-                <p class="text-gray-400">
-                    &copy; 2024 Asia Crypto News. Educational content for informational purposes only. 
-                    Cryptocurrency investments carry risk.
-                </p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <ul>
+                        <li><a href="what-is-cryptocurrency.html">What is Cryptocurrency?</a></li>
+                        <li><a href="choosing-exchange.html">Choosing an Exchange</a></li>
+                        <li><a href="wallet-security.html">Wallet Security</a></li>
+                        <li><a href="risk-management.html">Risk Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-chart-line"></i> Trading</h3>
+                    <ul>
+                        <li><a href="technical-analysis.html">Technical Analysis</a></li>
+                        <li><a href="asian-market-hours.html">Asian Market Hours</a></li>
+                        <li><a href="ai-trading-bots.html">AI Trading Bots</a></li>
+                        <li><a href="first-purchase.html">Your First Purchase</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-shield-alt"></i> Security</h3>
+                    <ul>
+                        <li><a href="two-factor-authentication.html">Two-Factor Authentication</a></li>
+                        <li><a href="avoid-scams.html">Avoiding Scams</a></li>
+                        <li><a href="wallet-security.html">Wallet Security</a></li>
+                        <li><a href="risk-management.html">Risk Management</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-info-circle"></i> About</h3>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Asia Crypto News. All rights reserved. | Educational content for informational purposes only. Not financial advice.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Position Size Calculator
-        function updatePositionCalculator() {
-            const balance = parseFloat(document.getElementById('accountBalance').value) || 0;
-            const riskPercent = parseFloat(document.getElementById('riskPercent').value) || 0;
-            const maxRisk = (balance * riskPercent / 100).toFixed(2);
-            document.getElementById('maxRisk').textContent = maxRisk;
-        }
-
-        // Risk-Reward Calculator
-        function updateRiskRewardCalculator() {
-            const entry = parseFloat(document.getElementById('entryPrice').value) || 0;
-            const stopLoss = parseFloat(document.getElementById('stopLoss').value) || 0;
-            const takeProfit = parseFloat(document.getElementById('takeProfit').value) || 0;
+        function calculatePosition() {
+            const accountSize = parseFloat(document.getElementById('account-size').value);
+            const riskPercent = parseFloat(document.getElementById('risk-percent').value);
+            const entryPrice = parseFloat(document.getElementById('entry-price').value);
+            const stopPrice = parseFloat(document.getElementById('stop-price').value);
             
-            const risk = Math.abs(entry - stopLoss);
-            const reward = Math.abs(takeProfit - entry);
-            const ratio = risk > 0 ? (reward / risk).toFixed(1) : 0;
-            
-            document.getElementById('riskAmount').textContent = risk.toFixed(0);
-            document.getElementById('rewardAmount').textContent = reward.toFixed(0);
-            document.getElementById('ratio').textContent = ratio;
-            
-            const feedback = document.getElementById('ratioFeedback');
-            if (ratio >= 3) {
-                feedback.textContent = 'Excellent risk-reward ratio!';
-                feedback.className = 'text-sm text-green-400';
-            } else if (ratio >= 2) {
-                feedback.textContent = 'Good risk-reward ratio!';
-                feedback.className = 'text-sm text-yellow-400';
-            } else if (ratio >= 1) {
-                feedback.textContent = 'Acceptable but could be better';
-                feedback.className = 'text-sm text-orange-400';
-            } else {
-                feedback.textContent = 'Poor risk-reward ratio';
-                feedback.className = 'text-sm text-red-400';
+            if (accountSize && riskPercent && entryPrice && stopPrice) {
+                const maxRisk = accountSize * (riskPercent / 100);
+                const riskPerUnit = Math.abs(entryPrice - stopPrice);
+                const positionSize = maxRisk / riskPerUnit;
+                
+                document.getElementById('position-size').textContent = positionSize.toFixed(6) + ' units';
+                document.getElementById('max-risk').textContent = maxRisk.toFixed(2);
+                document.getElementById('calculator-result').style.display = 'block';
             }
         }
-
-        // Event listeners
-        document.getElementById('accountBalance').addEventListener('input', updatePositionCalculator);
-        document.getElementById('riskPercent').addEventListener('input', updatePositionCalculator);
-        document.getElementById('entryPrice').addEventListener('input', updateRiskRewardCalculator);
-        document.getElementById('stopLoss').addEventListener('input', updateRiskRewardCalculator);
-        document.getElementById('takeProfit').addEventListener('input', updateRiskRewardCalculator);
-
-        // Portfolio Chart
-        const portfolioCtx = document.getElementById('portfolioChart').getContext('2d');
-        new Chart(portfolioCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Bitcoin (BTC)', 'Ethereum (ETH)', 'Large Cap Alts', 'Mid Cap', 'Small Cap', 'Stablecoins'],
-                datasets: [{
-                    data: [30, 20, 15, 15, 10, 10],
-                    backgroundColor: [
-                        '#FFD700',
-                        '#627EEA',
-                        '#00D4FF',
-                        '#51cf66',
-                        '#ff6b6b',
-                        '#868e96'
-                    ],
-                    borderWidth: 2,
-                    borderColor: '#333'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                        labels: {
-                            color: '#ffffff',
-                            padding: 20
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Recommended Portfolio Allocation',
-                        color: '#FFD700',
-                        font: {
-                            size: 16,
-                            weight: 'bold'
-                        }
-                    }
-                }
-            }
-        });
-
-        // Stop-Loss Chart
-        const stopLossCtx = document.getElementById('stopLossChart').getContext('2d');
-        new Chart(stopLossCtx, {
-            type: 'line',
-            data: {
-                labels: ['Entry', 'Target 1', 'Target 2', 'Stop Loss'],
-                datasets: [{
-                    label: 'Price Movement',
-                    data: [50000, 55000, 60000, 47000],
-                    borderColor: '#FFD700',
-                    backgroundColor: 'rgba(255, 215, 0, 0.1)',
-                    fill: false,
-                    tension: 0.4
-                }, {
-                    label: 'Risk Zone',
-                    data: [47000, 47000, 47000, 47000],
-                    borderColor: '#ff6b6b',
-                    backgroundColor: 'rgba(255, 107, 107, 0.1)',
-                    fill: false,
-                    borderDash: [5, 5]
-                }, {
-                    label: 'Profit Zone',
-                    data: [55000, 55000, 60000, 60000],
-                    borderColor: '#51cf66',
-                    backgroundColor: 'rgba(81, 207, 102, 0.1)',
-                    fill: false,
-                    borderDash: [5, 5]
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        labels: {
-                            color: '#ffffff'
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Stop-Loss vs Take-Profit Example',
-                        color: '#FFD700',
-                        font: {
-                            size: 16,
-                            weight: 'bold'
-                        }
-                    }
-                },
-                scales: {
-                    x: {
-                        ticks: {
-                            color: '#ffffff'
-                        },
-                        grid: {
-                            color: '#333333'
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            color: '#ffffff',
-                            callback: function(value) {
-                                return '$' + value.toLocaleString();
-                            }
-                        },
-                        grid: {
-                            color: '#333333'
-                        }
-                    }
-                }
-            }
-        });
-
-        // Initialize calculators
-        updatePositionCalculator();
-        updateRiskRewardCalculator();
     </script>
 </body>
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDlnf7s%2FDVDnp14wVWX43jaJUPt3iqpY%2BZlx9FKVabi%2Bo5csJTYmAkrEu32lYcQXD7Xd96Zo9jL%2FiZeHd1CN4Tv8s7JgVv%2Fr9waMR6XxshiaWJ6MOPkV1JNKHk9yE3OSlHu5bzd9cBZMpsIBYRtonBckw83vvJxV3lgCxLEXGDyjcqvb9qiWKsZGxtX9p%2B9p34%2BL9PmanVzZ7mUl7rRSXQ7zj0wvL92sJ%2BwlBRDqAEwK%2B09b1a%2BM0xxaV%2BeRl0k554Ksuky69nBdOw8uJVHQV9KuEaemVQeY0Ag%2BzkYjd0S2q%2FYP6WBhAAGXdhgI%2BG28WFZCO7OJ%2BbmrrMU%2Bs3qsujF6V251c4gjXImSn9WdF%2FBj1f3kSyu7VsXNvXWMJxGXRu9HNSn%2BY2kEDo5wPq2HcrgpYRw38lZ3L1p%2Fs3BAzhotyd7qfsz460dYeWP4ixyOpEZJuiaH98T5XsIEBWSPPntDixCyxVBWseEp%2BdIDTTe%2BHAvsPbg9F71cMXL4J6vZAgfayNqCAr4euQZeIoi5perM%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDpnQFoFIreGWeEX%2FI5c9yzX8q%2Buy9QzVbUYnvvJt9QJZWSQK6G7txX6DAHjlJJi4xNrOZfOtSMIBSrcZcHkoxR1XXx3yxA599WZ7DpXXelny3pGND7dzFlcwskHjQ4%2BUcARi4OSA%2BpQLv9%2BdblyDN6TDeE%2F%2F%2B2IAhDmwf5sp0adl%2Bhg%2B42fQDHvftYR8xOmnuvBzxsFjw%2BLYX7GtUpgZ6kG9p7Gq3EEFSeoAmph6YrbksSfVfIm6aF9Ne7lg04ys9%2Bjrehyps8nW1XNWZ1opB6z9jan2BX38iraCvY0L3aVXIAHLyuI2lQa90QSLqXBBGfhqwj5d3CETO0oX6%2BX%2BjY2FSWC14vmYDSl5197pbazA2o0VZwCZ5a%2FofDvydGM93ssF5RqqK9JM16I%2F4Hdbke7atF%2BkvJLNXRF1Sgonhel4b5bWyumdmCRH3lcV5HrSMAJg3xv7z0MsdqbsU9onBUsUv4qRt26DqxFsVlazCK3O61irY%2FBTBJjmkz4QseH7Ti2CT7rKxYDHqAVfS232hVk%3D";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDlnf7s/DVDnp14wVWX43jaJUPt3iqpY+Zlx9FKVabi+o5csJTYmAkrEu32lYcQXD7Xd96Zo9jL/iZeHd1CN4Tv8s7JgVv/r9waMR6XxshiaWJ6MOPkV1JNKHk9yE3OSlHu5bzd9cBZMpsIBYRtonBckw83vvJxV3lgCxLEXGDyjcqvb9qiWKsZGxtX9p+9p34+L9PmanVzZ7mUl7rRSXQ7zj0wvL92sJ+wlBRDqAEwK+09b1a+M0xxaV+eRl0k554Ksuky69nBdOw8uJVHQV9KuEaemVQeY0Ag+zkYjd0S2q/YP6WBhAAGXdhgI+G28WFZCO7OJ+bmrrMU+s3qsujF6V251c4gjXImSn9WdF/Bj1f3kSyu7VsXNvXWMJxGXRu9HNSn+Y2kEDo5wPq2HcrgpYRw38lZ3L1p/s3BAzhotyd7qfsz460dYeWP4ixyOpEZJuiaH98T5XsIEBWSPPntDixCyxVBWseEp+dIDTTe+HAvsPbg9F71cMXL4J6vZAgfayNqCAr4euQZeIoi5perM=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDpnQFoFIreGWeEX/I5c9yzX8q+uy9QzVbUYnvvJt9QJZWSQK6G7txX6DAHjlJJi4xNrOZfOtSMIBSrcZcHkoxR1XXx3yxA599WZ7DpXXelny3pGND7dzFlcwskHjQ4+UcARi4OSA+pQLv9+dblyDN6TDeE//+2IAhDmwf5sp0adl+hg+42fQDHvftYR8xOmnuvBzxsFjw+LYX7GtUpgZ6kG9p7Gq3EEFSeoAmph6YrbksSfVfIm6aF9Ne7lg04ys9+jrehyps8nW1XNWZ1opB6z9jan2BX38iraCvY0L3aVXIAHLyuI2lQa90QSLqXBBGfhqwj5d3CETO0oX6+X+jY2FSWC14vmYDSl5197pbazA2o0VZwCZ5a/ofDvydGM93ssF5RqqK9JM16I/4Hdbke7atF+kvJLNXRF1Sgonhel4b5bWyumdmCRH3lcV5HrSMAJg3xv7z0MsdqbsU9onBUsUv4qRt26DqxFsVlazCK3O61irY/BTBJjmkz4QseH7Ti2CT7rKxYDHqAVfS232hVk=";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>

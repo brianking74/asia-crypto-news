@@ -3,406 +3,700 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptocurrency Technical Analysis - Trading Guide for Asian Markets | Asia Crypto News</title>
+    <title>Cryptocurrency Technical Analysis - Trading Guide | Asia Crypto News</title>
     <meta name="description" content="Learn cryptocurrency technical analysis including candlestick patterns, support and resistance, moving averages, RSI and MACD indicators. Complete trading analysis guide for Asian crypto markets.">
-    <meta name="keywords" content="cryptocurrency technical analysis, crypto trading, candlestick patterns, Asian crypto markets, RSI, MACD, moving averages">
+    <meta name="keywords" content="cryptocurrency technical analysis, candlestick patterns, crypto trading, support resistance, moving averages, RSI MACD, Asian crypto trading">
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
     <style>
         body {
+            font-family: 'Inter', sans-serif;
             background-color: #000000;
             color: #ffffff;
-            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
         }
-        .chart-container {
-            height: 400px;
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 20px 0;
+            border-bottom: 3px solid #FFD700;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .nav {
+            background-color: #333333;
+            padding: 15px 0;
+        }
+        
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav a:hover {
+            background-color: #FFD700;
+            color: #000000;
+            transform: translateY(-2px);
+        }
+        
+        .breadcrumb {
+            background-color: #1a1a1a;
+            padding: 15px 0;
+            border-bottom: 1px solid #333333;
+        }
+        
+        .content-area {
+            padding: 40px 0;
+        }
+        
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            border-radius: 15px;
+        }
+        
+        .article-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+        }
+        
+        .article-subtitle {
+            font-size: 1.3rem;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid #333333;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #FFD700;
+            padding-bottom: 15px;
+        }
+        
+        .section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #FFA500;
+            margin: 30px 0 20px 0;
+        }
+        
+        .section h4 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #00D4FF;
+            margin: 25px 0 15px 0;
+        }
+        
+        .section p {
+            color: #cccccc;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight-box {
+            background-color: #2d2d2d;
+            border-left: 4px solid #FFD700;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #2d2d2d 0%, #3d3d3d 100%);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #444444;
             margin: 20px 0;
         }
-        .gold-text {
+        
+        .info-card h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .bullet-list {
+            color: #cccccc;
+            margin: 20px 0;
+        }
+        
+        .bullet-list li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+        }
+        
+        .bullet-list li::marker {
             color: #FFD700;
         }
-        .card-bg {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .comparison-table th {
+            background-color: #FFD700;
+            color: #000000;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #444444;
+            color: #cccccc;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #3d3d3d;
+        }
+        
+        .glossary-term {
+            background-color: #2d2d2d;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #00D4FF;
+        }
+        
+        .glossary-term h5 {
+            color: #00D4FF;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .chart-container {
+            background-color: #2d2d2d;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 25px 0;
+            border: 1px solid #444444;
+        }
+        
+        .footer {
+            background-color: #1a1a1a;
+            padding: 50px 0 30px;
+            border-top: 3px solid #FFD700;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: #FFD700;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section a {
+            color: #cccccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: #FFD700;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333333;
+            color: #888888;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .article-title {
+                font-size: 2.2rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .nav ul {
+                gap: 15px;
+            }
+            
+            .nav a {
+                padding: 8px 15px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
-<body class="bg-black text-white">
+<body>
     <!-- Header -->
-    <header class="bg-gray-900 py-6 border-b-2 border-yellow-500">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <i class="fas fa-coins text-yellow-500 text-3xl mr-3"></i>
-                    <h1 class="text-2xl font-bold gold-text">Asia Crypto News</h1>
-                </div>
-                <nav class="hidden md:flex space-x-6">
-                    <a href="/" class="hover:text-yellow-500 transition-colors">Home</a>
-                    <a href="/news.html" class="hover:text-yellow-500 transition-colors">News</a>
-                    <a href="/education.html" class="hover:text-yellow-500 transition-colors">Education</a>
-                    <a href="/markets.html" class="hover:text-yellow-500 transition-colors">Markets</a>
-                </nav>
-            </div>
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <i class="fas fa-coins"></i> Asia Crypto News
+            </a>
+            <p style="text-align: center; color: #cccccc; font-size: 1.1rem; margin: 0;">Leading Cryptocurrency & AI News in Asia</p>
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main class="container mx-auto px-4 py-8 max-w-4xl">
-        <!-- Breadcrumb -->
-        <nav class="text-sm mb-6">
-            <a href="/" class="text-yellow-500 hover:underline">Home</a> 
-            <span class="mx-2">/</span>
-            <a href="/education.html" class="text-yellow-500 hover:underline">Education</a>
-            <span class="mx-2">/</span>
-            <span class="text-gray-400">Technical Analysis</span>
-        </nav>
-
-        <!-- Title Section -->
-        <div class="text-center mb-12">
-            <h1 class="text-4xl font-bold gold-text mb-4">Cryptocurrency Technical Analysis Guide</h1>
-            <p class="text-xl text-gray-300 mb-6">Master trading analysis for Asian crypto markets</p>
-            <div class="flex items-center justify-center text-gray-400 text-sm">
-                <i class="fas fa-clock mr-2"></i>
-                <span>15 min read</span>
-                <span class="mx-2">•</span>
-                <i class="fas fa-chart-line mr-2"></i>
-                <span>Beginner to Intermediate</span>
-            </div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="/news.html"><i class="fas fa-newspaper"></i> News</a></li>
+                <li><a href="/education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
+                <li><a href="/markets.html"><i class="fas fa-chart-line"></i> Markets</a></li>
+                <li><a href="/regional.html"><i class="fas fa-globe-asia"></i> Regional</a></li>
+                <li><a href="/about.html"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="/contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- Introduction -->
-        <section class="mb-12">
-            <div class="card-bg rounded-lg p-6">
-                <p class="text-lg leading-relaxed mb-4">
-                    Technical analysis is the practice of evaluating cryptocurrency price movements using historical data, charts, and mathematical indicators. Unlike fundamental analysis, which focuses on a project's underlying value, technical analysis helps traders identify patterns and trends to predict future price movements.
-                </p>
-                <p class="text-lg leading-relaxed mb-4">
-                    In Asian crypto markets, technical analysis is particularly valuable due to high trading volumes during Asian sessions and the influence of major exchanges in Japan, South Korea, and Singapore. Understanding these patterns can help you make more informed trading decisions.
-                </p>
-                <p class="text-lg leading-relaxed">
-                    This guide covers essential technical analysis tools used by successful traders in Asian markets. We'll explore candlestick patterns, support and resistance levels, moving averages, and key indicators like RSI and MACD.
-                </p>
-            </div>
-        </section>
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <span style="color: #888888;">
+                <a href="/" style="color: #FFD700; text-decoration: none;">Home</a> 
+                <i class="fas fa-chevron-right" style="margin: 0 10px; font-size: 0.8rem;"></i>
+                <a href="/education.html" style="color: #FFD700; text-decoration: none;">Education</a>
+                <i class="fas fa-chevron-right" style="margin: 0 10px; font-size: 0.8rem;"></i>
+                Technical Analysis
+            </span>
+        </div>
+    </div>
 
-        <!-- Candlestick Patterns -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold gold-text mb-6"><i class="fas fa-chart-bar mr-3"></i>What Are Candlestick Patterns?</h2>
-            
-            <div class="card-bg rounded-lg p-6 mb-6">
-                <p class="mb-4">
-                    Candlestick charts originated in Japan and are now the most popular way to display cryptocurrency price data. Each candlestick shows four key pieces of information: opening price, closing price, highest price, and lowest price for a specific time period.
-                </p>
-                <p class="mb-4">
-                    A green (or white) candlestick indicates the closing price was higher than the opening price, showing bullish sentiment. A red (or black) candlestick means the closing price was lower than the opening price, indicating bearish sentiment.
-                </p>
-                <p class="mb-4">
-                    The body of the candlestick represents the range between opening and closing prices, while the wicks (thin lines) show the highest and lowest prices reached during that period.
-                </p>
+    <!-- Main Content -->
+    <main class="content-area">
+        <div class="container">
+            <!-- Article Header -->
+            <div class="article-header">
+                <h1 class="article-title">Cryptocurrency Technical Analysis</h1>
+                <p class="article-subtitle">Master the art of reading crypto charts, understanding patterns, and using indicators to make informed trading decisions in Asian markets</p>
             </div>
 
-            <div class="chart-container">
-                <canvas id="candlestickChart"></canvas>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6 mt-6">
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold gold-text mb-4">Bullish Patterns</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center"><i class="fas fa-arrow-up text-green-500 mr-2"></i>Hammer - Reversal signal at bottom</li>
-                        <li class="flex items-center"><i class="fas fa-arrow-up text-green-500 mr-2"></i>Bullish Engulfing - Strong upward momentum</li>
-                        <li class="flex items-center"><i class="fas fa-arrow-up text-green-500 mr-2"></i>Morning Star - Three-candle reversal pattern</li>
-                        <li class="flex items-center"><i class="fas fa-arrow-up text-green-500 mr-2"></i>Dragonfly Doji - Potential reversal indicator</li>
-                    </ul>
-                </div>
+            <!-- Introduction Section -->
+            <section class="section">
+                <h2><i class="fas fa-chart-line"></i> What is Technical Analysis?</h2>
                 
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold gold-text mb-4">Bearish Patterns</h3>
-                    <ul class="space-y-2">
-                        <li class="flex items-center"><i class="fas fa-arrow-down text-red-500 mr-2"></i>Shooting Star - Reversal signal at top</li>
-                        <li class="flex items-center"><i class="fas fa-arrow-down text-red-500 mr-2"></i>Bearish Engulfing - Strong downward pressure</li>
-                        <li class="flex items-center"><i class="fas fa-arrow-down text-red-500 mr-2"></i>Evening Star - Three-candle reversal pattern</li>
-                        <li class="flex items-center"><i class="fas fa-arrow-down text-red-500 mr-2"></i>Gravestone Doji - Potential reversal indicator</li>
-                    </ul>
+                <p>Technical analysis is the study of price movements and trading patterns to predict future market direction. Unlike fundamental analysis, which focuses on a cryptocurrency's underlying value and technology, technical analysis examines historical price data, trading volume, and market sentiment to identify trends and potential entry or exit points.</p>
+
+                <p>In the fast-moving world of cryptocurrency, technical analysis has become an essential skill for traders across Asian markets. From Tokyo's early morning sessions to Singapore's afternoon trading, understanding chart patterns and indicators can help you navigate the 24/7 crypto markets more effectively. Technical analysis works on the principle that market psychology repeats itself, creating recognizable patterns that traders can exploit.</p>
+
+                <p>Asian crypto markets are particularly well-suited for technical analysis due to their high liquidity and active trading communities. Countries like South Korea and Japan have sophisticated retail trading cultures where technical analysis is widely practiced and taught. The rapid price movements common in crypto markets make shorter-term technical strategies especially relevant for Asian traders.</p>
+
+                <div class="highlight-box">
+                    <p><strong><i class="fas fa-lightbulb"></i> Remember:</strong> Technical analysis is not about predicting the future with certainty, but about calculating probabilities and managing risk. It's a tool to help you make more informed decisions, not a crystal ball.</p>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Support and Resistance -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold gold-text mb-6"><i class="fas fa-layer-group mr-3"></i>How Do Support and Resistance Levels Work?</h2>
-            
-            <div class="card-bg rounded-lg p-6 mb-6">
-                <p class="mb-4">
-                    Support levels are price points where a cryptocurrency tends to find buying interest, preventing further price declines. Think of support as a floor that the price bounces off repeatedly. When support is broken, it often becomes resistance for future price movements.
-                </p>
-                <p class="mb-4">
-                    Resistance levels are price points where selling pressure typically emerges, preventing the price from rising further. These act like a ceiling that limits upward movement. In Asian markets, psychological levels like round numbers often act as strong support or resistance.
-                </p>
-                <p class="mb-4">
-                    The strength of support and resistance levels increases with the number of times they're tested. Major levels that have held multiple times become significant reference points for traders.
-                </p>
-            </div>
-
-            <div class="chart-container">
-                <canvas id="supportResistanceChart"></canvas>
-            </div>
-
-            <div class="card-bg rounded-lg p-6 mt-6">
-                <h3 class="text-xl font-semibold gold-text mb-4">Key Points for Asian Markets</h3>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <ul class="space-y-2">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Tokyo session often tests overnight levels</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Round numbers (¥5,000,000 BTC) act as barriers</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Weekend levels frequently become Monday support</li>
-                    </ul>
-                    <ul class="space-y-2">
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Korean premium creates unique resistance zones</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Singapore trading hours show strong volume</li>
-                        <li><i class="fas fa-check text-green-500 mr-2"></i>Previous day highs/lows remain relevant</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Moving Averages -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold gold-text mb-6"><i class="fas fa-chart-line mr-3"></i>Why Are Moving Averages Important?</h2>
-            
-            <div class="card-bg rounded-lg p-6 mb-6">
-                <p class="mb-4">
-                    Moving averages smooth out price data by creating a constantly updated average price over a specific time period. They help identify trends by filtering out short-term price fluctuations and showing the general direction of price movement.
-                </p>
-                <p class="mb-4">
-                    Simple Moving Averages (SMA) calculate the average of closing prices over a set number of periods. Exponential Moving Averages (EMA) give more weight to recent prices, making them more responsive to current market conditions.
-                </p>
-                <p class="mb-4">
-                    Common periods used in crypto trading include 20, 50, 100, and 200-day moving averages. When shorter averages cross above longer ones, it often signals a bullish trend, and vice versa for bearish trends.
-                </p>
-            </div>
-
-            <div class="chart-container">
-                <canvas id="movingAveragesChart"></canvas>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6 mt-6">
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-lg font-semibold gold-text mb-3">Short-term (20 MA)</h3>
-                    <p class="text-sm text-gray-300">Reacts quickly to price changes. Best for day trading and identifying short-term trends in volatile Asian markets.</p>
-                </div>
+            <!-- Candlestick Patterns Section -->
+            <section class="section">
+                <h2><i class="fas fa-candle-holder"></i> Understanding Candlestick Patterns</h2>
                 
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-lg font-semibold gold-text mb-3">Medium-term (50 MA)</h3>
-                    <p class="text-sm text-gray-300">Balances responsiveness with stability. Popular for swing trading and weekly trend analysis.</p>
+                <h3>What Are Candlesticks?</h3>
+                <p>Candlestick charts originated in Japan centuries ago for rice trading and have become the standard for modern cryptocurrency analysis. Each candlestick represents price action over a specific time period (1 minute, 1 hour, 1 day, etc.) and shows four key pieces of information: opening price, closing price, highest price, and lowest price during that period.</p>
+
+                <p>A candlestick consists of a "body" (the thick part) and "wicks" or "shadows" (the thin lines). Green or white candles indicate the closing price was higher than the opening price (bullish), while red or black candles show the closing price was lower than the opening price (bearish). The length of the body shows the strength of the price movement, while the wicks indicate the price range tested during that period.</p>
+
+                <div class="chart-container">
+                    <h4 style="color: #FFD700; text-align: center; margin-bottom: 20px;">Sample Candlestick Chart</h4>
+                    <canvas id="candlestickDemo" style="height: 300px;"></canvas>
                 </div>
 
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-lg font-semibold gold-text mb-3">Long-term (200 MA)</h3>
-                    <p class="text-sm text-gray-300">Shows major trend direction. Above indicates bull market, below suggests bear market conditions.</p>
+                <h3>Essential Candlestick Patterns</h3>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-hammer"></i> Hammer and Doji</h4>
+                    <p><strong>Hammer:</strong> A small body with a long lower wick, appearing after a downtrend. Suggests potential reversal as buyers stepped in at lower prices.</p>
+                    <p><strong>Doji:</strong> Opening and closing prices are virtually the same, creating a cross-like shape. Indicates indecision and potential trend reversal.</p>
                 </div>
-            </div>
-        </section>
 
-        <!-- RSI Indicator -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold gold-text mb-6"><i class="fas fa-tachometer-alt mr-3"></i>What Is RSI and How Does It Help?</h2>
-            
-            <div class="card-bg rounded-lg p-6 mb-6">
-                <p class="mb-4">
-                    The Relative Strength Index (RSI) is a momentum oscillator that measures the speed and change of price movements. It oscillates between 0 and 100, helping traders identify overbought and oversold conditions in cryptocurrency markets.
-                </p>
-                <p class="mb-4">
-                    RSI readings above 70 typically indicate overbought conditions, suggesting the price might be due for a pullback. Readings below 30 often signal oversold conditions, where a price bounce might be expected.
-                </p>
-                <p class="mb-4">
-                    In Asian crypto markets, RSI divergences often provide early warning signals. When price makes new highs but RSI doesn't, it may indicate weakening momentum and potential reversal.
-                </p>
-            </div>
-
-            <div class="chart-container">
-                <canvas id="rsiChart"></canvas>
-            </div>
-
-            <div class="card-bg rounded-lg p-6 mt-6">
-                <h3 class="text-xl font-semibold gold-text mb-4">RSI Trading Strategies</h3>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h4 class="font-semibold text-green-500 mb-2">Overbought Signals (RSI > 70)</h4>
-                        <ul class="space-y-1 text-sm">
-                            <li>• Consider taking profits on long positions</li>
-                            <li>• Wait for RSI to fall below 70 before buying</li>
-                            <li>• Look for bearish divergence patterns</li>
-                            <li>• Use with other indicators for confirmation</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="font-semibold text-red-500 mb-2">Oversold Signals (RSI < 30)</h4>
-                        <ul class="space-y-1 text-sm">
-                            <li>• Potential buying opportunity emerging</li>
-                            <li>• Wait for RSI to rise above 30 for entry</li>
-                            <li>• Look for bullish divergence patterns</li>
-                            <li>• Combine with support level analysis</li>
-                        </ul>
-                    </div>
+                <div class="info-card">
+                    <h4><i class="fas fa-star"></i> Engulfing Patterns</h4>
+                    <p><strong>Bullish Engulfing:</strong> A small red candle followed by a larger green candle that completely engulfs it. Strong reversal signal in downtrends.</p>
+                    <p><strong>Bearish Engulfing:</strong> A small green candle followed by a larger red candle. Reversal signal in uptrends.</p>
                 </div>
-            </div>
-        </section>
 
-        <!-- MACD Indicator -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold gold-text mb-6"><i class="fas fa-wave-square mr-3"></i>Understanding MACD for Trend Analysis</h2>
-            
-            <div class="card-bg rounded-lg p-6 mb-6">
-                <p class="mb-4">
-                    Moving Average Convergence Divergence (MACD) is a trend-following momentum indicator that shows the relationship between two moving averages of a cryptocurrency's price. It consists of the MACD line, signal line, and histogram.
-                </p>
-                <p class="mb-4">
-                    The MACD line is calculated by subtracting the 26-period EMA from the 12-period EMA. The signal line is a 9-period EMA of the MACD line. The histogram represents the difference between the MACD line and signal line.
-                </p>
-                <p class="mb-4">
-                    MACD crossovers are popular trading signals. When the MACD line crosses above the signal line, it may indicate a bullish trend. When it crosses below, it might suggest a bearish trend is developing.
-                </p>
-            </div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Pattern</th>
+                            <th>Signal</th>
+                            <th>Best Used</th>
+                            <th>Reliability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hammer</td>
+                            <td>Bullish Reversal</td>
+                            <td>End of downtrend</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr>
+                            <td>Doji</td>
+                            <td>Indecision</td>
+                            <td>Trend exhaustion</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>Engulfing</td>
+                            <td>Strong Reversal</td>
+                            <td>Trend changes</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td>Shooting Star</td>
+                            <td>Bearish Reversal</td>
+                            <td>End of uptrend</td>
+                            <td>Moderate</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-            <div class="chart-container">
-                <canvas id="macdChart"></canvas>
-            </div>
+            <!-- Support and Resistance Section -->
+            <section class="section">
+                <h2><i class="fas fa-layer-group"></i> Support and Resistance Levels</h2>
+                
+                <h3>What Are Support and Resistance?</h3>
+                <p>Support and resistance are fundamental concepts in technical analysis that represent psychological price levels where buying or selling pressure tends to emerge. Support is a price level where demand consistently appears, preventing the price from falling further. Resistance is a price level where selling pressure emerges, preventing the price from rising higher.</p>
 
-            <div class="grid md:grid-cols-3 gap-6 mt-6">
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-lg font-semibold gold-text mb-3">Bullish Signals</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><i class="fas fa-arrow-up text-green-500 mr-2"></i>MACD crosses above signal line</li>
-                        <li><i class="fas fa-arrow-up text-green-500 mr-2"></i>MACD crosses above zero line</li>
-                        <li><i class="fas fa-arrow-up text-green-500 mr-2"></i>Histogram turns positive</li>
-                        <li><i class="fas fa-arrow-up text-green-500 mr-2"></i>Bullish divergence with price</li>
+                <p>These levels form because traders remember previous price points and tend to act similarly when prices return to those levels. In Asian crypto markets, support and resistance levels often align with round numbers in local currencies (like ¥1,000,000 for Bitcoin in Japan or ₩50,000,000 in South Korea) due to psychological factors.</p>
+
+                <div class="chart-container">
+                    <h4 style="color: #FFD700; text-align: center; margin-bottom: 20px;">Support and Resistance Example</h4>
+                    <canvas id="supportResistanceChart" style="height: 300px;"></canvas>
+                </div>
+
+                <h3>How to Identify Support and Resistance</h3>
+                <ul class="bullet-list">
+                    <li><strong>Previous Highs and Lows:</strong> Look for prices where reversals occurred multiple times</li>
+                    <li><strong>Round Numbers:</strong> Psychological levels like $50,000 for Bitcoin often act as support/resistance</li>
+                    <li><strong>Moving Averages:</strong> Popular moving averages can act as dynamic support/resistance</li>
+                    <li><strong>Volume Clusters:</strong> Price levels with high trading volume often become significant levels</li>
+                    <li><strong>Fibonacci Levels:</strong> Mathematical retracement levels based on previous price moves</li>
+                </ul>
+
+                <h3>Trading Support and Resistance</h3>
+                <p>Successful traders use support and resistance levels to plan entries and exits. Buy near support levels with stop losses below support, and sell near resistance levels with stop losses above resistance. When these levels are broken with strong volume, they often reverse roles – old support becomes new resistance and vice versa.</p>
+
+                <div class="highlight-box">
+                    <p><strong><i class="fas fa-exclamation-triangle"></i> Asian Market Note:</strong> Support and resistance levels in Asian crypto markets are often influenced by local trading sessions. Tokyo and Seoul opening hours can create significant price movements around key levels.</p>
+                </div>
+            </section>
+
+            <!-- Moving Averages Section -->
+            <section class="section">
+                <h2><i class="fas fa-wave-square"></i> Moving Averages: Trend Following Tools</h2>
+                
+                <h3>What Are Moving Averages?</h3>
+                <p>Moving averages are trend-following indicators that smooth out price data by creating a constantly updated average price over a specific time period. They help filter out market noise and provide a clearer picture of the underlying trend direction. Moving averages are among the most popular and reliable indicators used by Asian crypto traders.</p>
+
+                <p>There are several types of moving averages, but the most common are Simple Moving Average (SMA) and Exponential Moving Average (EMA). SMAs give equal weight to all prices in the period, while EMAs give more weight to recent prices, making them more responsive to current market conditions. Asian traders often use combinations of different moving averages to confirm trends and generate trading signals.</p>
+
+                <div class="chart-container">
+                    <h4 style="color: #FFD700; text-align: center; margin-bottom: 20px;">Moving Averages in Action</h4>
+                    <canvas id="movingAveragesChart" style="height: 300px;"></canvas>
+                </div>
+
+                <h3>Popular Moving Average Periods</h3>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-clock"></i> Short-term (5-20 periods)</h4>
+                    <p>Used for quick trend identification and day trading. Popular among active Asian traders during high-volume sessions.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-calendar-alt"></i> Medium-term (21-50 periods)</h4>
+                    <p>Balances responsiveness with reliability. The 21 EMA is particularly popular in crypto trading for swing trades.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-calendar"></i> Long-term (100-200 periods)</h4>
+                    <p>Used for major trend identification. The 200 SMA is considered a key long-term trend indicator globally.</p>
+                </div>
+
+                <h3>Moving Average Trading Strategies</h3>
+                <ul class="bullet-list">
+                    <li><strong>Golden Cross:</strong> When a short-term MA crosses above a long-term MA (bullish signal)</li>
+                    <li><strong>Death Cross:</strong> When a short-term MA crosses below a long-term MA (bearish signal)</li>
+                    <li><strong>Price Above MA:</strong> When price stays above a rising MA, it indicates a strong uptrend</li>
+                    <li><strong>MA as Support/Resistance:</strong> Moving averages often act as dynamic support or resistance levels</li>
+                    <li><strong>Multiple MA System:</strong> Using 3-5 different MAs to confirm trend strength and direction</li>
+                </ul>
+            </section>
+
+            <!-- RSI and MACD Section -->
+            <section class="section">
+                <h2><i class="fas fa-tachometer-alt"></i> RSI and MACD: Momentum Indicators</h2>
+                
+                <h3>Relative Strength Index (RSI)</h3>
+                <p>The RSI is a momentum oscillator that measures the speed and change of price movements on a scale of 0 to 100. It's particularly useful for identifying overbought and oversold conditions in cryptocurrency markets. Asian traders frequently use RSI to time entries and exits, especially during the volatile trading sessions common in crypto markets.</p>
+
+                <p>RSI readings above 70 typically indicate overbought conditions (potential selling opportunity), while readings below 30 suggest oversold conditions (potential buying opportunity). However, in strong trending markets like crypto bull runs, RSI can remain overbought or oversold for extended periods. Smart traders use RSI divergence – when price makes new highs but RSI doesn't – to identify potential reversals.</p>
+
+                <div class="chart-container">
+                    <h4 style="color: #FFD700; text-align: center; margin-bottom: 20px;">RSI Indicator Example</h4>
+                    <canvas id="rsiChart" style="height: 250px;"></canvas>
+                </div>
+
+                <h3>MACD (Moving Average Convergence Divergence)</h3>
+                <p>MACD is a trend-following momentum indicator that shows the relationship between two moving averages. It consists of the MACD line (12 EMA minus 26 EMA), the signal line (9 EMA of MACD line), and the histogram (difference between MACD and signal line). MACD is excellent for identifying trend changes and momentum shifts in crypto markets.</p>
+
+                <p>MACD generates signals when the MACD line crosses above or below the signal line. A bullish signal occurs when MACD crosses above the signal line, while a bearish signal occurs when it crosses below. The histogram helps visualize the strength of these signals – growing histogram bars indicate strengthening momentum, while shrinking bars suggest weakening momentum.</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Indicator</th>
+                            <th>Best For</th>
+                            <th>Time Frame</th>
+                            <th>Key Signals</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>RSI</td>
+                            <td>Overbought/Oversold</td>
+                            <td>All timeframes</td>
+                            <td>Above 70, Below 30</td>
+                        </tr>
+                        <tr>
+                            <td>MACD</td>
+                            <td>Trend Changes</td>
+                            <td>Medium to Long</td>
+                            <td>Line Crossovers</td>
+                        </tr>
+                        <tr>
+                            <td>Stochastic</td>
+                            <td>Range-bound Markets</td>
+                            <td>Short to Medium</td>
+                            <td>Above 80, Below 20</td>
+                        </tr>
+                        <tr>
+                            <td>Bollinger Bands</td>
+                            <td>Volatility</td>
+                            <td>All timeframes</td>
+                            <td>Band Squeezes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Asian Market Applications -->
+            <section class="section">
+                <h2><i class="fas fa-globe-asia"></i> Technical Analysis in Asian Crypto Markets</h2>
+                
+                <h3>Why Technical Analysis Works Well in Asia</h3>
+                <p>Asian cryptocurrency markets are particularly well-suited for technical analysis due to several unique characteristics. The region's high retail trading participation creates clear patterns and strong adherence to technical levels. Countries like South Korea and Japan have sophisticated trading cultures where technical analysis is widely taught and practiced, creating self-fulfilling prophecies as many traders act on the same signals.</p>
+
+                <p>The 24/7 nature of crypto markets means Asian trading sessions often set the tone for global price action. Tokyo's early morning volume spikes and Seoul's afternoon trading intensity create distinct patterns that technical analysts can exploit. Additionally, the strong mobile trading culture in Asia means faster reaction times to technical signals, making short-term patterns more reliable.</p>
+
+                <h3>Popular Asian Technical Strategies</h3>
+
+                <div class="glossary-term">
+                    <h5>Ichimoku Cloud</h5>
+                    <p>Developed in Japan, this comprehensive indicator provides support/resistance, trend direction, and momentum in one tool. Extremely popular among Asian crypto traders for its all-in-one approach.</p>
+                </div>
+
+                <div class="glossary-term">
+                    <h5>Volume Profile</h5>
+                    <p>Analyzing where most trading volume occurred helps identify key support and resistance levels. Particularly effective in Asian markets due to concentrated trading sessions.</p>
+                </div>
+
+                <div class="glossary-term">
+                    <h5>Harmonic Patterns</h5>
+                    <p>Mathematical price patterns that predict reversal zones. Popular among advanced Asian traders for their precision in volatile crypto markets.</p>
+                </div>
+
+                <div class="glossary-term">
+                    <h5>Elliott Wave Theory</h5>
+                    <p>Analyzing market psychology through wave patterns. Widely used by Asian institutional traders for longer-term crypto market analysis.</p>
+                </div>
+
+                <h3>Best Practices for Asian Markets</h3>
+                <ul class="bullet-list">
+                    <li><strong>Session Awareness:</strong> Understand Tokyo (9:00-18:00 JST) and Seoul (9:00-18:00 KST) trading hours</li>
+                    <li><strong>Volume Analysis:</strong> Pay attention to volume patterns during Asian sessions for confirmation</li>
+                    <li><strong>Local Resistance Levels:</strong> Consider round numbers in local currencies (¥, ₩, SGD)</li>
+                    <li><strong>News Integration:</strong> Combine technical analysis with Asian regulatory and adoption news</li>
+                    <li><strong>Mobile-First Approach:</strong> Ensure your analysis works on mobile platforms popular in Asia</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong><i class="fas fa-graduation-cap"></i> Pro Tip:</strong> Combine multiple timeframes for better accuracy. Use daily charts for overall trend, 4-hour for swing trades, and 1-hour for entry timing. This multi-timeframe approach is especially effective in volatile crypto markets.</p>
+                </div>
+            </section>
+
+            <!-- Getting Started Section -->
+            <section class="section">
+                <h2><i class="fas fa-rocket"></i> Start Your Technical Analysis Journey</h2>
+                
+                <p>Technical analysis is both an art and a science that improves with practice and experience. Start with the basics – learn to read candlesticks, identify support and resistance, and understand moving averages. As you become comfortable with these fundamentals, gradually add momentum indicators like RSI and MACD to your toolkit.</p>
+
+                <h3>Your Learning Path</h3>
+                <ul class="bullet-list">
+                    <li><strong>Practice on Demo Accounts:</strong> Use paper trading to test your analysis without risk</li>
+                    <li><strong>Start with Major Cryptocurrencies:</strong> Bitcoin and Ethereum have the clearest patterns</li>
+                    <li><strong>Focus on One Timeframe:</strong> Master daily charts before moving to shorter timeframes</li>
+                    <li><strong>Keep a Trading Journal:</strong> Record your analysis and results to improve over time</li>
+                    <li><strong>Join Asian Trading Communities:</strong> Learn from experienced local traders</li>
+                </ul>
+
+                <div class="info-card">
+                    <h4><i class="fas fa-book-open"></i> Recommended Learning Resources</h4>
+                    <p>Continue your technical analysis education with these guides:</p>
+                    <ul style="margin-top: 15px; color: #cccccc;">
+                        <li><a href="risk-management.html" style="color: #00D4FF;">Risk Management Strategies</a></li>
+                        <li><a href="asian-market-hours.html" style="color: #00D4FF;">Asian Market Trading Hours</a></li>
+                        <li><a href="ai-trading-bots.html" style="color: #00D4FF;">AI Trading Bots Setup</a></li>
+                        <li><a href="choosing-exchange.html" style="color: #00D4FF;">Choosing the Right Exchange</a></li>
                     </ul>
                 </div>
-
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-lg font-semibold gold-text mb-3">Bearish Signals</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><i class="fas fa-arrow-down text-red-500 mr-2"></i>MACD crosses below signal line</li>
-                        <li><i class="fas fa-arrow-down text-red-500 mr-2"></i>MACD crosses below zero line</li>
-                        <li><i class="fas fa-arrow-down text-red-500 mr-2"></i>Histogram turns negative</li>
-                        <li><i class="fas fa-arrow-down text-red-500 mr-2"></i>Bearish divergence with price</li>
-                    </ul>
-                </div>
-
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-lg font-semibold gold-text mb-3">Asian Market Tips</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><i class="fas fa-clock mr-2 text-yellow-500"></i>Tokyo session often confirms signals</li>
-                        <li><i class="fas fa-clock mr-2 text-yellow-500"></i>Weekend gaps affect Monday signals</li>
-                        <li><i class="fas fa-clock mr-2 text-yellow-500"></i>Volume confirmation important</li>
-                        <li><i class="fas fa-clock mr-2 text-yellow-500"></i>Use 4-hour charts for day trading</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Asian Market Hours -->
-        <section class="mb-12">
-            <h2 class="text-3xl font-bold gold-text mb-6"><i class="fas fa-globe-asia mr-3"></i>When Are the Best Trading Times in Asian Markets?</h2>
-            
-            <div class="card-bg rounded-lg p-6 mb-6">
-                <p class="mb-4">
-                    Asian cryptocurrency markets operate 24/7, but trading volume and volatility vary significantly throughout the day. Understanding these patterns helps optimize your technical analysis and trading decisions.
-                </p>
-                <p class="mb-4">
-                    The Tokyo session (00:00-09:00 UTC) often sees increased activity as Japanese institutions and retail traders become active. Korean markets typically show high volume during Seoul business hours (01:00-10:00 UTC).
-                </p>
-                <p class="mb-4">
-                    Singapore serves as a gateway between Asian and Western markets, with peak activity during the overlap with European markets (07:00-16:00 UTC). Weekend markets often show different patterns due to reduced institutional participation.
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold gold-text mb-4">High Activity Periods</h3>
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span>Tokyo Open</span>
-                            <span class="text-yellow-500">00:00-02:00 UTC</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span>Seoul Peak</span>
-                            <span class="text-yellow-500">01:00-04:00 UTC</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span>Singapore-EU Overlap</span>
-                            <span class="text-yellow-500">07:00-10:00 UTC</span>
-                        </div>
-                        <div class="flex justify-between items-center">
-                            <span>Hong Kong Markets</span>
-                            <span class="text-yellow-500">01:30-08:30 UTC</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card-bg rounded-lg p-6">
-                    <h3 class="text-xl font-semibold gold-text mb-4">Trading Tips by Session</h3>
-                    <ul class="space-y-2 text-sm">
-                        <li><i class="fas fa-sun text-yellow-500 mr-2"></i>Asian morning: Watch for gap fills and trend continuation</li>
-                        <li><i class="fas fa-chart-line text-blue-500 mr-2"></i>Mid-session: Technical levels more reliable with volume</li>
-                        <li><i class="fas fa-moon text-purple-500 mr-2"></i>Evening: Lower volume, range-bound trading common</li>
-                        <li><i class="fas fa-calendar-weekend text-gray-500 mr-2"></i>Weekends: Thinner liquidity, wider spreads possible</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Conclusion -->
-        <section class="mb-12">
-            <div class="card-bg rounded-lg p-8">
-                <h2 class="text-2xl font-bold gold-text mb-6 text-center">Key Takeaways for Asian Crypto Trading</h2>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div>
-                        <h3 class="text-lg font-semibold mb-3">Essential Skills</h3>
-                        <ul class="space-y-2">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Master candlestick pattern recognition</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Identify support and resistance levels</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Use moving averages for trend direction</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Apply RSI and MACD for timing entries</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg font-semibold mb-3">Asian Market Advantages</h3>
-                        <ul class="space-y-2">
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>High liquidity during Asian sessions</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Clear timezone-based trading patterns</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Strong technical analysis adoption</li>
-                            <li><i class="fas fa-check text-green-500 mr-2"></i>Multiple currency pair opportunities</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="text-center mt-6">
-                    <p class="text-gray-300 mb-4">Remember: Technical analysis is a tool, not a guarantee. Always combine multiple indicators and manage your risk appropriately.</p>
-                    <a href="/education.html" class="inline-block bg-yellow-500 text-black px-6 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors">
-                        <i class="fas fa-arrow-left mr-2"></i>Back to Education Hub
-                    </a>
-                </div>
-            </div>
-        </section>
+            </section>
+        </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-8 border-t-2 border-yellow-500">
-        <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400">&copy; 2024 Asia Crypto News. Educational content for informational purposes only. Not financial advice.</p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-graduation-cap"></i> Education</h3>
+                    <ul>
+                        <li><a href="what-is-cryptocurrency.html">What is Cryptocurrency?</a></li>
+                        <li><a href="choosing-exchange.html">Choosing an Exchange</a></li>
+                        <li><a href="wallet-security.html">Wallet Security</a></li>
+                        <li><a href="avoid-scams.html">Avoiding Scams</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-chart-line"></i> Trading</h3>
+                    <ul>
+                        <li><a href="technical-analysis.html">Technical Analysis</a></li>
+                        <li><a href="risk-management.html">Risk Management</a></li>
+                        <li><a href="asian-market-hours.html">Asian Market Hours</a></li>
+                        <li><a href="ai-trading-bots.html">AI Trading Bots</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-globe-asia"></i> Regional</h3>
+                    <ul>
+                        <li><a href="/regional.html#japan">Japan</a></li>
+                        <li><a href="/regional.html#south-korea">South Korea</a></li>
+                        <li><a href="/regional.html#singapore">Singapore</a></li>
+                        <li><a href="/regional.html#hong-kong">Hong Kong</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3><i class="fas fa-info-circle"></i> About</h3>
+                    <ul>
+                        <li><a href="/about.html">About Us</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Asia Crypto News. All rights reserved. | Educational content for informational purposes only. Not financial advice.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Candlestick Chart
-        const ctx1 = document.getElementById('candlestickChart').getContext('2d');
-        new Chart(ctx1, {
+        // Candlestick Demo Chart
+        const candlestickCtx = document.getElementById('candlestickDemo').getContext('2d');
+        new Chart(candlestickCtx, {
             type: 'line',
             data: {
-                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7'],
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
                 datasets: [{
-                    label: 'Bitcoin Price (Simulated)',
-                    data: [45000, 46200, 44800, 47500, 46800, 48200, 47900],
+                    label: 'Bitcoin Price',
+                    data: [45000, 46200, 44800, 47500, 46900, 48200, 47800],
                     borderColor: '#FFD700',
                     backgroundColor: 'rgba(255, 215, 0, 0.1)',
                     tension: 0.1
@@ -412,11 +706,6 @@
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    title: {
-                        display: true,
-                        text: 'Example Price Movement - Candlestick Analysis',
-                        color: '#FFD700'
-                    },
                     legend: {
                         labels: {
                             color: '#ffffff'
@@ -424,233 +713,198 @@
                     }
                 },
                 scales: {
-                    y: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
-                    },
                     x: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
+                        ticks: {
+                            color: '#cccccc'
+                        },
+                        grid: {
+                            color: '#444444'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#cccccc'
+                        },
+                        grid: {
+                            color: '#444444'
+                        }
                     }
                 }
             }
         });
 
         // Support and Resistance Chart
-        const ctx2 = document.getElementById('supportResistanceChart').getContext('2d');
-        new Chart(ctx2, {
+        const supportResistanceCtx = document.getElementById('supportResistanceChart').getContext('2d');
+        new Chart(supportResistanceCtx, {
             type: 'line',
             data: {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6'],
-                datasets: [
-                    {
-                        label: 'Price',
-                        data: [42000, 45000, 43500, 46000, 44000, 47000],
-                        borderColor: '#00D4FF',
-                        backgroundColor: 'rgba(0, 212, 255, 0.1)',
-                        tension: 0.1
-                    },
-                    {
-                        label: 'Resistance Level',
-                        data: [47500, 47500, 47500, 47500, 47500, 47500],
-                        borderColor: '#FF6B6B',
-                        borderDash: [5, 5],
-                        fill: false
-                    },
-                    {
-                        label: 'Support Level',
-                        data: [42000, 42000, 42000, 42000, 42000, 42000],
-                        borderColor: '#4ECDC4',
-                        borderDash: [5, 5],
-                        fill: false
-                    }
-                ]
+                labels: Array.from({length: 20}, (_, i) => i + 1),
+                datasets: [{
+                    label: 'Price',
+                    data: [45000, 46000, 47000, 46500, 46800, 47200, 46900, 47500, 47800, 47300, 47600, 47900, 47400, 47700, 48000, 47800, 48200, 48500, 48100, 48400],
+                    borderColor: '#00D4FF',
+                    backgroundColor: 'rgba(0, 212, 255, 0.1)',
+                    tension: 0.1
+                }, {
+                    label: 'Resistance',
+                    data: Array(20).fill(48000),
+                    borderColor: '#FF6B6B',
+                    borderDash: [5, 5],
+                    pointRadius: 0
+                }, {
+                    label: 'Support',
+                    data: Array(20).fill(46000),
+                    borderColor: '#4ECDC4',
+                    borderDash: [5, 5],
+                    pointRadius: 0
+                }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    title: {
-                        display: true,
-                        text: 'Support and Resistance Levels Example',
-                        color: '#FFD700'
-                    },
                     legend: {
-                        labels: { color: '#ffffff' }
+                        labels: {
+                            color: '#ffffff'
+                        }
                     }
                 },
                 scales: {
-                    y: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
-                    },
                     x: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
+                        ticks: {
+                            color: '#cccccc'
+                        },
+                        grid: {
+                            color: '#444444'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#cccccc'
+                        },
+                        grid: {
+                            color: '#444444'
+                        }
                     }
                 }
             }
         });
 
         // Moving Averages Chart
-        const ctx3 = document.getElementById('movingAveragesChart').getContext('2d');
-        new Chart(ctx3, {
+        const movingAveragesCtx = document.getElementById('movingAveragesChart').getContext('2d');
+        const priceData = [45000, 46200, 44800, 47500, 46900, 48200, 47800, 49100, 48500, 49800, 49200, 50500, 49900, 51200, 50800];
+        const ma20 = priceData.map((_, i) => i >= 4 ? priceData.slice(Math.max(0, i-4), i+1).reduce((a, b) => a + b) / 5 : null);
+        const ma50 = priceData.map((_, i) => i >= 9 ? priceData.slice(Math.max(0, i-9), i+1).reduce((a, b) => a + b) / 10 : null);
+
+        new Chart(movingAveragesCtx, {
             type: 'line',
             data: {
-                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug'],
-                datasets: [
-                    {
-                        label: 'Price',
-                        data: [35000, 42000, 38000, 45000, 43000, 47000, 44000, 48000],
-                        borderColor: '#FFD700',
-                        backgroundColor: 'rgba(255, 215, 0, 0.1)'
-                    },
-                    {
-                        label: '20 MA',
-                        data: [36000, 40000, 41000, 42000, 43500, 44500, 45000, 46000],
-                        borderColor: '#FF6B6B',
-                        fill: false
-                    },
-                    {
-                        label: '50 MA',
-                        data: [38000, 39000, 40000, 41000, 42000, 43000, 44000, 45000],
-                        borderColor: '#4ECDC4',
-                        fill: false
-                    }
-                ]
+                labels: Array.from({length: 15}, (_, i) => i + 1),
+                datasets: [{
+                    label: 'Price',
+                    data: priceData,
+                    borderColor: '#FFD700',
+                    backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                    tension: 0.1
+                }, {
+                    label: 'MA 5',
+                    data: ma20,
+                    borderColor: '#FF6B6B',
+                    pointRadius: 0,
+                    tension: 0.1
+                }, {
+                    label: 'MA 10',
+                    data: ma50,
+                    borderColor: '#4ECDC4',
+                    pointRadius: 0,
+                    tension: 0.1
+                }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    title: {
-                        display: true,
-                        text: 'Moving Averages Comparison',
-                        color: '#FFD700'
-                    },
                     legend: {
-                        labels: { color: '#ffffff' }
+                        labels: {
+                            color: '#ffffff'
+                        }
                     }
                 },
                 scales: {
-                    y: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
-                    },
                     x: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
+                        ticks: {
+                            color: '#cccccc'
+                        },
+                        grid: {
+                            color: '#444444'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: '#cccccc'
+                        },
+                        grid: {
+                            color: '#444444'
+                        }
                     }
                 }
             }
         });
 
         // RSI Chart
-        const ctx4 = document.getElementById('rsiChart').getContext('2d');
-        new Chart(ctx4, {
+        const rsiCtx = document.getElementById('rsiChart').getContext('2d');
+        new Chart(rsiCtx, {
             type: 'line',
             data: {
-                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6', 'Day 7', 'Day 8'],
-                datasets: [
-                    {
-                        label: 'RSI',
-                        data: [45, 58, 72, 68, 35, 28, 42, 55],
-                        borderColor: '#9B59B6',
-                        backgroundColor: 'rgba(155, 89, 182, 0.1)'
-                    },
-                    {
-                        label: 'Overbought (70)',
-                        data: [70, 70, 70, 70, 70, 70, 70, 70],
-                        borderColor: '#E74C3C',
-                        borderDash: [5, 5],
-                        fill: false
-                    },
-                    {
-                        label: 'Oversold (30)',
-                        data: [30, 30, 30, 30, 30, 30, 30, 30],
-                        borderColor: '#27AE60',
-                        borderDash: [5, 5],
-                        fill: false
-                    }
-                ]
+                labels: Array.from({length: 20}, (_, i) => i + 1),
+                datasets: [{
+                    label: 'RSI',
+                    data: [45, 52, 38, 65, 58, 72, 68, 75, 78, 71, 74, 79, 73, 76, 80, 77, 82, 85, 81, 84],
+                    borderColor: '#9D4EDD',
+                    backgroundColor: 'rgba(157, 78, 221, 0.1)',
+                    tension: 0.1
+                }, {
+                    label: 'Overbought (70)',
+                    data: Array(20).fill(70),
+                    borderColor: '#FF6B6B',
+                    borderDash: [3, 3],
+                    pointRadius: 0
+                }, {
+                    label: 'Oversold (30)',
+                    data: Array(20).fill(30),
+                    borderColor: '#4ECDC4',
+                    borderDash: [3, 3],
+                    pointRadius: 0
+                }]
             },
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
                 plugins: {
-                    title: {
-                        display: true,
-                        text: 'RSI Indicator Example',
-                        color: '#FFD700'
-                    },
                     legend: {
-                        labels: { color: '#ffffff' }
+                        labels: {
+                            color: '#ffffff'
+                        }
                     }
                 },
                 scales: {
+                    x: {
+                        ticks: {
+                            color: '#cccccc'
+                        },
+                        grid: {
+                            color: '#444444'
+                        }
+                    },
                     y: {
                         min: 0,
                         max: 100,
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
-                    },
-                    x: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
-                    }
-                }
-            }
-        });
-
-        // MACD Chart
-        const ctx5 = document.getElementById('macdChart').getContext('2d');
-        new Chart(ctx5, {
-            type: 'line',
-            data: {
-                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8'],
-                datasets: [
-                    {
-                        label: 'MACD Line',
-                        data: [-200, -100, 50, 150, 100, -50, -150, 0],
-                        borderColor: '#3498DB',
-                        fill: false
-                    },
-                    {
-                        label: 'Signal Line',
-                        data: [-250, -150, 0, 100, 120, 0, -100, -50],
-                        borderColor: '#E74C3C',
-                        fill: false
-                    },
-                    {
-                        label: 'Zero Line',
-                        data: [0, 0, 0, 0, 0, 0, 0, 0],
-                        borderColor: '#95A5A6',
-                        borderDash: [5, 5],
-                        fill: false
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: 'MACD Indicator Example',
-                        color: '#FFD700'
-                    },
-                    legend: {
-                        labels: { color: '#ffffff' }
-                    }
-                },
-                scales: {
-                    y: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
-                    },
-                    x: {
-                        ticks: { color: '#ffffff' },
-                        grid: { color: '#333333' }
+                        ticks: {
+                            color: '#cccccc'
+                        },
+                        grid: {
+                            color: '#444444'
+                        }
                     }
                 }
             }
@@ -660,9 +914,9 @@
 </html>
     <script id="html_badge_script1">
         window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
-            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDowRusaQ4jiireutQb9PSEfGXBYwe0EGaObevissAR%2BbgEsFjA1%2F0ADXqYqYQ0u88cC5CZU893DmyAmf%2FL%2F8POvEoYVDP4PJEZpa72vFBz0zJeRxnWBOE9IOfrj4U7FdPA3TGrfySFgT1uL1HuYOYqbkr%2FAP1l4ZtxD%2FJXzS5CaB1ZvJ227JIk7G5NUYcPYX8ItNuzwN4jqUKL%2Fvyh0xD6XmBCc89xA6h8vXOtcQTTLfx5bFcY25nbVwlLnZztlHWjVeym6GpC8JI4Q64Xvy11NgPR0wQslgM2EIZwGuMOq08Mr%2BOSxnmbkv2irKfijaddzlOssiemArMJw7oZd3ILglH9zadql2bx%2BPSpsfcYKtlKO8qVFV1a%2B2p6%2BOSKfjMIZ68%2B4rfBkZixH8G4JcoDqxXJvMRJQjMqN%2F9MAPQ54uagqTyZJY8fr5sL50ETgL7J6BFS0fuoFV5hrO4t0Q3ilGgGxYLcFbH2Wty%2BRqoANdPRtdNq7yKryAIFJ7R8wI50sL5lSo4GV7zN41HH4MP%2FI%3D";
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDo7vts%2Bun1edMOWrJMIh0bApxM4r4IVp%2Bfy31xh6%2F1RTNVbSJuredIXNTOkUdkq6O4%2FLsG2ATh4NvxsjH8%2BoyEfCstBxdhRx7YFi86NWMTxWetJ9mczaE0BC%2FI9BLovoN3uvyKNqv1IktOd9gi1Wsn58eGaJC1%2FHidsd1Qwi7ZS3ZAIp%2Ftui7icLCx%2FFkx6VqrVy1TJ3HnPZw0y6OEveSWLWx%2FIAQWc8LEt8QY1emHRbWuyjGtk87czRAR%2BsoaPOZpAE49cOVef9tHdeyt79TfapW7h4FtdSy9juU5CFd8CuFzEcPiywQradihCiUle3pQ4jaeHTbXY3MBhc%2FB5zjcevS3d4LBGh9KrxFMtiEWleockzNhdn3x%2BfvgQS80GLB9kuFyUQFZKhHL2kfmYbRmgwmXNvKng22lVUlbZWBHGUtet6BezWp2%2F9m0PRFUMbW3ZNwHgvyDnVpaH75dGN%2Fyk%2FZoxaBp8gFABVKhUFGdYUEdYriCodCshoM8JaJ6i0i4RFSmjrDlAm5ONgNarBcEY%3D";
         window.__genspark_locale = "en-US";
-        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDowRusaQ4jiireutQb9PSEfGXBYwe0EGaObevissAR+bgEsFjA1/0ADXqYqYQ0u88cC5CZU893DmyAmf/L/8POvEoYVDP4PJEZpa72vFBz0zJeRxnWBOE9IOfrj4U7FdPA3TGrfySFgT1uL1HuYOYqbkr/AP1l4ZtxD/JXzS5CaB1ZvJ227JIk7G5NUYcPYX8ItNuzwN4jqUKL/vyh0xD6XmBCc89xA6h8vXOtcQTTLfx5bFcY25nbVwlLnZztlHWjVeym6GpC8JI4Q64Xvy11NgPR0wQslgM2EIZwGuMOq08Mr+OSxnmbkv2irKfijaddzlOssiemArMJw7oZd3ILglH9zadql2bx+PSpsfcYKtlKO8qVFV1a+2p6+OSKfjMIZ68+4rfBkZixH8G4JcoDqxXJvMRJQjMqN/9MAPQ54uagqTyZJY8fr5sL50ETgL7J6BFS0fuoFV5hrO4t0Q3ilGgGxYLcFbH2Wty+RqoANdPRtdNq7yKryAIFJ7R8wI50sL5lSo4GV7zN41HH4MP/I=";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDo7vts+un1edMOWrJMIh0bApxM4r4IVp+fy31xh6/1RTNVbSJuredIXNTOkUdkq6O4/LsG2ATh4NvxsjH8+oyEfCstBxdhRx7YFi86NWMTxWetJ9mczaE0BC/I9BLovoN3uvyKNqv1IktOd9gi1Wsn58eGaJC1/Hidsd1Qwi7ZS3ZAIp/tui7icLCx/Fkx6VqrVy1TJ3HnPZw0y6OEveSWLWx/IAQWc8LEt8QY1emHRbWuyjGtk87czRAR+soaPOZpAE49cOVef9tHdeyt79TfapW7h4FtdSy9juU5CFd8CuFzEcPiywQradihCiUle3pQ4jaeHTbXY3MBhc/B5zjcevS3d4LBGh9KrxFMtiEWleockzNhdn3x+fvgQS80GLB9kuFyUQFZKhHL2kfmYbRmgwmXNvKng22lVUlbZWBHGUtet6BezWp2/9m0PRFUMbW3ZNwHgvyDnVpaH75dGN/yk/ZoxaBp8gFABVKhUFGdYUEdYriCodCshoM8JaJ6i0i4RFSmjrDlAm5ONgNarBcEY=";
     </script>
     
     <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
