@@ -1,6 +1,4 @@
-
-        
-         <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://asiacryptonews.com/</loc>
@@ -27,24 +25,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asiacryptonews.com/regional.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/about.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/contact.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://asiacryptonews.com/what-is-cryptocurrency.html</loc>
     <lastmod>2024-12-25</lastmod>
     <changefreq>monthly</changefreq>
@@ -69,69 +49,15 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://asiacryptonews.com/two-factor-authentication.html</loc>
+    <loc>https://asiacryptonews.com/about.html</loc>
     <lastmod>2024-12-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://asiacryptonews.com/avoid-scams.html</loc>
+    <loc>https://asiacryptonews.com/contact.html</loc>
     <lastmod>2024-12-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/technical-analysis.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/asian-market-hours.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/risk-management.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/ai-trading-bots.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/market-analysis-ai.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/machine-learning-models.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/privacy.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/terms.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://asiacryptonews.com/affiliate.html</loc>
-    <lastmod>2024-12-25</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <priority>0.5</priority>
   </url>
 </urlset>
