@@ -8,7 +8,7 @@ public_folder: "/images/uploads"
 collections:
   - name:  "news"
     label: "News Articles"
-    folder:"_posts/news"
+    folder: "_posts/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -22,7 +22,7 @@ collections:
 
   - name:  "education"
     label: "Educational Content"
-    folder:"_posts/education"
+    folder: "_posts/education"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
