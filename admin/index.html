@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Asia Crypto News</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        
+        .cms-admin {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        
+        #nc-root {
+            min-height: 100vh;
+        }
+        
+        /* Custom styling for Netlify CMS */
+        .nc-app-container {
+            background-color: #1a1a1a !important;
+            color: #ffffff !important;
+        }
+        
+        .nc-header {
+            background-color: #000000 !important;
+            border-bottom: 3px solid #FFD700 !important;
+        }
+        
+        .nc-sidebar {
+            background-color: #2d2d2d !important;
+        }
+        
+        .nc-button-primary {
+            background-color: #FFD700 !important;
+            color: #000000 !important;
+        }
+        
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+        
+        .loading-logo {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid #333333;
+            border-top: 4px solid #FFD700;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-text {
+            color: #cccccc;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="loading-container">
+        <div class="loading-logo">
+            <i class="fas fa-coins"></i> Asia Crypto News
+        </div>
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Loading Admin Interface...</div>
+        <div class="mt-4 text-sm text-gray-400 text-center max-w-md">
+            <p>Initializing content management system</p>
+            <p class="mt-2">If this is your first time, you'll need to authenticate with GitHub</p>
+        </div>
+    </div>
+
+    <div id="nc-root" class="cms-admin" style="display: none;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/netlify-cms@2.10.192/dist/netlify-cms.js"></script>
+    
+    <script>
+        // Hide loading screen once CMS loads
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('nc-root').style.display = 'block';
+            }, 2000);
+        });
+
+        // Netlify CMS Configuration
+        window.CMS.init({
+            config: {
+                backend: {
+                    name: 'git-gateway',
+                    branch: 'main'
+                },
+                
+                load_config_file: false,
+                
+                media_folder: 'assets/images',
+                public_folder: '/assets/images',
+                
+                site_url: 'https://asiacryptonews.com',
+                display_url: 'https://asiacryptonews.com',
+                logo_url: 'https://asiacryptonews.com/logo.png',
+                
+                collections: [
+                    {
+                        name: 'news',
+                        label: 'News Articles',
+                        folder: '_posts/news',
+                        create: true,
+                        slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+                        fields: [
+                            {
+                                label: 'Title',
+                                name: 'title',
+                                widget: 'string',
+                                required: true
+                            },
+                            {
+                                label: 'Publish Date',
+                                name: 'date',
+                                widget: 'datetime',
+                                default: new Date().toISOString()
+                            },
+                            {
+                                label: 'Author',
+                                name: 'author',
+                                widget: 'string',
+                                default: 'Asia Crypto News Team'
+                            },
+                            {
+                                label: 'Category',
+                                name: 'category',
+                                widget: 'select',
+                                options: [
+                                    { label: 'Bitcoin', value: 'bitcoin' },
+                                    { label: 'Ethereum', value: 'ethereum' },
+                                    { label: 'DeFi', value: 'defi' },
+                                    { label: 'NFTs', value: 'nfts' },
+                                    { label: 'Regulation', value: 'regulation' },
+                                    { label: 'AI Technology', value: 'ai-technology' },
+                                    { label: 'Market Analysis', value: 'market-analysis' },
+                                    { label: 'Trading', value: 'trading' },
+                                    { label: 'Security', value: 'security' },
+                                    { label: 'Asia Markets', value: 'asia-markets' }
+                                ],
+                                required: true
+                            },
+                            {
+                                label: 'Region',
+                                name: 'region',
+                                widget: 'select',
+                                options: [
+                                    { label: 'Global', value: 'global' },
+                                    { label: 'Japan', value: 'japan' },
+                                    { label: 'China', value: 'china' },
+                                    { label: 'South Korea', value: 'south-korea' },
+                                    { label: 'Singapore', value: 'singapore' },
+                                    { label: 'Hong Kong', value: 'hong-kong' },
+                                    { label: 'Southeast Asia', value: 'southeast-asia' }
+                                ],
+                                default: 'global'
+                            },
+                            {
+                                label: 'Featured Image',
+                                name: 'featured_image',
+                                widget: 'image',
+                                required: false
+                            },
+                            {
+                                label: 'Excerpt',
+                                name: 'excerpt',
+                                widget: 'text',
+                                hint: 'Brief summary for social media and search results (150-160 characters)',
+                                required: true
+                            },
+                            {
+                                label: 'Content',
+                                name: 'body',
+                                widget: 'markdown',
+                                required: true
+                            },
+                            {
+                                label: 'Tags',
+                                name: 'tags',
+                                widget: 'list',
+                                allow_add: true,
+                                collapsed: false,
+                                field: { label: 'Tag', name: 'tag', widget: 'string' }
+                            },
+                            {
+                                label: 'SEO Title',
+                                name: 'seo_title',
+                                widget: 'string',
+                                required: false,
+                                hint: 'Override default title for SEO (50-60 characters)'
+                            },
+                            {
+                                label: 'Meta Description',
+                                name: 'meta_description',
+                                widget: 'text',
+                                required: false,
+                                hint: 'SEO meta description (150-160 characters)'
+                            },
+                            {
+                                label: 'Breaking News',
+                                name: 'breaking',
+                                widget: 'boolean',
+                                default: false,
+                                hint: 'Mark as breaking news for homepage highlight'
+                            },
+                            {
+                                label: 'Featured',
+                                name: 'featured',
+                                widget: 'boolean',
+                                default: false,
+                                hint: 'Feature on homepage and category pages'
+                            }
+                        ]
+                    },
+                    
+                    {
+                        name: 'education',
+                        label: 'Educational Content',
+                        folder: '_posts/education',
+                        create: true,
+                        slug: '{{slug}}',
+                        fields: [
+                            {
+                                label: 'Title',
+                                name: 'title',
+                                widget: 'string',
+                                required: true
+                            },
+                            {
+                                label: 'Publish Date',
+                                name: 'date',
+                                widget: 'datetime',
+                                default: new Date().toISOString()
+                            },
+                            {
+                                label: 'Author',
+                                name: 'author',
+                                widget: 'string',
+                                default: 'Asia Crypto News Team'
+                            },
+                            {
+                                label: 'Difficulty Level',
+                                name: 'difficulty',
+                                widget: 'select',
+                                options: [
+                                    { label: 'Beginner', value: 'beginner' },
+                                    { label: 'Intermediate', value: 'intermediate' },
+                                    { label: 'Advanced', value: 'advanced' }
+                                ],
+                                required: true
+                            },
+                            {
+                                label: 'Topic Category',
+                                name: 'topic',
+                                widget: 'select',
+                                options: [
+                                    { label: 'Cryptocurrency Basics', value: 'crypto-basics' },
+                                    { label: 'Trading & Analysis', value: 'trading-analysis' },
+                                    { label: 'Security & Wallets', value: 'security-wallets' },
+                                    { label: 'AI & Technology', value: 'ai-technology' },
+                                    { label: 'Regulation & Legal', value: 'regulation-legal' },
+                                    { label: 'DeFi & Protocols', value: 'defi-protocols' }
+                                ],
+                                required: true
+                            },
+                            {
+                                label: 'Reading Time (minutes)',
+                                name: 'reading_time',
+                                widget: 'number',
+                                default: 5,
+                                value_type: 'int'
+                            },
+                            {
+                                label: 'Featured Image',
+                                name: 'featured_image',
+                                widget: 'image',
+                                required: false
+                            },
+                            {
+                                label: 'Summary',
+                                name: 'summary',
+                                widget: 'text',
+                                hint: 'Brief overview of what readers will learn',
+                                required: true
+                            },
+                            {
+                                label: 'Content',
+                                name: 'body',
+                                widget: 'markdown',
+                                required: true
+                            },
+                            {
+                                label: 'Key Takeaways',
+                                name: 'key_takeaways',
+                                widget: 'list',
+                                allow_add: true,
+                                collapsed: false,
+                                field: { label: 'Takeaway', name: 'takeaway', widget: 'string' }
+                            },
+                            {
+                                label: 'Related Articles',
+                                name: 'related_articles',
+                                widget: 'list',
+                                allow_add: true,
+                                collapsed: false,
+                                field: { label: 'Article URL', name: 'url', widget: 'string' }
+                            }
+                        ]
+                    },
+                    
+                    {
+                        name: 'market-analysis',
+                        label: 'Market Analysis',
+                        folder: '_posts/analysis',
+                        create: true,
+                        slug: '{{year}}-{{month}}-{{day}}-{{slug}}',
+                        fields: [
+                            {
+                                label: 'Title',
+                                name: 'title',
+                                widget: 'string',
+                                required: true
+                            },
+                            {
+                                label: 'Publish Date',
+                                name: 'date',
+                                widget: 'datetime',
+                                default: new Date().toISOString()
+                            },
+                            {
+                                label: 'Analyst',
+                                name: 'analyst',
+                                widget: 'string',
+                                default: 'Asia Crypto News Analysis Team'
+                            },
+                            {
+                                label: 'Analysis Type',
+                                name: 'analysis_type',
+                                widget: 'select',
+                                options: [
+                                    { label: 'Daily Market Report', value: 'daily-report' },
+                                    { label: 'Weekly Outlook', value: 'weekly-outlook' },
+                                    { label: 'Technical Analysis', value: 'technical-analysis' },
+                                    { label: 'Fundamental Analysis', value: 'fundamental-analysis' },
+                                    { label: 'Market Sentiment', value: 'market-sentiment' }
+                                ],
+                                required: true
+                            },
+                            {
+                                label: 'Cryptocurrencies Covered',
+                                name: 'cryptocurrencies',
+                                widget: 'list',
+                                allow_add: true,
+                                collapsed: false,
+                                field: { label: 'Cryptocurrency', name: 'crypto', widget: 'string' }
+                            },
+                            {
+                                label: 'Market Summary',
+                                name: 'market_summary',
+                                widget: 'text',
+                                hint: 'Brief overview of current market conditions',
+                                required: true
+                            },
+                            {
+                                label: 'Content',
+                                name: 'body',
+                                widget: 'markdown',
+                                required: true
+                            },
+                            {
+                                label: 'Price Predictions',
+                                name: 'predictions',
+                                widget: 'list',
+                                allow_add: true,
+                                collapsed: false,
+                                fields: [
+                                    { label: 'Cryptocurrency', name: 'crypto', widget: 'string' },
+                                    { label: 'Current Price', name: 'current_price', widget: 'string' },
+                                    { label: 'Prediction', name: 'prediction', widget: 'text' },
+                                    { label: 'Timeframe', name: 'timeframe', widget: 'string' }
+                                ]
+                            }
+                        ]
+                    },
+                    
+                    {
+                        name: 'pages',
+                        label: 'Pages',
+                        folder: '_pages',
+                        create: true,
+                        slug: '{{slug}}',
+                        fields: [
+                            {
+                                label: 'Title',
+                                name: 'title',
+                                widget: 'string',
+                                required: true
+                            },
+                            {
+                                label: 'Page Type',
+                                name: 'page_type',
+                                widget: 'select',
+                                options: [
+                                    { label: 'About', value: 'about' },
+                                    { label: 'Contact', value: 'contact' },
+                                    { label: 'Privacy Policy', value: 'privacy' },
+                                    { label: 'Terms of Service', value: 'terms' },
+                                    { label: 'Other', value: 'other' }
+                                ],
+                                required: true
+                            },
+                            {
+                                label: 'Content',
+                                name: 'body',
+                                widget: 'markdown',
+                                required: true
+                            },
+                            {
+                                label: 'SEO Title',
+                                name: 'seo_title',
+                                widget: 'string',
+                                required: false
+                            },
+                            {
+                                label: 'Meta Description',
+                                name: 'meta_description',
+                                widget: 'text',
+                                required: false
+                            }
+                        ]
+                    },
+                    
+                    {
+                        name: 'settings',
+                        label: 'Site Settings',
+                        files: [
+                            {
+                                label: 'General Settings',
+                                name: 'general',
+                                file: '_data/settings.yml',
+                                fields: [
+                                    {
+                                        label: 'Site Title',
+                                        name: 'site_title',
+                                        widget: 'string',
+                                        default: 'Asia Crypto News'
+                                    },
+                                    {
+                                        label: 'Site Description',
+                                        name: 'site_description',
+                                        widget: 'text',
+                                        default: 'Leading Cryptocurrency & AI News in Asia'
+                                    },
+                                    {
+                                        label: 'Contact Email',
+                                        name: 'contact_email',
+                                        widget: 'string',
+                                        default: 'contact@asiacryptonews.com'
+                                    },
+                                    {
+                                        label: 'Social Media Links',
+                                        name: 'social_media',
+                                        widget: 'object',
+                                        fields: [
+                                            { label: 'Twitter', name: 'twitter', widget: 'string', required: false },
+                                            { label: 'LinkedIn', name: 'linkedin', widget: 'string', required: false },
+                                            { label: 'Telegram', name: 'telegram', widget: 'string', required: false },
+                                            { label: 'YouTube', name: 'youtube', widget: 'string', required: false }
+                                        ]
+                                    },
+                                    {
+                                        label: 'Featured Exchanges',
+                                        name: 'featured_exchanges',
+                                        widget: 'list',
+                                        allow_add: true,
+                                        collapsed: false,
+                                        fields: [
+                                            { label: 'Exchange Name', name: 'name', widget: 'string' },
+                                            { label: 'Affiliate Link', name: 'link', widget: 'string' },
+                                            { label: 'Description', name: 'description', widget: 'text' }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        });
+
+        // Custom styling after CMS loads
+        window.CMS.registerEventListener({
+            name: 'preinit',
+            handler: () => {
+                // Apply custom dark theme styles
+                const style = document.createElement('style');
+                style.textContent = `
+                    .css-1im3bja-AppMainContainer {
+                        background-color: #1a1a1a !important;
+                    }
+                    
+                    .css-1xdhyk6-AppHeaderContent {
+                        background-color: #000000 !important;
+                        border-bottom: 3px solid #FFD700 !important;
+                    }
+                    
+                    .css-1x7n8vh-SidebarContainer {
+                        background-color: #2d2d2d !important;
+                    }
+                    
+                    .css-1hw5xaf-NavLink, .css-1hw5xaf-NavLink:hover {
+                        color: #ffffff !important;
+                    }
+                    
+                    .css-1hw5xaf-NavLink:hover {
+                        background-color: #FFD700 !important;
+                        color: #000000 !important;
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        });
+    </script>
+</body>
+</html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDm2xjOSdwwJjeXdZBHhTTyNXVg9LXC%2BZET7AQc2eB0NvaKbc9jTFsnPdRTCqm%2FaXy0BbhhJRRHdPEEJgkGZFnjqX0AoUELsukgkqhZ2CMHEJB7VT%2FsY3FNRHyLkCWnJsRKg884Xh19W%2Foc1iiPTgu%2B11E%2F5zDjWMub3EAXIs78AWgLqKEI5hBhl%2F%2BGkdk6fxEFFAxRRQOeA0cEnDvH6UTttN9Ruq3gQE5EJGaBqlrVzj3nNNgGoB8UeeLQrmdleiuTlWrmHNGGQDVRgI32%2FBBpkR24SSkev3RgOMYBKKobQ8mEMJE%2B%2BjfAkPnAMjk0IhUFdCScNdHdVoBlU%2BTsifYUbXLka11fNdK23dvk6CDyjbTTJogCyeSgHandSWx3bfTOy6XSjF6cSA7%2FuwzP49hY7pUsDdDdVML3zjxr%2F5N3v5HVVRWYUUtai%2B31z0TxFxrxrPKgknDB9EsYUKw5N182ymg9%2FGr1alKAa9D1O%2F6wZrlI34W5NcvvpXrsK0f%2F5Mabmw6qJVCapwke7fqCzPy2E%3D";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDm2xjOSdwwJjeXdZBHhTTyNXVg9LXC+ZET7AQc2eB0NvaKbc9jTFsnPdRTCqm/aXy0BbhhJRRHdPEEJgkGZFnjqX0AoUELsukgkqhZ2CMHEJB7VT/sY3FNRHyLkCWnJsRKg884Xh19W/oc1iiPTgu+11E/5zDjWMub3EAXIs78AWgLqKEI5hBhl/+Gkdk6fxEFFAxRRQOeA0cEnDvH6UTttN9Ruq3gQE5EJGaBqlrVzj3nNNgGoB8UeeLQrmdleiuTlWrmHNGGQDVRgI32/BBpkR24SSkev3RgOMYBKKobQ8mEMJE++jfAkPnAMjk0IhUFdCScNdHdVoBlU+TsifYUbXLka11fNdK23dvk6CDyjbTTJogCyeSgHandSWx3bfTOy6XSjF6cSA7/uwzP49hY7pUsDdDdVML3zjxr/5N3v5HVVRWYUUtai+31z0TxFxrxrPKgknDB9EsYUKw5N182ymg9/Gr1alKAa9D1O/6wZrlI34W5NcvvpXrsK0f/5Mabmw6qJVCapwke7fqCzPy2E=";
+    </script>
+    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
+    
