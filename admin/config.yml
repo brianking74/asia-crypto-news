@@ -1,5 +1,5 @@
-backend:
-  name: git-gateway
+ name: github
+  repo: brianking74/asia-crypto-news
   branch: main
 
 media_folder: "images/uploads"
