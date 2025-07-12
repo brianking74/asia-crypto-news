@@ -17,6 +17,7 @@ collections:
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Category", name: "category", widget: "select", options: ["Breaking News", "Market Analysis", "Regulation"]}
+  
   - name:   "education"
     label:  "Educational Content"
     folder: "_posts/education"
