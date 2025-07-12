@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: brianking74/asia-crypto-news
+  name: git-gateway
   branch: main
 
 media_folder: "images/uploads"
@@ -17,3 +16,13 @@ collections:
       - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Category", name: "category", widget: "select", options: ["Breaking News", "Market Analysis", "Regulation"]}
+  
+  - name: "education"
+    label: "Educational Content"
+    folder: "_posts/education"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
