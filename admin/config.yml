@@ -2,12 +2,12 @@
   repo: brianking74/asia-crypto-news
   branch: main
 
-media_folder: "images/uploads"
+media_folder:  "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name:  "news"
-    label: "News Articles"
+  - name:    "news"
+    label:  "News Articles"
     folder: "_posts/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
@@ -17,8 +17,8 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Category", name: "category", widget: "select", options: ["Breaking News", "Market Analysis", "Regulation"]}
   
-  - name:  "education"
-    label: "Educational Content"
+  - name:   "education"
+    label:  "Educational Content"
     folder: "_posts/education"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
