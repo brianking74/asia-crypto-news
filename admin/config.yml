@@ -1,33 +1,31 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: brianking74/asia-crypto-news
   branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name:  "news"
+  - name: "news"
     label: "News Articles"
     folder: "_posts/news"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "featured_image", widget: "image"}
-      - {label: "Excerpt", name: "excerpt", widget: "text"}
+      - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Category", name: "category", widget: "select", options: ["Breaking News", "Market Analysis", "Regulation", "Technology"]}
       - {label: "Region", name: "region", widget: "select", options: ["Japan", "China", "South Korea", "Singapore", "Hong Kong", "Southeast Asia"]}
-
-  - name:  "education"
+  
+  - name: "education"
     label: "Educational Content"
     folder: "_posts/education"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "featured_image", widget: "image"}
-      - {label: "Difficulty Level", name: "difficulty", widget: "select", options: ["Beginner", "Intermediate", "Advanced"]}
+      - {label: "Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Difficulty", name: "difficulty", widget: "select", options: ["Beginner", "Intermediate", "Advanced"]}
